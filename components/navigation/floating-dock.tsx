@@ -73,6 +73,30 @@ export function FloatingDock() {
         </filter>
       </svg>
 
+      {/* ── MOBILE BOTTOM NAV ── show all icons on small screens */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 flex md:hidden items-center justify-around px-2 py-2 border-t"
+        style={{ backdropFilter: 'blur(20px)', background: isDark ? 'rgba(0,0,0,0.85)' : 'rgba(255,255,255,0.85)', borderColor: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)' }}
+      >
+        {navLinks.map((link) => {
+          const Icon = link.icon
+          const isActive = pathname === link.href
+          return (
+            <Link key={link.href} href={link.href} className="flex flex-col items-center gap-0.5 px-2 py-1 rounded-xl transition-colors">
+              <Icon className={cn('w-5 h-5 transition-colors', isActive ? 'text-[#E8B84B]' : 'text-gray-500 dark:text-gray-400')} />
+              <span className={cn('text-[10px] font-semibold leading-tight', isActive ? 'text-[#E8B84B]' : 'text-gray-400 dark:text-gray-500')}>{link.label}</span>
+            </Link>
+          )
+        })}
+        <button onClick={toggleCommandPalette} className="flex flex-col items-center gap-0.5 px-2 py-1 rounded-xl">
+          <Search className="w-5 h-5 text-gray-500 dark:text-gray-400" />
+          <span className="text-[10px] font-semibold leading-tight text-gray-400 dark:text-gray-500">Search</span>
+        </button>
+        <button onClick={() => setTheme(isDark ? 'light' : 'dark')} className="flex flex-col items-center gap-0.5 px-2 py-1 rounded-xl">
+          {isDark ? <Sun className="w-5 h-5 text-gray-400" /> : <Moon className="w-5 h-5 text-gray-500" />}
+          <span className="text-[10px] font-semibold leading-tight text-gray-400 dark:text-gray-500">Theme</span>
+        </button>
+      </div>
+
       <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-5xl">
         <nav className="relative">
           <div
