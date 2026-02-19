@@ -3,6 +3,7 @@
 import { useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { motion, useScroll, useTransform, useInView } from 'framer-motion'
 import { Phone, Mail, Globe, Clock, Twitter, Facebook, Instagram, Linkedin, Youtube } from 'lucide-react'
 
@@ -32,6 +33,10 @@ export function SiteFooter() {
         offset: ['start end', 'end start'],
     })
     const photoParallax = useTransform(photoScrollY, [0, 1], ['-6%', '6%'])
+
+    // Hide footer on auth pages
+    const pathname = usePathname()
+    if (pathname?.startsWith('/auth')) return null
 
     return (
         <>
@@ -97,6 +102,36 @@ export function SiteFooter() {
                                         <Icon className="w-4 h-4" aria-hidden="true" />
                                     </a>
                                 ))}
+                            </div>
+
+                            {/* Google Play Store */}
+                            <div className="mt-6">
+                                <p className="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-2">Download App</p>
+                                <a
+                                    href="https://play.google.com/store/apps/details?id=com.picsbt.jlpzik"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-3 bg-black border border-white/20 hover:border-[#E8B84B]/50 transition-colors rounded-xl px-4 py-2.5 group"
+                                    aria-label="Get it on Google Play"
+                                >
+                                    {/* Play Store icon */}
+                                    <svg viewBox="0 0 24 24" className="w-6 h-6 shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3.18 1.09C2.47 1.48 2 2.22 2 3.08v17.84c0 .86.47 1.6 1.18 1.99l.1.06 9.99-9.99v-.24L3.28 1.03l-.1.06z" fill="url(#a)" />
+                                        <path d="M16.6 15.4l-3.33-3.33v-.24l3.33-3.33.08.04 3.94 2.24c1.13.64 1.13 1.69 0 2.33l-3.94 2.24-.08.05z" fill="url(#b)" />
+                                        <path d="M16.68 15.35L13.27 12 3.18 22.09c.37.4.97.45 1.64.07l11.86-6.81" fill="url(#c)" />
+                                        <path d="M16.68 8.65L4.82 1.84C4.15 1.46 3.55 1.51 3.18 1.91L13.27 12l3.41-3.35z" fill="url(#d)" />
+                                        <defs>
+                                            <linearGradient id="a" x1="12.27" y1="2.31" x2="-4.1" y2="12" gradientUnits="userSpaceOnUse"><stop stopColor="#00A0FF" /><stop offset="0.007" stopColor="#00A1FF" /><stop offset="0.26" stopColor="#00BEFF" /><stop offset="0.512" stopColor="#00D2FF" /><stop offset="0.76" stopColor="#00DFFF" /><stop offset="1" stopColor="#00E3FF" /></linearGradient>
+                                            <linearGradient id="b" x1="21.8" y1="12" x2="1.54" y2="12" gradientUnits="userSpaceOnUse"><stop stopColor="#FFE000" /><stop offset="0.409" stopColor="#FFBD00" /><stop offset="0.775" stopColor="#FFA500" /><stop offset="1" stopColor="#FF9C00" /></linearGradient>
+                                            <linearGradient id="c" x1="14.83" y1="13.69" x2="-4.78" y2="33.3" gradientUnits="userSpaceOnUse"><stop stopColor="#FF3A44" /><stop offset="1" stopColor="#C31162" /></linearGradient>
+                                            <linearGradient id="d" x1="1.3" y1="-6.45" x2="9.77" y2="2.01" gradientUnits="userSpaceOnUse"><stop stopColor="#32A071" /><stop offset="0.069" stopColor="#2DA771" /><stop offset="0.476" stopColor="#15CF74" /><stop offset="0.801" stopColor="#06E775" /><stop offset="1" stopColor="#00F076" /></linearGradient>
+                                        </defs>
+                                    </svg>
+                                    <div>
+                                        <div className="text-[10px] text-gray-400 leading-tight">GET IT ON</div>
+                                        <div className="text-sm font-bold text-white leading-tight group-hover:text-[#E8B84B] transition-colors">Google Play</div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
 

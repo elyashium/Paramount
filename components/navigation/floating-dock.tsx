@@ -52,6 +52,9 @@ export function FloatingDock() {
   // Before mount, resolvedTheme is undefined (SSR) — default to light to avoid hydration mismatch
   const isDark = mounted && resolvedTheme === 'dark'
 
+  // Hide on auth pages
+  if (pathname?.startsWith('/auth')) return null
+
   return (
     <>
       {/* SVG Filter for Glassmorphism displacement */}
@@ -72,30 +75,6 @@ export function FloatingDock() {
           />
         </filter>
       </svg>
-
-      {/* ── MOBILE BOTTOM NAV ── show all icons on small screens */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 flex md:hidden items-center justify-around px-2 py-2 border-t"
-        style={{ backdropFilter: 'blur(20px)', background: isDark ? 'rgba(0,0,0,0.85)' : 'rgba(255,255,255,0.85)', borderColor: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)' }}
-      >
-        {navLinks.map((link) => {
-          const Icon = link.icon
-          const isActive = pathname === link.href
-          return (
-            <Link key={link.href} href={link.href} className="flex flex-col items-center gap-0.5 px-2 py-1 rounded-xl transition-colors">
-              <Icon className={cn('w-5 h-5 transition-colors', isActive ? 'text-[#E8B84B]' : 'text-gray-500 dark:text-gray-400')} />
-              <span className={cn('text-[10px] font-semibold leading-tight', isActive ? 'text-[#E8B84B]' : 'text-gray-400 dark:text-gray-500')}>{link.label}</span>
-            </Link>
-          )
-        })}
-        <button onClick={toggleCommandPalette} className="flex flex-col items-center gap-0.5 px-2 py-1 rounded-xl">
-          <Search className="w-5 h-5 text-gray-500 dark:text-gray-400" />
-          <span className="text-[10px] font-semibold leading-tight text-gray-400 dark:text-gray-500">Search</span>
-        </button>
-        <button onClick={() => setTheme(isDark ? 'light' : 'dark')} className="flex flex-col items-center gap-0.5 px-2 py-1 rounded-xl">
-          {isDark ? <Sun className="w-5 h-5 text-gray-400" /> : <Moon className="w-5 h-5 text-gray-500" />}
-          <span className="text-[10px] font-semibold leading-tight text-gray-400 dark:text-gray-500">Theme</span>
-        </button>
-      </div>
 
       <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-5xl">
         <nav className="relative">
@@ -127,7 +106,7 @@ export function FloatingDock() {
               </div>
             </Link>
 
-            {/* Main Navigation */}
+            {/* ── DESKTOP MENU (md+) ─────────────────────────────────────── */}
             <div className="hidden md:flex items-center space-x-1">
               {navLinks.map((link) => {
                 const Icon = link.icon
@@ -149,7 +128,7 @@ export function FloatingDock() {
                 )
               })}
 
-              {/* More Menu — align="center" prevents rightward shift */}
+              {/* More Menu */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" size="sm">
@@ -198,14 +177,70 @@ export function FloatingDock() {
               </DropdownMenu>
             </div>
 
-            {/* Right Actions */}
-            <div className="flex items-center space-x-2">
+            {/* ── MOBILE MENU (md-) ──────────────────────────────────────── */}
+            <div className="md:hidden flex items-center">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="icon" className="text-[#E8B84B]">
+                    <MoreHorizontal className="w-6 h-6" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-64 p-2">
+                  {navLinks.map((link) => {
+                    const Icon = link.icon
+                    return (
+                      <DropdownMenuItem key={link.href} asChild>
+                        <Link href={link.href} className="flex items-center p-2 cursor-pointer">
+                          <Icon className="w-4 h-4 mr-3 text-[#E8B84B]" />
+                          {link.label}
+                        </Link>
+                      </DropdownMenuItem>
+                    )
+                  })}
+                  <DropdownMenuSeparator />
+                  {/* Additional Mobile Links */}
+                  <DropdownMenuItem asChild>
+                    <Link href="/free-courses" className="cursor-pointer">
+                      <BookOpen className="w-4 h-4 mr-3" />
+                      Free Courses
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/quiz" className="cursor-pointer">
+                      <TestTube className="w-4 h-4 mr-3" />
+                      Quiz
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <div className="flex items-center justify-between p-2">
+                    <span className="text-sm">Theme</span>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={(e) => {
+                        e.preventDefault()
+                        setTheme(isDark ? 'light' : 'dark')
+                      }}
+                      className="h-8 w-8"
+                    >
+                      {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+                    </Button>
+                  </div>
+                  <DropdownMenuItem onSelect={toggleCommandPalette} className="cursor-pointer">
+                    <Search className="w-4 h-4 mr-3" />
+                    Search
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+
+            {/* Right Actions (Desktop) */}
+            <div className="hidden md:flex items-center space-x-2">
               {/* Search */}
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={toggleCommandPalette}
-                className="hidden sm:flex"
               >
                 <Search className="w-4 h-4" />
               </Button>

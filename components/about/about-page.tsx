@@ -28,6 +28,7 @@ import {
     ArrowRight,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { CardSpotlight } from '@/components/ui/card-spotlight'
 import { Carousel, Card, type Card as CardType } from '@/components/ui/apple-cards-carousel'
 
 /* ─── Animation Variants ─────────────────────────────────────────────── */
@@ -331,14 +332,14 @@ export function AboutPage() {
             </section>
 
             {/* ── WHY PARAMOUNT ────────────────────────────────────────────── */}
-            <section className="py-24 px-4 bg-white dark:bg-gray-900" aria-labelledby="why-heading">
+            <section className="py-24 px-4 bg-black" aria-labelledby="why-heading">
                 <div className="max-w-6xl mx-auto">
                     <ScrollReveal className="text-center mb-14">
                         <Chip>Why Choose Us</Chip>
                         <motion.h2
                             id="why-heading"
                             variants={FADE_UP}
-                            className="text-4xl sm:text-5xl font-black text-gray-900 dark:text-white tracking-tight"
+                            className="text-4xl sm:text-5xl font-black text-white tracking-tight"
                         >
                             The Paramount{' '}
                             <span
@@ -353,22 +354,27 @@ export function AboutPage() {
                         </motion.h2>
                     </ScrollReveal>
 
-                    <ScrollReveal className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {FEATURES.map(({ icon: Icon, title, desc }) => (
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                        {FEATURES.map(({ icon: Icon, title, desc }, i) => (
                             <motion.div
                                 key={title}
-                                variants={FADE_UP}
-                                whileHover={{ y: -5, transition: { duration: 0.22 } }}
-                                className="group rounded-2xl p-8 border border-gray-100 dark:border-gray-800 bg-[#f7f7f5] dark:bg-gray-800 hover:border-[#E8B84B]/50 hover:bg-white transition-all duration-300 cursor-default"
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: '-60px' }}
+                                transition={{ delay: i * 0.07, duration: 0.6, ease: EASE }}
                             >
-                                <div className="w-11 h-11 rounded-xl flex items-center justify-center bg-[#E8B84B]/10 group-hover:bg-[#E8B84B]/20 mb-5 transition-colors">
-                                    <Icon className="w-5 h-5 text-[#E8B84B]" aria-hidden="true" />
-                                </div>
-                                <h3 className="text-lg font-black text-gray-900 dark:text-white mb-3">{title}</h3>
-                                <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{desc}</p>
+                                <CardSpotlight className="h-full rounded-2xl p-7">
+                                    <div className="relative z-10">
+                                        <div className="w-11 h-11 rounded-xl flex items-center justify-center bg-[#E8B84B]/15 mb-5">
+                                            <Icon className="w-5 h-5 text-[#E8B84B]" aria-hidden="true" />
+                                        </div>
+                                        <h3 className="text-base sm:text-lg font-black text-white mb-3">{title}</h3>
+                                        <p className="text-sm text-neutral-400 leading-relaxed">{desc}</p>
+                                    </div>
+                                </CardSpotlight>
                             </motion.div>
                         ))}
-                    </ScrollReveal>
+                    </div>
                 </div>
             </section>
 

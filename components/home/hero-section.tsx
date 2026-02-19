@@ -360,37 +360,7 @@ export function HeroSection() {
         </div>
       </section>
 
-      {/* ── CTA BANNER ────────────────────────────────────────────────────────── */}
-      <section className="py-20 sm:py-28 px-4 bg-white dark:bg-gray-900" aria-labelledby="cta-heading">
-        <ScrollReveal className="max-w-4xl mx-auto text-center">
-          <Chip>Ready to Chart Your Course?</Chip>
-          <motion.h2
-            id="cta-heading"
-            variants={FADE_UP}
-            className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-gray-900 dark:text-white mb-6"
-          >
-            Your Merchant Navy{' '}
-            <span style={{ background: 'linear-gradient(135deg, #E8B84B 0%, #c9922a 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-              journey starts here.
-            </span>
-          </motion.h2>
-          <motion.p variants={FADE_UP} className="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto px-2">
-            Join 50,000+ cadets who trusted Paramount to crack IMU-CET and set sail on their maritime careers.
-          </motion.p>
-          <motion.div variants={FADE_UP} className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-4 sm:px-0">
-            <Link href="/courses" className="w-full sm:w-auto">
-              <Button size="lg" className="w-full sm:w-auto text-base px-10 py-6 rounded-full font-bold" style={{ background: 'linear-gradient(135deg, #E8B84B 0%, #c9922a 100%)', color: '#1a1a1a' }}>
-                Explore Courses <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-            <Link href="/test-series" className="w-full sm:w-auto">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto text-base px-10 py-6 rounded-full font-bold border-2 border-[#E8B84B]/60 text-gray-900 dark:text-white hover:border-[#E8B84B] hover:bg-[#E8B84B]/5">
-                Free Test Series
-              </Button>
-            </Link>
-          </motion.div>
-        </ScrollReveal>
-      </section>
+      {/* ── CTA BANNER REMOVED ────────────────────────────────────────────── */}
 
       {/* ── GLOBE + MAP — FULL WIDTH, SEAMLESS, ABOVE FOOTER ─────────────────── */}
       <section className="bg-[#f7f7f5] dark:bg-gray-950 py-12 sm:py-16">
@@ -430,7 +400,7 @@ export function HeroSection() {
             <Globe3D
               markers={globeMarkers}
               className="h-full w-full"
-              config={{ radius: 2, autoRotateSpeed: 0.35, showAtmosphere: true, atmosphereColor: '#E8B84B', atmosphereIntensity: 0.5, atmosphereBlur: 2.5, enableZoom: false, enablePan: false, ambientIntensity: 0.7, pointLightIntensity: 1.4, backgroundColor: null }}
+              config={{ radius: 2, autoRotateSpeed: 0.35, showAtmosphere: false, enableZoom: false, enablePan: false, ambientIntensity: 0.7, pointLightIntensity: 1.4, backgroundColor: null }}
             />
             <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-2 text-xs text-gray-500 dark:text-gray-500 px-3 py-1.5 pointer-events-none">
               <div className="w-1.5 h-1.5 rounded-full bg-[#E8B84B] animate-pulse" />
