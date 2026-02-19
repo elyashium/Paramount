@@ -91,14 +91,16 @@ export function FloatingDock() {
           >
             {/* Logo */}
             <Link href="/" className="flex items-center shrink-0">
-              <Image
-                src="/logo.png"
-                alt="Paramount Merchant Navy"
-                width={52}
-                height={52}
-                className="object-contain"
-                priority
-              />
+              <div className="w-[52px] h-[52px] rounded-full overflow-hidden flex items-center justify-center">
+                <Image
+                  src="/logo.png"
+                  alt="Paramount Merchant Navy"
+                  width={52}
+                  height={52}
+                  className="object-cover w-full h-full"
+                  priority
+                />
+              </div>
             </Link>
 
             {/* Main Navigation */}

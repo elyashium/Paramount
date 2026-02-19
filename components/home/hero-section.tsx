@@ -14,16 +14,17 @@ import {
   ArrowRight,
   BookOpen,
   Users,
-  Award,
-  MapPin,
   Trophy,
   Star,
   CheckCircle2,
   Anchor,
   Compass,
   ShieldCheck,
-  PlayCircle,
-  ChevronRight,
+  MapPin,
+  Ship,
+  Waves,
+  GraduationCap,
+  Target,
 } from 'lucide-react'
 import Link from 'next/link'
 import { useUIStore } from '@/lib/store/ui-store'
@@ -38,13 +39,13 @@ const FADE_UP: Variants = {
 }
 
 const FADE_LEFT: Variants = {
-  hidden: { opacity: 0, x: -44 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: EASE } },
+  hidden: { opacity: 0, x: -60 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.75, ease: EASE } },
 }
 
 const FADE_RIGHT: Variants = {
-  hidden: { opacity: 0, x: 44 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: EASE } },
+  hidden: { opacity: 0, x: 60 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.75, ease: EASE } },
 }
 
 const SCALE_IN: Variants = {
@@ -108,7 +109,7 @@ function Chip({ children }: { children: React.ReactNode }) {
   )
 }
 
-// ─── Institute coordinates ──────────────────────────────────────────────────
+// ─── Globe & Map config ──────────────────────────────────────────────────────
 const INSTITUTE_LAT = 26.2121
 const INSTITUTE_LNG = 78.1697
 
@@ -119,45 +120,52 @@ const globeMarkers: GlobeMarker[] = [
     lat: INSTITUTE_LAT,
     lng: INSTITUTE_LNG,
     src: 'https://api.dicebear.com/7.x/shapes/svg?seed=institute&backgroundColor=E8B84B',
-    label: 'Our Institute',
+    label: 'Paramount Coaching – Gwalior',
   },
 ]
 
-// ─── Stats ───────────────────────────────────────────────────────────────────
+// ─── Data ─────────────────────────────────────────────────────────────────────
 const STATS = [
   { icon: Users, value: 50000, suffix: '+', label: 'Students Enrolled' },
   { icon: Trophy, value: 95, suffix: '%', label: 'Success Rate' },
   { icon: BookOpen, value: 200, suffix: '+', label: 'Expert Courses' },
-  { icon: Star, value: 8, suffix: '+', label: 'Years of Excellence' },
+  { icon: GraduationCap, value: 8, suffix: '+', label: 'Years of Excellence' },
 ]
 
-// ─── Features ────────────────────────────────────────────────────────────────
 const FEATURES = [
-  { icon: Anchor, title: 'IMU-CET Specialists', desc: "India's most focused faculty team dedicated exclusively to IMU-CET preparation." },
-  { icon: Compass, title: 'Complete PYQs', desc: 'Exhaustive previous year question coverage to maximise your score and confidence.' },
-  { icon: ShieldCheck, title: 'Proven Methodology', desc: 'A battle-tested teaching system refined over 8+ years producing first-attempt successes.' },
-  { icon: BookOpen, title: 'Live + Recorded Classes', desc: 'Attend live sessions or catch up on recordings — never miss a concept.' },
-  { icon: CheckCircle2, title: 'Full Test Series', desc: 'Mock exams modelled on the latest IMU-CET pattern with detailed analytics.' },
-  { icon: Trophy, title: 'Toppers Every Year', desc: 'Our students consistently rank in the top 10 at IMU-CET year after year.' },
+  { icon: Anchor, title: 'IMU-CET Specialists', desc: "India's most focused faculty team for IMU-CET — DNS, Marine Engineering, GP Rating and more." },
+  { icon: Compass, title: 'Complete PYQs Coverage', desc: 'Exhaustive previous year paper sessions to maximise your score and build exam confidence.' },
+  { icon: ShieldCheck, title: 'Proven Methodology', desc: 'A battle-tested 8+ year system that produces consistent first-attempt IMU clearances.' },
+  { icon: BookOpen, title: 'Live + Recorded Classes', desc: 'Attend live sessions or revisit recordings — never miss a concept on your journey to sea.' },
+  { icon: CheckCircle2, title: 'Full Mock Test Series', desc: 'IMU-CET pattern mocks with detailed solutions, performance analytics and rank predictions.' },
+  { icon: Trophy, title: 'Toppers Every Year', desc: 'Our cadets consistently rank in the national top-10 at IMU-CET — a legacy we are proud of.' },
 ]
 
-// ─── Testimonials ─────────────────────────────────────────────────────────────
 const TESTIMONIALS = [
-  { name: 'Arjun M.', score: 'AIR 3', text: "Paramount's faculty and test series were game-changers. I cracked IMU-CET on my very first attempt!" },
-  { name: 'Priya S.', score: 'AIR 7', text: 'The recorded classes and PYQ sessions helped me master every section with confidence.' },
-  { name: 'Rohit K.', score: 'AIR 12', text: 'The structured approach and personal attention from faculty made all the difference.' },
+  { name: 'Arjun M.', rank: 'DNS – BTech', air: 'AIR 3', text: "Paramount's structured IMU-CET program and faculty support helped me achieve AIR 3. Every session felt like sailing with a compass!" },
+  { name: 'Priya S.', rank: 'Marine Engg', air: 'AIR 7', text: 'The recorded classes and PYQ drill sessions built my confidence for every section of IMU-CET. Best coaching for merchant navy.' },
+  { name: 'Rohit K.', rank: 'GP Rating', air: 'AIR 12', text: 'The personal attention and mock-test analytics were extraordinary. Paramount truly charts the right course for maritime aspirants.' },
 ]
 
-// ─── Marquee items ────────────────────────────────────────────────────────────
 const MARQUEE_ITEMS = [
-  '✦ IMU-CET Specialists',
-  '✦ Complete PYQs Coverage',
+  '⚓ IMU-CET Specialists',
+  '🚢 DNS & Marine Engineering',
   '✦ 50,000+ Students',
   '✦ 95% Success Rate',
-  '✦ Expert IMU-CET Faculty',
-  '✦ Live & Recorded Classes',
+  '⚓ GP Rating & ETO Prep',
+  '🧭 Live & Recorded Classes',
   '✦ Toppers Every Year',
-  '✦ Full Mock Test Series',
+  '🌊 Full Mock Test Series',
+]
+
+// ─── Courses Teaser ──────────────────────────────────────────────────────────
+const COURSE_HIGHLIGHTS = [
+  { icon: Ship, label: 'DNS (Deck)', desc: 'Diploma in Nautical Science entry-level prep' },
+  { icon: Anchor, label: 'Marine Engineering', desc: 'B.E. Marine Engineering entrance coaching' },
+  { icon: Waves, label: 'GP Rating', desc: 'General Purpose Rating fast-track program' },
+  { icon: GraduationCap, label: 'ETO', desc: 'Electro-Technical Officer specialisation' },
+  { icon: Target, label: 'Sponsorship', desc: 'Company-sponsored cadetship preparation' },
+  { icon: Compass, label: 'Navigation Pro', desc: 'Advanced Chart Work & Celestial Navigation' },
 ]
 
 export function HeroSection() {
@@ -166,32 +174,41 @@ export function HeroSection() {
   return (
     <div className="overflow-x-hidden bg-[#f7f7f5] dark:bg-gray-950">
 
-      {/* ── HERO SECTION ──────────────────────────────────────────────────────── */}
+      {/* ── HERO BANNER ─────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden min-h-screen flex flex-col justify-center">
-        {/* Dark mode background gradients */}
+        {/* Background */}
         <div className="absolute inset-0 bg-[#f7f7f5] dark:bg-gray-950 transition-colors duration-300" />
+
+        {/* Nautical wave decoration — top */}
         <div
-          className="absolute inset-0 opacity-0 dark:opacity-100 transition-opacity duration-300 pointer-events-none"
+          className="absolute inset-0 opacity-0 dark:opacity-100 pointer-events-none"
           style={{
-            backgroundImage: `radial-gradient(ellipse at 20% 50%, rgba(232,184,75,0.07) 0%, transparent 60%),
-                              radial-gradient(ellipse at 80% 20%, rgba(232,184,75,0.04) 0%, transparent 50%)`,
+            backgroundImage: `
+              radial-gradient(ellipse at 15% 40%, rgba(232,184,75,0.09) 0%, transparent 55%),
+              radial-gradient(ellipse at 85% 15%, rgba(232,184,75,0.05) 0%, transparent 50%)
+            `,
           }}
         />
+
+        {/* Subtle anchor watermark */}
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-[0.025] dark:opacity-[0.04] pointer-events-none select-none text-[28rem] leading-none">
+          ⚓
+        </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
 
           {/* Badge */}
           <ScrollReveal className="flex justify-center mb-10">
-            <Chip>India's Premier IMU-CET Coaching</Chip>
+            <Chip>India&apos;s Premier IMU-CET Coaching Institute</Chip>
           </ScrollReveal>
 
-          {/* Headline */}
-          <ScrollReveal className="text-center max-w-4xl mx-auto mb-6">
+          {/* Headline — merchant navy specific */}
+          <ScrollReveal className="text-center max-w-5xl mx-auto mb-6">
             <motion.h1
               variants={FADE_UP}
-              className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight text-gray-900 dark:text-white leading-[1.05]"
+              className="text-5xl sm:text-6xl lg:text-8xl font-black tracking-tight text-gray-900 dark:text-white leading-[1.02]"
             >
-              Excellence in{' '}
+              Set Sail Towards{' '}
               <span
                 style={{
                   background: 'linear-gradient(135deg, #E8B84B 0%, #c9922a 100%)',
@@ -199,15 +216,16 @@ export function HeroSection() {
                   WebkitTextFillColor: 'transparent',
                 }}
               >
-                Education
+                Your Maritime Career
               </span>
             </motion.h1>
             <motion.p
               variants={FADE_UP}
-              className="mt-6 text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed"
+              className="mt-7 text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed"
             >
-              Seven expert educators. One singular focus — crack IMU-CET in your{' '}
-              <span className="font-semibold text-gray-900 dark:text-white">very first attempt.</span>
+              India&apos;s most trusted coaching for <span className="font-semibold text-gray-900 dark:text-white">IMU-CET</span> — the gateway to Merchant Navy.
+              Expert faculty, proven methodology, and an unmatched{' '}
+              <span className="font-semibold text-[#E8B84B]">95% first-attempt success rate</span>.
             </motion.p>
           </ScrollReveal>
 
@@ -241,87 +259,23 @@ export function HeroSection() {
             </motion.div>
           </ScrollReveal>
 
-          {/* Two-panel visual section */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
-
-            {/* LEFT — 3D Globe (no border) */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
-              className="relative rounded-3xl overflow-hidden bg-gray-100 dark:bg-gray-900/60 flex items-center justify-center min-h-[380px] lg:min-h-[460px]"
-            >
-              {/* Glow */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-72 h-72 rounded-full bg-[#E8B84B]/10 blur-3xl" />
-              </div>
-
-              <Globe3D
-                markers={globeMarkers}
-                className="h-full w-full"
-                config={{
-                  radius: 2,
-                  autoRotateSpeed: 0.4,
-                  showAtmosphere: true,
-                  atmosphereColor: '#E8B84B',
-                  atmosphereIntensity: 0.5,
-                  atmosphereBlur: 2.5,
-                  enableZoom: false,
-                  enablePan: false,
-                  ambientIntensity: 0.7,
-                  pointLightIntensity: 1.4,
-                  backgroundColor: null,
-                }}
-              />
-
-              {/* Label */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400 bg-white/80 dark:bg-gray-900/80 border border-gray-200 dark:border-gray-700/50 rounded-full px-3 py-1.5 backdrop-blur-sm">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#E8B84B] animate-pulse" />
-                Drag to explore the globe
-              </div>
-            </motion.div>
-
-            {/* RIGHT — Google Maps */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4, ease: EASE }}
-              className="relative rounded-3xl overflow-hidden bg-gray-100 dark:bg-gray-900/60 min-h-[380px] lg:min-h-[460px] flex flex-col"
-            >
-              {/* Header bar */}
-              <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-200 dark:border-gray-700/50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm shrink-0">
-                <MapPin className="w-4 h-4 text-[#E8B84B] shrink-0" />
-                <div>
-                  <p className="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-tight">Find Us</p>
-                  <p className="text-xs text-gray-500 leading-tight">Gwalior, Madhya Pradesh</p>
-                </div>
-              </div>
-
-              {/* Map embed */}
-              <iframe
-                src={MAPS_EMBED_URL}
-                width="100%"
-                height="100%"
-                className="flex-1 min-h-0 opacity-90"
-                style={{ border: 0, filter: 'invert(0.85) hue-rotate(180deg) saturate(0.8) brightness(0.85)' }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Institute Location"
-              />
-
-              {/* Open in Maps link */}
-              <a
-                href={`https://www.google.com/maps?q=${INSTITUTE_LAT},${INSTITUTE_LNG}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute bottom-4 right-4 flex items-center gap-1.5 text-xs text-gray-700 dark:text-gray-300 bg-white/90 dark:bg-gray-900/90 border border-gray-200 dark:border-gray-700/60 rounded-full px-3 py-1.5 backdrop-blur-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+          {/* Course Highlights Grid */}
+          <ScrollReveal className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            {COURSE_HIGHLIGHTS.map(({ icon: Icon, label, desc }, i) => (
+              <motion.div
+                key={label}
+                variants={FADE_UP}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className="flex flex-col items-center text-center gap-2 rounded-2xl p-4 border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/60 hover:border-[#E8B84B]/40 transition-all duration-300 cursor-default group"
               >
-                <MapPin className="w-3 h-3 text-[#E8B84B]" />
-                Open in Maps
-              </a>
-            </motion.div>
-          </div>
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-[#E8B84B]/10 group-hover:bg-[#E8B84B]/20 transition-colors">
+                  <Icon className="w-5 h-5 text-[#E8B84B]" />
+                </div>
+                <span className="text-xs font-black text-gray-900 dark:text-white leading-tight">{label}</span>
+                <span className="text-[10px] text-gray-500 dark:text-gray-500 leading-tight hidden sm:block">{desc}</span>
+              </motion.div>
+            ))}
+          </ScrollReveal>
         </div>
       </section>
 
@@ -349,7 +303,7 @@ export function HeroSection() {
         <motion.div
           className="flex gap-14 whitespace-nowrap"
           animate={{ x: ['0%', '-50%'] }}
-          transition={{ duration: 28, repeat: Infinity, ease: 'linear' }}
+          transition={{ duration: 32, repeat: Infinity, ease: 'linear' }}
         >
           {[0, 1].map((i) => (
             <span key={i} className="flex gap-14 shrink-0">
@@ -384,6 +338,9 @@ export function HeroSection() {
                 Difference
               </span>
             </motion.h2>
+            <motion.p variants={FADE_UP} className="mt-4 text-base text-gray-500 dark:text-gray-400 max-w-xl mx-auto">
+              Everything you need to crack IMU-CET and begin your Merchant Navy career.
+            </motion.p>
           </ScrollReveal>
 
           <ScrollReveal className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -392,7 +349,7 @@ export function HeroSection() {
                 key={title}
                 variants={i % 2 === 0 ? FADE_LEFT : FADE_RIGHT}
                 whileHover={{ y: -5, transition: { duration: 0.22 } }}
-                className="group rounded-2xl p-8 border border-gray-100 dark:border-gray-800 bg-[#f7f7f5] dark:bg-gray-800 hover:border-[#E8B84B]/50 hover:bg-white dark:hover:bg-gray-750 transition-all duration-300 cursor-default"
+                className="group rounded-2xl p-8 border border-gray-100 dark:border-gray-800 bg-[#f7f7f5] dark:bg-gray-800 hover:border-[#E8B84B]/50 hover:bg-white dark:hover:bg-gray-800/80 transition-all duration-300 cursor-default"
               >
                 <div className="w-11 h-11 rounded-xl flex items-center justify-center bg-[#E8B84B]/10 group-hover:bg-[#E8B84B]/20 mb-5 transition-colors">
                   <Icon className="w-5 h-5 text-[#E8B84B]" aria-hidden="true" />
@@ -409,7 +366,7 @@ export function HeroSection() {
       <section className="py-24 px-4 bg-[#f7f7f5] dark:bg-gray-950" aria-labelledby="testimonials-heading">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal className="text-center mb-14">
-            <Chip>Student Success Stories</Chip>
+            <Chip>Cadet Success Stories</Chip>
             <motion.h2
               id="testimonials-heading"
               variants={FADE_UP}
@@ -423,16 +380,16 @@ export function HeroSection() {
                   WebkitTextFillColor: 'transparent',
                 }}
               >
-                Toppers
+                Top Cadets
               </span>
             </motion.h2>
           </ScrollReveal>
 
           <ScrollReveal className="grid sm:grid-cols-3 gap-6">
-            {TESTIMONIALS.map(({ name, score, text }, i) => (
+            {TESTIMONIALS.map(({ name, rank, air, text }, i) => (
               <motion.div
                 key={name}
-                variants={FADE_UP}
+                variants={i === 1 ? FADE_UP : i === 0 ? FADE_LEFT : FADE_RIGHT}
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
                 className="rounded-2xl p-8 border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 hover:border-[#E8B84B]/40 transition-all duration-300"
               >
@@ -445,12 +402,15 @@ export function HeroSection() {
                   &ldquo;{text}&rdquo;
                 </p>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-black text-gray-900 dark:text-white">{name}</span>
+                  <div>
+                    <span className="text-sm font-black text-gray-900 dark:text-white block">{name}</span>
+                    <span className="text-xs text-gray-400">{rank}</span>
+                  </div>
                   <span
                     className="text-xs font-bold px-2.5 py-1 rounded-full"
                     style={{ background: 'linear-gradient(135deg, #E8B84B 0%, #c9922a 100%)', color: '#1a1a1a' }}
                   >
-                    {score}
+                    {air}
                   </span>
                 </div>
               </motion.div>
@@ -462,13 +422,13 @@ export function HeroSection() {
       {/* ── CTA BANNER ────────────────────────────────────────────────────────── */}
       <section className="py-28 px-4 bg-white dark:bg-gray-900" aria-labelledby="cta-heading">
         <ScrollReveal className="max-w-4xl mx-auto text-center">
-          <Chip>Ready to Begin?</Chip>
+          <Chip>Ready to Chart Your Course?</Chip>
           <motion.h2
             id="cta-heading"
             variants={FADE_UP}
             className="text-5xl sm:text-6xl font-black tracking-tight text-gray-900 dark:text-white mb-6"
           >
-            Your IMU-CET journey{' '}
+            Your Merchant Navy{' '}
             <span
               style={{
                 background: 'linear-gradient(135deg, #E8B84B 0%, #c9922a 100%)',
@@ -476,14 +436,14 @@ export function HeroSection() {
                 WebkitTextFillColor: 'transparent',
               }}
             >
-              starts here.
+              journey starts here.
             </span>
           </motion.h2>
           <motion.p
             variants={FADE_UP}
             className="text-lg text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto"
           >
-            {"Join 50,000+ students who trusted Paramount to crack India's most competitive maritime entrance exam."}
+            Join 50,000+ cadets who trusted Paramount to crack IMU-CET and set sail on their maritime careers.
           </motion.p>
           <motion.div
             variants={FADE_UP}
@@ -510,6 +470,122 @@ export function HeroSection() {
             </Link>
           </motion.div>
         </ScrollReveal>
+      </section>
+
+      {/* ── GLOBE + MAP — FULL WIDTH, SEAMLESS, ABOVE FOOTER ─────────────────── */}
+      <section className="bg-[#f7f7f5] dark:bg-gray-950 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 text-center">
+          <ScrollReveal>
+            <Chip>Find Us</Chip>
+            <motion.h2
+              variants={FADE_UP}
+              className="text-3xl sm:text-4xl font-black text-gray-900 dark:text-white tracking-tight"
+            >
+              Navigate to{' '}
+              <span
+                style={{
+                  background: 'linear-gradient(135deg, #E8B84B 0%, #c9922a 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+              >
+                Paramount
+              </span>
+            </motion.h2>
+            <motion.p variants={FADE_UP} className="mt-3 text-base text-gray-500 dark:text-gray-400">
+              Located in Gwalior, Madhya Pradesh — shaping India&apos;s next generation of Merchant Navy officers.
+            </motion.p>
+          </ScrollReveal>
+        </div>
+
+        {/* Full-width two-panel layout — NO background, NO border */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch" style={{ minHeight: '520px' }}>
+
+          {/* LEFT — 3D Globe, seamless */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.9, ease: EASE }}
+            className="relative flex items-center justify-center overflow-hidden"
+            style={{ minHeight: '480px' }}
+          >
+            {/* Subtle glow — uses page background color so it blends */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="w-[500px] h-[500px] rounded-full bg-[#E8B84B]/8 blur-[80px]" />
+            </div>
+
+            <Globe3D
+              markers={globeMarkers}
+              className="h-full w-full"
+              config={{
+                radius: 2,
+                autoRotateSpeed: 0.35,
+                showAtmosphere: true,
+                atmosphereColor: '#E8B84B',
+                atmosphereIntensity: 0.5,
+                atmosphereBlur: 2.5,
+                enableZoom: false,
+                enablePan: false,
+                ambientIntensity: 0.7,
+                pointLightIntensity: 1.4,
+                backgroundColor: null,
+              }}
+            />
+
+            {/* Drag hint */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 text-xs text-gray-500 dark:text-gray-500 px-3 py-1.5">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#E8B84B] animate-pulse" />
+              Drag to explore — we&apos;re in Gwalior, India
+            </div>
+          </motion.div>
+
+          {/* RIGHT — Google Map, seamless */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.9, ease: EASE }}
+            className="relative flex flex-col overflow-hidden"
+            style={{ minHeight: '480px' }}
+          >
+            {/* Map header */}
+            <div className="flex items-center gap-3 px-6 py-4 shrink-0">
+              <div className="w-8 h-8 rounded-full bg-[#E8B84B]/15 flex items-center justify-center">
+                <MapPin className="w-4 h-4 text-[#E8B84B]" />
+              </div>
+              <div>
+                <p className="text-sm font-bold text-gray-800 dark:text-gray-200 leading-tight">Paramount Coaching Institute</p>
+                <p className="text-xs text-gray-500 leading-tight">Gwalior, Madhya Pradesh, India</p>
+              </div>
+            </div>
+
+            {/* Map embed — no border, blends into page */}
+            <div className="flex-1 relative overflow-hidden rounded-2xl mx-4 mb-4">
+              <iframe
+                src={MAPS_EMBED_URL}
+                width="100%"
+                height="100%"
+                className="absolute inset-0 w-full h-full opacity-90"
+                style={{ border: 0, filter: 'invert(0.85) hue-rotate(180deg) saturate(0.8) brightness(0.85)' }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Paramount Coaching Institute Location"
+              />
+              {/* Open in Maps pill */}
+              <a
+                href={`https://www.google.com/maps?q=${INSTITUTE_LAT},${INSTITUTE_LNG}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-4 right-4 z-10 flex items-center gap-1.5 text-xs font-semibold text-gray-700 dark:text-gray-300 bg-white/90 dark:bg-gray-900/90 border border-gray-200 dark:border-gray-700 rounded-full px-3 py-1.5 backdrop-blur-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors shadow-sm"
+              >
+                <MapPin className="w-3 h-3 text-[#E8B84B]" />
+                Open in Maps
+              </a>
+            </div>
+          </motion.div>
+        </div>
       </section>
 
     </div>
