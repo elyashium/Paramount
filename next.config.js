@@ -1,0 +1,40 @@
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  // Enable Next.js built-in image optimisation (WebP/AVIF, responsive sizes, lazy loading)
+  images: {
+    unoptimized: false,
+    formats: ['image/avif', 'image/webp'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 64, 96, 128, 256, 384],
+    minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'plus.unsplash.com',
+      },
+    ],
+  },
+
+  // Cache static assets aggressively
+  async headers() {
+    return [
+      {
+        source: '/(:path*\\.(?:jpg|jpeg|png|gif|ico|webp|avif|svg|woff2|woff|ttf|otf))',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+        ],
+      },
+    ]
+  },
+  // Compress responses
+  compress: true,
+};
+
+module.exports = nextConfig;
