@@ -30,7 +30,7 @@ export const COURSES: Course[] = [
         students: 15400,
         duration: '6 Months',
         price: '₹5,930',
-        image: '/combo.png',
+        image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=3539&auto=format&fit=crop',
         description: 'Crack Your Dream Career at Sea! Comprehensive preparation for IMU-CET including full sponsorship coaching.',
         features: [
             '3 Hours Daily classes',
@@ -51,7 +51,7 @@ export const COURSES: Course[] = [
         students: 9200,
         duration: '3 Months',
         price: '₹3,388',
-        image: '/sponsorship.png',
+        image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2600&auto=format&fit=crop',
         description: 'Learn to Earn Big with Brands! Complete sponsorship preparation covering mock interviews, psychometric tests, and personality development.',
         features: [
             '2 Hours Daily classes',
@@ -76,7 +76,7 @@ export const COURSES: Course[] = [
         students: 5300,
         duration: '2 Months',
         price: '₹1,694',
-        image: '/english.png',
+        image: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=2873&auto=format&fit=crop',
         description: 'Learn English & Speak Fluently! A comprehensive spoken English course specifically tailored for maritime aspirants.',
         features: [
             'Live Interactive Classes',

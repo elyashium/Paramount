@@ -180,7 +180,7 @@ const TEACHERS: CardType[] = [
         src: '/teacher5.png',
         title: 'Prashant Nagarch',
         category: 'Communication Skills | 7 Years Exp.',
-        className: 'object-[75%_top]',
+        className: 'object-[15%_top] scale-[1.15] translate-x-2',
         content: (
             <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
                 <p>A seasoned educator with 7 years of experience specializing in English and Communication Skills.</p>
