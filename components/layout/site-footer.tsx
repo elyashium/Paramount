@@ -5,7 +5,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, useScroll, useTransform, useInView } from 'framer-motion'
-import { Phone, Mail, Globe, Clock, Twitter, Facebook, Instagram, Linkedin, Youtube } from 'lucide-react'
+import { Phone, Mail, Globe, Clock, Twitter, Facebook, Instagram, Linkedin, Youtube, Send } from 'lucide-react'
+
+const WhatsappIcon = (props: React.ComponentProps<'svg'>) => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+        <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+        <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1" />
+    </svg>
+)
 
 const QUICK_LINKS = [
     { href: '/', label: 'Home' },
@@ -88,14 +95,17 @@ export function SiteFooter() {
                             </p>
                             <div className="flex gap-3">
                                 {[
-                                    { icon: Phone, href: 'tel:+911234567890', label: 'Call us' },
-                                    { icon: Mail, href: 'mailto:info@paramountmn.com', label: 'Email us' },
-                                    { icon: Globe, href: '#', label: 'Website' },
+                                    { icon: Youtube, href: 'https://youtube.com/@paramountmerchantnavy?si=Iy15i9xc1LhWCNOE', label: 'YouTube' },
+                                    { icon: Send, href: 'https://t.me/Paramountimu', label: 'Telegram' },
+                                    { icon: WhatsappIcon, href: 'https://whatsapp.com/channel/0029Va4uagf3QxS4ZymMrc2u', label: 'WhatsApp' },
+                                    { icon: Instagram, href: 'https://www.instagram.com/paramountmerchantnavy?igsh=ajgwdXY1cHAxNWp5', label: 'Instagram' },
                                 ].map(({ icon: Icon, href, label }) => (
                                     <a
                                         key={label}
                                         href={href}
                                         aria-label={label}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         className="w-9 h-9 rounded-lg flex items-center justify-center bg-white/5 hover:bg-[#E8B84B]/20 hover:text-[#E8B84B] transition-colors duration-200"
                                     >
                                         <Icon className="w-4 h-4" aria-hidden="true" />
