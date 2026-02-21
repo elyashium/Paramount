@@ -173,10 +173,26 @@ export function HeroSection() {
 
         <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-36 pb-16 sm:pb-20">
 
-          {/* Badge */}
-          <div className="flex justify-center mb-8 sm:mb-10">
+          {/* Mobile Logo */}
+          <div className="flex justify-center md:hidden mb-6">
             <ScrollReveal>
-              <Chip>India&apos;s Premier IMU-CET Coaching Institute</Chip>
+              <div className="w-[80px] h-[80px] rounded-full overflow-hidden flex items-center justify-center bg-white/10 p-1 shadow-lg border border-white/20">
+                <Image
+                  src="/logo.png"
+                  alt="Paramount Merchant Navy"
+                  width={80}
+                  height={80}
+                  className="object-cover w-full h-full rounded-full"
+                  priority
+                />
+              </div>
+            </ScrollReveal>
+          </div>
+
+          {/* Badge */}
+          <div className="flex justify-center mb-6 sm:mb-10 text-center">
+            <ScrollReveal>
+              <Chip className="mx-auto">India&apos;s Premier IMU-CET Coaching Institute</Chip>
             </ScrollReveal>
           </div>
 
@@ -195,7 +211,7 @@ export function HeroSection() {
               </motion.h1>
               <motion.p
                 variants={FADE_UP}
-                className="mt-5 sm:mt-7 text-base sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed px-2"
+                className="mt-5 sm:mt-7 text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed px-2 text-center"
               >
                 India&apos;s most trusted coaching for{' '}
                 <span className="font-semibold text-gray-900 dark:text-white">IMU-CET</span> — the gateway to Merchant Navy.

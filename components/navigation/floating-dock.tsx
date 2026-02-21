@@ -82,8 +82,7 @@ export function FloatingDock() {
         <nav className="relative">
           <div
             className={cn(
-              'flex items-center justify-between px-5 py-2 shadow-lg',
-              'rounded-[2rem]',
+              'flex items-center justify-between px-2 md:px-5 py-2 shadow-lg overflow-hidden',
               'border',
               isDark
                 ? 'border-white/10 bg-black/40'
@@ -95,7 +94,7 @@ export function FloatingDock() {
             }}
           >
             {/* Logo */}
-            <Link href="/" className="flex items-center shrink-0">
+            <Link href="/" className="hidden md:flex items-center shrink-0">
               <div className="w-[52px] h-[52px] rounded-full overflow-hidden flex items-center justify-center">
                 <Image
                   src="/logo.png"
@@ -108,8 +107,8 @@ export function FloatingDock() {
               </div>
             </Link>
 
-            {/* ── DESKTOP MENU (md+) ─────────────────────────────────────── */}
-            <div className="hidden md:flex items-center space-x-1">
+            {/* ── RESPONSIVE MENU (Show Labels on Desktop, Icons on Mobile) ── */}
+            <div className="flex items-center md:space-x-1 gap-0.5 overflow-x-auto no-scrollbar mask-gradient px-1">
               {navLinks.map((link) => {
                 const Icon = link.icon
                 const isActive = pathname === link.href
@@ -119,66 +118,20 @@ export function FloatingDock() {
                       variant={isActive ? 'secondary' : 'ghost'}
                       size="sm"
                       className={cn(
-                        'relative transition-all',
+                        'relative transition-all px-2 md:px-3 h-8 md:h-9',
                         isActive && 'bg-primary/10 text-primary hover:bg-primary/20'
                       )}
                     >
-                      <Icon className="w-4 h-4 mr-2" />
-                      {link.label}
+                      <Icon className={cn('w-4 h-4', isActive ? 'text-[#E8B84B]' : '')} />
+                      <span className="hidden md:inline-block ml-2">{link.label}</span>
                     </Button>
                   </Link>
                 )
               })}
-
-
             </div>
 
-            {/* ── MOBILE MENU (md-) ──────────────────────────────────────── */}
-            <div className="md:hidden flex items-center">
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="icon" className="text-[#E8B84B]">
-                    <MoreHorizontal className="w-6 h-6" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-64 p-2">
-                  {navLinks.map((link) => {
-                    const Icon = link.icon
-                    return (
-                      <DropdownMenuItem key={link.href} asChild>
-                        <Link href={link.href} className="flex items-center p-2 cursor-pointer">
-                          <Icon className="w-4 h-4 mr-3 text-[#E8B84B]" />
-                          {link.label}
-                        </Link>
-                      </DropdownMenuItem>
-                    )
-                  })}
-
-                  <DropdownMenuSeparator />
-                  <div className="flex items-center justify-between p-2">
-                    <span className="text-sm">Theme</span>
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      onClick={(e) => {
-                        e.preventDefault()
-                        setTheme(isDark ? 'light' : 'dark')
-                      }}
-                      className="h-8 w-8"
-                    >
-                      {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-                    </Button>
-                  </div>
-                  <DropdownMenuItem onSelect={toggleCommandPalette} className="cursor-pointer">
-                    <Search className="w-4 h-4 mr-3" />
-                    Search
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </div>
-
-            {/* Right Actions (Desktop) */}
-            <div className="hidden md:flex items-center space-x-2">
+            {/* Right Actions (Desktop & Mobile) */}
+            <div className="flex items-center space-x-0.5 md:space-x-2 shrink-0">
               {/* Search */}
               <Button
                 variant="ghost"
