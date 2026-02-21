@@ -168,7 +168,7 @@ const TEACHERS: CardType[] = [
     {
         src: '/teacher3.png',
         title: 'Malket Singh',
-        category: 'General Knowledge',
+        category: 'General Knowledge | 8 Years Exp.',
         content: (
             <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
                 <p>An expert in General Knowledge with 8 years of invaluable teaching experience.</p>
@@ -179,7 +179,7 @@ const TEACHERS: CardType[] = [
     {
         src: '/teacher4.png',
         title: 'Goutam Pandey',
-        category: 'Aptitude',
+        category: 'Aptitude | 8 Years Exp.',
         content: (
             <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
                 <p>Adept Aptitude faculty bringing 8 years of experience in sharpening students' reasoning and analytical skills.</p>
@@ -190,7 +190,7 @@ const TEACHERS: CardType[] = [
     {
         src: '/teacher5.png',
         title: 'Prashant Nagarch',
-        category: 'Communication Skills',
+        category: 'Communication Skills | 7 Years Exp.',
         content: (
             <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
                 <p>A seasoned educator with 7 years of experience specializing in English and Communication Skills.</p>
@@ -201,7 +201,7 @@ const TEACHERS: CardType[] = [
     {
         src: '/teacher6.png',
         title: 'Faizan Mansuri',
-        category: 'Physics',
+        category: 'Physics | 5 Years Exp.',
         content: (
             <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
                 <p>Dedicated Physics expert with 5 years of experience uncomplicating core scientific principles.</p>
@@ -212,7 +212,7 @@ const TEACHERS: CardType[] = [
     {
         src: '/teacher7.png',
         title: 'Hirdesh Vyas',
-        category: 'English',
+        category: 'English | 5 Years Exp.',
         content: (
             <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
                 <p>Dynamic English faculty with 5 years of experience helping students master vocabulary, syntax, and comprehension.</p>
@@ -223,7 +223,7 @@ const TEACHERS: CardType[] = [
     {
         src: '/teacher8.png',
         title: 'Anand Bhadoriya',
-        category: 'Mathematics',
+        category: 'Mathematics | 12 Years Exp.',
         content: (
             <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
                 <p>Veteran Mathematics mentor bringing an impressive 12 years of teaching expertise to the team.</p>

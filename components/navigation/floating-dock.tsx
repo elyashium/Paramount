@@ -37,7 +37,6 @@ const navLinks = [
   { href: '/about', label: 'About Us', icon: Info },
   { href: '/courses', label: 'Courses', icon: BookOpen },
   { href: '/test-series', label: 'Test Series', icon: FileText },
-  { href: '/free-test', label: 'Free Test', icon: TestTube },
 ]
 
 export function FloatingDock() {
@@ -138,12 +137,6 @@ export function FloatingDock() {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="center" className="w-56">
                   <DropdownMenuItem asChild>
-                    <Link href="/free-courses" className="cursor-pointer">
-                      <BookOpen className="w-4 h-4 mr-2" />
-                      Free Courses
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
                     <Link href="/previous-papers" className="cursor-pointer">
                       <FileText className="w-4 h-4 mr-2" />
                       Previous Papers
@@ -199,12 +192,6 @@ export function FloatingDock() {
                   })}
                   <DropdownMenuSeparator />
                   {/* Additional Mobile Links */}
-                  <DropdownMenuItem asChild>
-                    <Link href="/free-courses" className="cursor-pointer">
-                      <BookOpen className="w-4 h-4 mr-3" />
-                      Free Courses
-                    </Link>
-                  </DropdownMenuItem>
                   <DropdownMenuItem asChild>
                     <Link href="/quiz" className="cursor-pointer">
                       <TestTube className="w-4 h-4 mr-3" />

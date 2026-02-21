@@ -12,7 +12,6 @@ const QUICK_LINKS = [
     { href: '/about', label: 'About' },
     { href: '/courses', label: 'Courses' },
     { href: '/test-series', label: 'Test Series' },
-    { href: '/free-test', label: 'Free Test' },
 ]
 
 const COURSE_LINKS = [

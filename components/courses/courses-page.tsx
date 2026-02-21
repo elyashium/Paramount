@@ -13,7 +13,7 @@ import { CardContainer, CardBody, CardItem } from '@/components/ui/3d-card'
 
 import { COURSES } from '@/lib/data/courses'
 
-const CATEGORIES = ['All', 'Entrance Exam', 'Sponsorship', 'Engineering', 'Rating', 'Electrical', 'Advanced']
+const CATEGORIES = ['All', 'Entrance Exam', 'Sponsorship', 'Communication', 'Engineering', 'Rating', 'Electrical', 'Advanced', 'Free']
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
