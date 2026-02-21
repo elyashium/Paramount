@@ -1,5 +1,7 @@
 'use client'
 
+import { cn } from '@/lib/utils'
+
 import { useRef, useEffect, useState } from 'react'
 import {
   motion,
@@ -10,6 +12,7 @@ import {
 } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { CardSpotlight } from '@/components/ui/card-spotlight'
+import Image from 'next/image'
 import {
   Search,
   ArrowRight,
@@ -80,11 +83,11 @@ function AnimatedCounter({ value, suffix = '' }: { value: number; suffix?: strin
 }
 
 // ─── Label Chip ───────────────────────────────────────────────────────────────
-function Chip({ children }: { children: React.ReactNode }) {
+function Chip({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
     <motion.span
       variants={FADE_UP}
-      className="inline-block tracking-[0.2em] uppercase text-xs font-bold text-[#E8B84B] mb-4 border border-[#E8B84B]/40 px-3 py-1 rounded-full"
+      className={cn("inline-block tracking-[0.2em] uppercase text-xs font-bold text-[#E8B84B] mb-4 border border-[#E8B84B]/40 px-3 py-1 rounded-full", className)}
     >
       {children}
     </motion.span>
@@ -176,12 +179,12 @@ export function HeroSection() {
           {/* Mobile Logo */}
           <div className="flex justify-center md:hidden mb-6">
             <ScrollReveal>
-              <div className="w-[80px] h-[80px] rounded-full overflow-hidden flex items-center justify-center bg-white/10 p-1 shadow-lg border border-white/20">
+              <div className="w-[110px] h-[110px] rounded-full overflow-hidden flex items-center justify-center bg-white/10 p-1 shadow-lg border border-white/20">
                 <Image
                   src="/logo.png"
                   alt="Paramount Merchant Navy"
-                  width={80}
-                  height={80}
+                  width={110}
+                  height={110}
                   className="object-cover w-full h-full rounded-full"
                   priority
                 />
