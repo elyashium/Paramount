@@ -26,6 +26,7 @@ export type Card = {
     title: string;
     category: string;
     content: React.ReactNode;
+    highlight?: boolean;
 };
 
 export const CarouselContext = createContext<{
@@ -224,7 +225,12 @@ export const Card = ({
             <motion.button
                 layoutId={layout ? `card-${card.title}` : undefined}
                 onClick={handleOpen}
-                className="relative z-10 flex h-80 w-56 flex-col items-start justify-start overflow-hidden rounded-3xl bg-gray-100 md:h-[36rem] md:w-80 dark:bg-neutral-900"
+                className={cn(
+                    "relative z-10 flex flex-col items-start justify-start overflow-hidden rounded-3xl bg-gray-100 dark:bg-neutral-900 transition-all duration-300 hover:scale-[1.02]",
+                    card.highlight
+                        ? "h-[22rem] w-64 md:h-[40rem] md:w-[26rem] ring-4 ring-[#E8B84B] shadow-[0_0_30px_rgba(232,184,75,0.3)]"
+                        : "h-80 w-56 md:h-[36rem] md:w-80"
+                )}
                 aria-label={`View profile of ${card.title}`}
             >
                 {/* top gradient so text is always readable */}

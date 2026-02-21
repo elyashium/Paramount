@@ -151,82 +151,83 @@ const FEATURES = [
     },
 ]
 
-/* ─── Teacher Data (images to be filled in later) ───────────────────── */
+/* ─── Teacher Data ───────────────────────────────────────────────────── */
 const TEACHERS: CardType[] = [
     {
-        src: '/teachers/teacher-1.jpg',
-        title: 'Rahul Sharma',
-        category: 'Navigation & Seamanship',
+        src: '/teacher2.png',
+        title: 'Ajay Singh Rajput',
+        category: 'Foundation & CEO',
+        highlight: true,
         content: (
             <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
-                <p>Expert in Navigation and Seamanship with over 10 years of teaching experience for IMU-CET aspirants.</p>
-                <p>Specialises in helping students master celestial navigation, chart work, and Rule of the Road topics that feature heavily in the exam.</p>
+                <p>The visionary Foundation & CEO behind Paramount, Ajay Singh Rajput has dedicated his career to building India's premier IMU-CET coaching institute.</p>
+                <p>With an unwavering commitment to student success, his leadership has consistently produced toppers every year, setting a legacy of excellence and guiding thousands toward a successful maritime career.</p>
             </div>
         ),
     },
     {
-        src: '/teachers/teacher-2.jpg',
-        title: 'Amit Verma',
-        category: 'Marine Engineering',
-        content: (
-            <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
-                <p>Marine Engineering faculty with deep expertise in thermodynamics, fluid mechanics, and marine diesel engines.</p>
-                <p>Known for simplifying complex engineering concepts into easy-to-remember frameworks for exam success.</p>
-            </div>
-        ),
-    },
-    {
-        src: '/teachers/teacher-3.jpg',
-        title: 'Priya Singh',
-        category: 'English & Aptitude',
-        content: (
-            <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
-                <p>Dedicated English and Aptitude faculty who has helped thousands of students improve their verbal and reasoning scores.</p>
-                <p>Her signature speed-techniques for comprehension and vocabulary have become a Paramount trademark.</p>
-            </div>
-        ),
-    },
-    {
-        src: '/teachers/teacher-4.jpg',
-        title: 'Vikram Nair',
-        category: 'Physics & Mathematics',
-        content: (
-            <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
-                <p>Physics and Mathematics expert who makes problem-solving intuitive for every student regardless of their background.</p>
-                <p>Specialises in building strong foundations that consistently translate to high scores in the science section.</p>
-            </div>
-        ),
-    },
-    {
-        src: '/teachers/teacher-5.jpg',
-        title: 'Gurpreet Singh',
+        src: '/teacher3.png',
+        title: 'Malket Singh',
         category: 'General Knowledge',
         content: (
             <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
-                <p>Covers Current Affairs, Maritime GK, and logical reasoning — sections that are often underestimated but crucial for a top score.</p>
-                <p>His daily capsule sessions are among the most popular among Paramount students.</p>
+                <p>An expert in General Knowledge with 8 years of invaluable teaching experience.</p>
+                <p>Specializes in comprehensive Current Affairs and Maritime GK coverage, ensuring students are unfazed by even the most obscure exam questions.</p>
             </div>
         ),
     },
     {
-        src: '/teachers/teacher-6.jpg',
-        title: 'Deepak Yadav',
-        category: 'Chemistry & Biology',
+        src: '/teacher4.png',
+        title: 'Goutam Pandey',
+        category: 'Aptitude',
         content: (
             <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
-                <p>Chemistry and Biology faculty who brings 8+ years of coaching experience to the Paramount team.</p>
-                <p>Known for memory-based techniques that help students retain large amounts of factual information under exam pressure.</p>
+                <p>Adept Aptitude faculty bringing 8 years of experience in sharpening students' reasoning and analytical skills.</p>
+                <p>Renowned for his time-saving techniques and shortcut methods that give aspirants a critical edge during the exam.</p>
             </div>
         ),
     },
     {
-        src: '/teachers/teacher-7.jpg',
-        title: 'Maninder Kaur',
-        category: 'Quantitative Ability',
+        src: '/teacher5.png',
+        title: 'Prashant Nagarch',
+        category: 'Communication Skills',
         content: (
             <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
-                <p>Quantitative Ability coach focused on building speed and accuracy in arithmetic, algebra, and data interpretation.</p>
-                <p>Her shortcut-heavy approach has shaved precious minutes off students&apos; paper-solving time, boosting overall scores.</p>
+                <p>A seasoned educator with 7 years of experience specializing in English and Communication Skills.</p>
+                <p>Focuses not just on exam grammar and comprehension, but on building the confident communication needed for a successful maritime career and interviews.</p>
+            </div>
+        ),
+    },
+    {
+        src: '/teacher6.png',
+        title: 'Faizan Mansuri',
+        category: 'Physics',
+        content: (
+            <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
+                <p>Dedicated Physics expert with 5 years of experience uncomplicating core scientific principles.</p>
+                <p>His intuitive breakdown of complex topics empowers students to tackle numerical problems with confidence and precision.</p>
+            </div>
+        ),
+    },
+    {
+        src: '/teacher7.png',
+        title: 'Hirdesh Vyas',
+        category: 'English',
+        content: (
+            <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
+                <p>Dynamic English faculty with 5 years of experience helping students master vocabulary, syntax, and comprehension.</p>
+                <p>Employs engaging methods that turn language learning into a strategic advantage for maximizing overall scores.</p>
+            </div>
+        ),
+    },
+    {
+        src: '/teacher8.png',
+        title: 'Anand Bhadoriya',
+        category: 'Mathematics',
+        content: (
+            <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
+                <p>Veteran Mathematics mentor bringing an impressive 12 years of teaching expertise to the team.</p>
+                <p>Masterfully simplifies calculus, algebra, and geometry, establishing strong foundational skills that translate directly into top rankings.</p>
             </div>
         ),
     },
