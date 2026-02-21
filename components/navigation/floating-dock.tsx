@@ -17,6 +17,7 @@ import {
   Moon,
   Sun,
   Info,
+  Phone,
 } from 'lucide-react'
 import { useAuth } from '@/lib/auth/context'
 import { useTheme } from 'next-themes'
@@ -38,6 +39,7 @@ const navLinks = [
   { href: '/courses', label: 'Courses', icon: BookOpen },
   { href: '/test-series', label: 'Test Series', icon: FileText },
   { href: '/ebooks', label: 'E-Books', icon: BookOpen },
+  { href: '/contact', label: 'Contact Us', icon: Phone },
 ]
 
 export function FloatingDock() {
