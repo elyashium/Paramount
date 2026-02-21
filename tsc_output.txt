@@ -1,0 +1,3 @@
+components/contact/contact-page.tsx(397,33): error TS2322: Type '{ location: number[]; size: number; }[]' is not assignable to type 'GlobeMarker[]'.
+  Type '{ location: number[]; size: number; }' is missing the following properties from type 'GlobeMarker': lat, lng, src
+lib/supabase/server.ts(13,30): error TS2339: Property 'get' does not exist on type 'Promise<ReadonlyRequestCookies>'.
