@@ -175,7 +175,7 @@ export function CoursesPage() {
                         {CATEGORIES.map((cat) => (
                             <button
                                 key={cat}
-                                onClick={() => setActiveCategory(cat)}
+                                onClick={() => setActiveCategory(activeCategory === cat ? 'All' : cat)}
                                 className={cn(
                                     "px-4 py-2 rounded-full text-sm font-medium transition-all whitespace-nowrap border",
                                     activeCategory === cat

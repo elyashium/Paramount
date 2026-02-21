@@ -6,6 +6,7 @@ import { FloatingDock } from '@/components/navigation/floating-dock';
 import { CommandPalette } from '@/components/search/command-palette';
 import { SiteFooter } from '@/components/layout/site-footer';
 import { Toaster } from '@/components/ui/toaster';
+import { ScrollProgress } from '@/components/ui/scroll-progress';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -42,6 +43,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className} suppressHydrationWarning>
         <Providers>
+          <ScrollProgress />
           <FloatingDock />
           <CommandPalette />
           <main className="min-h-screen">

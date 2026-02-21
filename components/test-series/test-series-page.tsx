@@ -111,7 +111,7 @@ export function TestSeriesPage() {
                     {['Tests', 'Pdfs', 'Test Subjectives'].map((tab) => (
                         <button
                             key={tab}
-                            onClick={() => setActiveTab(tab)}
+                            onClick={() => setActiveTab(activeTab === tab ? '' : tab)}
                             className={cn(
                                 "px-6 py-2.5 rounded-full text-sm font-bold whitespace-nowrap transition-all duration-300 border",
                                 activeTab === tab
@@ -139,7 +139,7 @@ export function TestSeriesPage() {
                                     <div>
                                         <CardItem
                                             translateZ="50"
-                                            className="text-lg font-bold text-neutral-900 dark:text-white leading-tight mb-8 group-hover/card:text-[#E8B84B] transition-colors line-clamp-2 md:h-14 lg:h-auto"
+                                            className="text-lg font-bold text-neutral-900 dark:text-white leading-tight mb-8 group-hover/card:text-[#E8B84B] transition-colors line-clamp-2 min-h-[3.5rem]"
                                         >
                                             {test.title}
                                         </CardItem>
