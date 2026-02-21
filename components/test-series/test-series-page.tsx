@@ -133,13 +133,13 @@ export function TestSeriesPage() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.1, ease: EASE }}
                         >
-                            <CardContainer className="inter-var w-full">
-                                <CardBody className="bg-white dark:bg-neutral-900 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] border-black/[0.1] dark:border-white/[0.2] border w-full rounded-2xl p-6 h-auto transition-all flex flex-col justify-between hover:border-[#E8B84B]/50">
+                            <CardContainer className="inter-var w-full h-full">
+                                <CardBody className="bg-white dark:bg-neutral-900 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] border-black/[0.1] dark:border-white/[0.2] border w-full rounded-2xl p-6 h-full transition-all flex flex-col justify-between hover:border-[#E8B84B]/50">
 
                                     <div>
                                         <CardItem
                                             translateZ="50"
-                                            className="text-lg font-bold text-neutral-900 dark:text-white leading-tight mb-8 group-hover/card:text-[#E8B84B] transition-colors line-clamp-2"
+                                            className="text-lg font-bold text-neutral-900 dark:text-white leading-tight mb-8 group-hover/card:text-[#E8B84B] transition-colors line-clamp-2 md:h-14 lg:h-auto"
                                         >
                                             {test.title}
                                         </CardItem>

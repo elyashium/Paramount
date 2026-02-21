@@ -13,7 +13,7 @@ import { CardContainer, CardBody, CardItem } from '@/components/ui/3d-card'
 
 import { COURSES } from '@/lib/data/courses'
 
-const CATEGORIES = ['All', 'Entrance Exam', 'Sponsorship', 'Communication', 'Engineering', 'Rating', 'Electrical', 'Advanced', 'Free']
+const CATEGORIES = ['All', 'Entrance Exam', 'Sponsorship', 'Communication', 'Advanced', 'Free']
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -223,8 +223,8 @@ export function CoursesPage() {
                                 transition={{ delay: i * 0.05, duration: 0.5, ease: EASE }}
                             >
                                 <Link href={`/courses/${course.id}`} className="block h-full">
-                                    <CardContainer className="inter-var h-full w-full">
-                                        <CardBody className="bg-white dark:bg-[#1a1a1a] relative group/card border-gray-100 dark:border-white/5 w-auto sm:w-full h-auto rounded-xl p-6 border hover:border-[#E8B84B]/30 hover:shadow-2xl hover:shadow-[#E8B84B]/5 transition-all duration-300 flex flex-col justify-between">
+                                    <CardContainer key={course.id} className="inter-var w-full">
+                                        <CardBody className="bg-white dark:bg-neutral-900 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] border-black/[0.1] dark:border-white/[0.2] border w-full rounded-2xl p-6 h-auto transition-all flex flex-col justify-between hover:border-[#E8B84B]/50">
                                             <div>
                                                 {/* Image */}
                                                 <CardItem translateZ="50" className="w-full">

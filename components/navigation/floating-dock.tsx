@@ -37,6 +37,7 @@ const navLinks = [
   { href: '/about', label: 'About Us', icon: Info },
   { href: '/courses', label: 'Courses', icon: BookOpen },
   { href: '/test-series', label: 'Test Series', icon: FileText },
+  { href: '/ebooks', label: 'E-Books', icon: BookOpen },
 ]
 
 export function FloatingDock() {
@@ -127,47 +128,7 @@ export function FloatingDock() {
                 )
               })}
 
-              {/* More Menu */}
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="sm">
-                    <MoreHorizontal className="w-4 h-4 mr-2" />
-                    More
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="center" className="w-56">
-                  <DropdownMenuItem asChild>
-                    <Link href="/previous-papers" className="cursor-pointer">
-                      <FileText className="w-4 h-4 mr-2" />
-                      Previous Papers
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link href="/current-affairs" className="cursor-pointer">
-                      <FileText className="w-4 h-4 mr-2" />
-                      Current Affairs
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link href="/quiz" className="cursor-pointer">
-                      <TestTube className="w-4 h-4 mr-2" />
-                      Quiz
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link href="/syllabus" className="cursor-pointer">
-                      <FileText className="w-4 h-4 mr-2" />
-                      Syllabus
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link href="/ebooks" className="cursor-pointer">
-                      <BookOpen className="w-4 h-4 mr-2" />
-                      Ebooks
-                    </Link>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+
             </div>
 
             {/* ── MOBILE MENU (md-) ──────────────────────────────────────── */}
@@ -190,14 +151,7 @@ export function FloatingDock() {
                       </DropdownMenuItem>
                     )
                   })}
-                  <DropdownMenuSeparator />
-                  {/* Additional Mobile Links */}
-                  <DropdownMenuItem asChild>
-                    <Link href="/quiz" className="cursor-pointer">
-                      <TestTube className="w-4 h-4 mr-3" />
-                      Quiz
-                    </Link>
-                  </DropdownMenuItem>
+
                   <DropdownMenuSeparator />
                   <div className="flex items-center justify-between p-2">
                     <span className="text-sm">Theme</span>
