@@ -27,6 +27,7 @@ export type Card = {
     category: string;
     content: React.ReactNode;
     highlight?: boolean;
+    className?: string; // Add optional className for custom styling (e.g. object-position)
 };
 
 export const CarouselContext = createContext<{
@@ -256,7 +257,7 @@ export const Card = ({
                     src={card.src}
                     alt={`Photo of ${card.title}`}
                     fill
-                    className="absolute inset-0 z-10 object-cover"
+                    className={cn("absolute inset-0 z-10 object-cover", card.className)}
                     sizes="(max-width: 768px) 224px, 320px"
                 />
             </motion.button>
