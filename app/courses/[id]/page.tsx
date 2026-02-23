@@ -4,14 +4,15 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 interface Props {
-    params: {
+    params: Promise<{
         id: string;
-    };
+    }>;
 }
 
 // Generate metadata dynamically
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const course = COURSES.find((c) => c.id === params.id);
+    const resolvedParams = await params;
+    const course = COURSES.find((c) => c.id === resolvedParams.id);
 
     if (!course) {
         return {
@@ -32,8 +33,9 @@ export async function generateStaticParams() {
     }));
 }
 
-export default function Page({ params }: Props) {
-    const course = COURSES.find((c) => c.id === params.id);
+export default async function Page({ params }: Props) {
+    const resolvedParams = await params;
+    const course = COURSES.find((c) => c.id === resolvedParams.id);
 
     if (!course) {
         notFound();
