@@ -181,11 +181,11 @@ function SiteFooterInner() {
                             <ul className="space-y-4">
                                 <li className="flex items-start gap-3 text-sm text-gray-400">
                                     <Phone className="w-4 h-4 mt-0.5 text-[#E8B84B] shrink-0" aria-hidden="true" />
-                                    <span>+91 98765 43210</span>
+                                    <span>+91 96302 99049</span>
                                 </li>
                                 <li className="flex items-start gap-3 text-sm text-gray-400">
                                     <Mail className="w-4 h-4 mt-0.5 text-[#E8B84B] shrink-0" aria-hidden="true" />
-                                    <span>info@paramountmn.com</span>
+                                    <span>contact.paramount123@gmail.com</span>
                                 </li>
                                 <li className="flex items-start gap-3 text-sm text-gray-400">
                                     <Clock className="w-4 h-4 mt-0.5 text-[#E8B84B] shrink-0" aria-hidden="true" />

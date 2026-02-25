@@ -49,12 +49,12 @@ const WhatsappIcon = (props: React.ComponentProps<'svg'>) => (
 )
 
 const globeMarkers = [
-    { lat: 26.2183, lng: 78.1828, src: '/logo.png', size: 0.08, label: 'Gwalior' },
+    { lat: 26.2121, lng: 78.1697, src: '/logo.png', size: 0.08, label: 'Gwalior' },
 ]
 
-const INSTITUTE_LAT = 26.2183
-const INSTITUTE_LNG = 78.1828
-const MAPS_EMBED_URL = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114534.6146051759!2d78.10657159740523!3d26.216399127606304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3976c5d1792291bf%3A0x5d562b7e9238ebcf!2sGwalior%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1710915354972!5m2!1sen!2sin'
+const INSTITUTE_LAT = 26.2121
+const INSTITUTE_LNG = 78.1697
+const MAPS_EMBED_URL = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3579.420482470752!2d78.20246891025837!3d26.215523689609803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3976c1ab3928064b%3A0xa860b2126c08c75!2sPARAMOUNT%20ACADEMY(Best%20Coaching%20for%20NDA%2FCDS%2FIMU%20CET%2FMERCHANT%20NAVY)Best%20NDA%20coaching%20in%20gwalior!5e0!3m2!1sen!2sin!4v1771696424429!5m2!1sen!2sin'
 
 export function ContactPage() {
     const supabase = createClient()
