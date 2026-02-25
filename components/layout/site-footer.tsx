@@ -32,7 +32,10 @@ const COURSE_LINKS = [
 const EASE = [0.22, 1, 0.36, 1] as const
 
 export function SiteFooter() {
-    /* Parallax for team photo */
+    // Hide footer on auth pages — must check BEFORE any scroll hooks
+    const pathname = usePathname()
+
+    /* Parallax for team photo — only computed when footer is actually rendered */
     const photoRef = useRef<HTMLDivElement>(null)
     const { scrollYProgress: photoScrollY } = useScroll({
         target: photoRef,
@@ -40,8 +43,6 @@ export function SiteFooter() {
     })
     const photoParallax = useTransform(photoScrollY, [0, 1], ['-6%', '6%'])
 
-    // Hide footer on auth pages
-    const pathname = usePathname()
     if (pathname?.startsWith('/auth')) return null
 
     return (
