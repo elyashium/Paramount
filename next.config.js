@@ -1,8 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   // Enable Next.js built-in image optimisation (WebP/AVIF, responsive sizes, lazy loading)
   images: {
     unoptimized: false,

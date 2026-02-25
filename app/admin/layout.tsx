@@ -1,5 +1,6 @@
 import { redirect } from 'next/navigation'
-import { createServerClient } from '@/lib/supabase/server'
+import { createClient } from '@/lib/supabase/server'
+import { cookies } from 'next/headers'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { LayoutDashboard, BookOpen, FileText, Mail } from 'lucide-react'
@@ -9,7 +10,8 @@ export default async function AdminLayout({
 }: {
     children: React.ReactNode
 }) {
-    const supabase = await createServerClient()
+    const cookieStore = await cookies()
+    const supabase = createClient(cookieStore)
 
     const { data: { session } } = await supabase.auth.getSession()
 

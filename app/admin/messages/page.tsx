@@ -1,7 +1,9 @@
-import { createServerClient } from '@/lib/supabase/server'
+import { createClient } from '@/lib/supabase/server'
+import { cookies } from 'next/headers'
 
 export default async function AdminMessagesPage() {
-    const supabase = await createServerClient()
+    const cookieStore = await cookies()
+    const supabase = createClient(cookieStore)
 
     const { data: messages, error } = await supabase
         .from('contact_messages')

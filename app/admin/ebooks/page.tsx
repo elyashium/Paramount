@@ -1,10 +1,12 @@
-import { createServerClient } from '@/lib/supabase/server'
+import { createClient } from '@/lib/supabase/server'
+import { cookies } from 'next/headers'
 import { Button } from '@/components/ui/button'
 import { Plus, Pencil, Trash } from 'lucide-react'
 import Link from 'next/link'
 
 export default async function AdminEbooksPage() {
-    const supabase = await createServerClient()
+    const cookieStore = await cookies()
+    const supabase = createClient(cookieStore)
 
     const { data: ebooks, error } = await supabase
         .from('ebooks')

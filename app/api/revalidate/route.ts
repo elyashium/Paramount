@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { revalidatePath } from 'next/cache'
-import { createServerClient } from '@/lib/supabase/server'
+import { createClient } from '@/lib/supabase/server'
+import { cookies } from 'next/headers'
 
 // Called by the admin panel after saving a course or ebook to bust the cache
 // POST /api/revalidate  with body: { path: '/courses', secret: <REVALIDATION_SECRET> }
@@ -14,7 +15,8 @@ export async function POST(request: Request) {
 
     // Optional: also verify the caller is an authenticated admin
     try {
-        const supabase = await createServerClient()
+        const cookieStore = await cookies()
+        const supabase = createClient(cookieStore)
         const { data: { user } } = await supabase.auth.getUser()
         if (!user) {
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })

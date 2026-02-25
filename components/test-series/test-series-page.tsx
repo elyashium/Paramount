@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { CardContainer, CardBody, CardItem } from '@/components/ui/3d-card'
 import { Button } from '@/components/ui/button'
@@ -133,47 +134,49 @@ export function TestSeriesPage() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.1, ease: EASE }}
                         >
-                            <CardContainer className="inter-var w-full h-full">
-                                <CardBody className="bg-white dark:bg-neutral-900 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] border-black/[0.1] dark:border-white/[0.2] border w-full rounded-2xl p-6 h-full transition-all flex flex-col justify-between hover:border-[#E8B84B]/50">
+                            <Link href="https://paramountmerchantnavy.akamai.net.in/test-series/1-imu-cet?subjectId=-1" target="_blank" rel="noopener noreferrer" className="block w-full h-full">
+                                <CardContainer className="inter-var w-full h-full">
+                                    <CardBody className="bg-white dark:bg-neutral-900 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] border-black/[0.1] dark:border-white/[0.2] border w-full rounded-2xl p-6 h-full transition-all flex flex-col justify-between hover:border-[#E8B84B]/50">
 
-                                    <div>
-                                        <CardItem
-                                            translateZ="50"
-                                            className="text-lg font-bold text-neutral-900 dark:text-white leading-tight mb-8 group-hover/card:text-[#E8B84B] transition-colors line-clamp-2 min-h-[3.5rem]"
-                                        >
-                                            {test.title}
-                                        </CardItem>
+                                        <div>
+                                            <CardItem
+                                                translateZ="50"
+                                                className="text-lg font-bold text-neutral-900 dark:text-white leading-tight mb-8 group-hover/card:text-[#E8B84B] transition-colors line-clamp-2 min-h-[3.5rem]"
+                                            >
+                                                {test.title}
+                                            </CardItem>
 
-                                        <CardItem translateZ="30" className="flex items-center justify-between w-full mb-8">
-                                            {/* Questions */}
-                                            <div className="flex flex-col items-center justify-center p-3 rounded-xl bg-blue-50/50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30 flex-1 mx-1">
-                                                <span className="text-xl font-black text-blue-600 dark:text-blue-400">{test.questions}</span>
-                                                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mt-1">Que</span>
-                                            </div>
-                                            {/* Marks */}
-                                            <div className="flex flex-col items-center justify-center p-3 rounded-xl bg-blue-50/50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30 flex-1 mx-1">
-                                                <span className="text-xl font-black text-blue-600 dark:text-blue-400">{test.marks}</span>
-                                                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mt-1">Mar</span>
-                                            </div>
-                                            {/* Minutes */}
-                                            <div className="flex flex-col items-center justify-center p-3 rounded-xl bg-blue-50/50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30 flex-1 mx-1">
-                                                <span className="text-xl font-black text-blue-600 dark:text-blue-400">{test.minutes}</span>
-                                                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mt-1">Min</span>
-                                            </div>
-                                        </CardItem>
-                                    </div>
+                                            <CardItem translateZ="30" className="flex items-center justify-between w-full mb-8">
+                                                {/* Questions */}
+                                                <div className="flex flex-col items-center justify-center p-3 rounded-xl bg-blue-50/50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30 flex-1 mx-1">
+                                                    <span className="text-xl font-black text-blue-600 dark:text-blue-400">{test.questions}</span>
+                                                    <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mt-1">Que</span>
+                                                </div>
+                                                {/* Marks */}
+                                                <div className="flex flex-col items-center justify-center p-3 rounded-xl bg-blue-50/50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30 flex-1 mx-1">
+                                                    <span className="text-xl font-black text-blue-600 dark:text-blue-400">{test.marks}</span>
+                                                    <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mt-1">Mar</span>
+                                                </div>
+                                                {/* Minutes */}
+                                                <div className="flex flex-col items-center justify-center p-3 rounded-xl bg-blue-50/50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30 flex-1 mx-1">
+                                                    <span className="text-xl font-black text-blue-600 dark:text-blue-400">{test.minutes}</span>
+                                                    <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mt-1">Min</span>
+                                                </div>
+                                            </CardItem>
+                                        </div>
 
-                                    <div className="flex justify-between items-center w-full">
-                                        <CardItem
-                                            translateZ="40"
-                                            as="button"
-                                            className="w-full px-6 py-3 rounded-xl bg-[#0052cc] hover:bg-[#0047b3] dark:bg-[#0052cc] dark:hover:bg-[#0047b3] text-white text-sm font-bold shadow-lg transition-all active:scale-95"
-                                        >
-                                            Attempt
-                                        </CardItem>
-                                    </div>
-                                </CardBody>
-                            </CardContainer>
+                                        <div className="flex justify-between items-center w-full">
+                                            <CardItem
+                                                translateZ="40"
+                                                as="button"
+                                                className="w-full px-6 py-3 rounded-xl bg-[#0052cc] hover:bg-[#0047b3] dark:bg-[#0052cc] dark:hover:bg-[#0047b3] text-white text-sm font-bold shadow-lg transition-all active:scale-95"
+                                            >
+                                                Attempt
+                                            </CardItem>
+                                        </div>
+                                    </CardBody>
+                                </CardContainer>
+                            </Link>
                         </motion.div>
                     ))}
                 </div>

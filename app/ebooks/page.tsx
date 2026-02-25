@@ -1,6 +1,7 @@
 import { EbooksPage } from '@/components/ebooks/ebooks-page'
 import { Metadata } from 'next'
-import { createServerClient } from '@/lib/supabase/server'
+import { createClient } from '@/lib/supabase/server'
+import { cookies } from 'next/headers'
 
 export const metadata: Metadata = {
     title: 'E-Books & Materials | Paramount Coaching',
@@ -10,7 +11,8 @@ export const metadata: Metadata = {
 export const revalidate = 3600 // ISR: rebuild at most once per hour; or instantly via /api/revalidate
 
 export default async function Page() {
-    const supabase = await createServerClient()
+    const cookieStore = await cookies()
+    const supabase = createClient(cookieStore)
     const { data: ebooks } = await supabase
         .from('ebooks')
         .select('*')

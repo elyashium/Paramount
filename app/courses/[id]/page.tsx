@@ -1,7 +1,8 @@
 import { CourseDetail } from '@/components/courses/course-detail';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { createServerClient } from '@/lib/supabase/server';
+import { createClient } from '@/lib/supabase/server';
+import { cookies } from 'next/headers';
 
 interface Props {
     params: Promise<{
@@ -14,7 +15,8 @@ export const revalidate = 0; // Disable static rendering for dynamic DB
 // Generate metadata dynamically
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const resolvedParams = await params;
-    const supabase = await createServerClient()
+    const cookieStore = await cookies();
+    const supabase = createClient(cookieStore);
     const { data: course } = await supabase
         .from('courses')
         .select('title, description')
@@ -47,7 +49,8 @@ export default async function Page({ params }: Props) {
         notFound();
     }
 
-    const supabase = await createServerClient()
+    const cookieStore = await cookies();
+    const supabase = createClient(cookieStore);
     const { data: course } = await supabase
         .from('courses')
         .select('*')
