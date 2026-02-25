@@ -156,38 +156,41 @@ const FEATURES = [
 const TEACHERS: CardType[] = [
     {
         src: '/teacher3.png',
-        title: 'Malket Singh',
-        category: 'General Knowledge | 8 Years Exp.',
+        title: 'Prashant Nagarch',
+        category: 'Personality Development | 8 Years Exp.',
         content: (
             <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
                 <p>An expert in General Knowledge with 8 years of invaluable teaching experience.</p>
                 <p>Specializes in comprehensive Current Affairs and Maritime GK coverage, ensuring students are unfazed by even the most obscure exam questions.</p>
+                <p>A seasoned educator with 7 years of experience specializing in English and Communication Skills.</p>
+    //             <p>Focuses not just on exam grammar and comprehension, but on building the confident communication needed for a successful maritime career and interviews.</p>
             </div>
         ),
     },
     {
         src: '/teacher4.png',
-        title: 'Goutam Pandey',
-        category: 'Aptitude | 8 Years Exp.',
+        title: 'Anand Bhadoriya',
+        category: 'Maths | 12 Years Exp.',
         content: (
             <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
-                <p>Adept Aptitude faculty bringing 8 years of experience in sharpening students' reasoning and analytical skills.</p>
-                <p>Renowned for his time-saving techniques and shortcut methods that give aspirants a critical edge during the exam.</p>
+                <p>Veteran Mathematics mentor bringing an impressive 12 years of teaching expertise to the team.</p>
+                <p>Masterfully simplifies calculus, algebra, and geometry, establishing strong foundational skills that translate directly into top rankings.</p>
+                
             </div>
         ),
     },
-    {
-        src: '/teacher5.png',
-        title: 'Prashant Nagarch',
-        category: 'Communication Skills | 7 Years Exp.',
-        className: 'object-[15%_top] scale-[1.15] translate-x-2',
-        content: (
-            <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
-                <p>A seasoned educator with 7 years of experience specializing in English and Communication Skills.</p>
-                <p>Focuses not just on exam grammar and comprehension, but on building the confident communication needed for a successful maritime career and interviews.</p>
-            </div>
-        ),
-    },
+    // {
+    //     src: '/teacher5.png',
+    //     title: 'Prashant Nagarch',
+    //     category: 'Communication Skills | 7 Years Exp.',
+    //     className: 'object-[15%_top] scale-[1.15] translate-x-2',
+    //     content: (
+    //         <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
+    //             <p>A seasoned educator with 7 years of experience specializing in English and Communication Skills.</p>
+    //             <p>Focuses not just on exam grammar and comprehension, but on building the confident communication needed for a successful maritime career and interviews.</p>
+    //         </div>
+    //     ),
+    // },
     {
         src: '/teacher6.png',
         title: 'Faizan Mansuri',
@@ -212,12 +215,14 @@ const TEACHERS: CardType[] = [
     },
     {
         src: '/teacher8.png',
-        title: 'Anand Bhadoriya',
-        category: 'Mathematics | 12 Years Exp.',
+        title: 'Malket Singh',
+        category: 'General Knowledge | 8 Years Exp.',
         content: (
             <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
-                <p>Veteran Mathematics mentor bringing an impressive 12 years of teaching expertise to the team.</p>
-                <p>Masterfully simplifies calculus, algebra, and geometry, establishing strong foundational skills that translate directly into top rankings.</p>
+                <p>An expert in General Knowledge with 8 years of invaluable teaching experience.</p>
+                <p>Specializes in comprehensive Current Affairs and Maritime GK coverage, ensuring students are unfazed by even the most obscure exam questions.</p>
+                <p>A seasoned educator with 7 years of experience specializing in English and Communication Skills.</p>
+              <p>Focuses not just on exam grammar and comprehension, but on building the confident communication needed for a successful maritime career and interviews.</p>
             </div>
         ),
     },
