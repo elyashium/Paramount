@@ -11,6 +11,7 @@ import { Globe3D } from '@/components/ui/globe-3d'
 import { cn } from '@/lib/utils'
 import { createClient } from '@/lib/supabase/client'
 import { toast } from 'sonner'
+import { contactFormSchema } from '@/lib/validations/contact'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -64,35 +65,58 @@ export function ContactPage() {
         setSubmitting(true)
 
         try {
-            const formData = new FormData(e.currentTarget)
+            const fd = new FormData(e.currentTarget)
+            const raw = {
+                firstName: fd.get('firstName') as string,
+                lastName: fd.get('lastName') as string,
+                email: fd.get('email') as string,
+                mobile: fd.get('mobile') as string,
+                fatherMobile: fd.get('fatherMobile') as string,
+                dob: fd.get('dob') as string,
+                gender: fd.get('gender') as string,
+                schoolName: fd.get('schoolName') as string,
+                board: fd.get('board') as string,
+                currentClass: fd.get('currentClass') as string,
+                address: fd.get('address') as string,
+                city: fd.get('city') as string,
+                pincode: fd.get('pincode') as string,
+                course: fd.get('course') as string,
+            }
 
-            const name = `${formData.get('firstName')} ${formData.get('lastName')}`
-            const email = formData.get('email') as string
-            const phone = formData.get('mobile') as string
+            // ─── Zod Validation ───────────────────────────────────────
+            const result = contactFormSchema.safeParse(raw)
+            if (!result.success) {
+                const firstError = result.error.errors[0]
+                toast.error(`${firstError.path[0]}: ${firstError.message}`)
+                setSubmitting(false)
+                return
+            }
 
-            // Format remaining fields into a readable message string
-            const details = [
-                `Course Target: ${formData.get('course')}`,
-                `DOB: ${formData.get('dob')}`,
-                `Gender: ${formData.get('gender')}`,
-                `School: ${formData.get('schoolName')}`,
-                `Board: ${formData.get('board')}`,
-                `Class: ${formData.get('currentClass')}`,
-                `Father's Mobile: ${formData.get('fatherMobile')}`,
-                `Address: ${formData.get('address')}, ${formData.get('city')}, ${formData.get('pincode')}`
+            const data = result.data
+
+            // Format into a readable message string
+            const message = [
+                `Course Target: ${data.course}`,
+                `DOB: ${data.dob}`,
+                `Gender: ${data.gender}`,
+                `School: ${data.schoolName}`,
+                `Board: ${data.board}`,
+                `Class: ${data.currentClass}`,
+                `Father's Mobile: ${data.fatherMobile}`,
+                `Address: ${data.address}, ${data.city}, ${data.pincode}`
             ].join('\n')
 
             const { error } = await supabase.from('contact_messages').insert([{
-                name,
-                email,
-                phone,
-                subject: formData.get('course') as string,
-                message: details
+                name: `${data.firstName} ${data.lastName}`,
+                email: data.email,
+                phone: data.mobile,
+                subject: data.course,
+                message,
             }])
 
             if (error) throw error
 
-            toast.success("Application submitted successfully! We'll contact you soon.")
+            toast.success("Application submitted! We'll contact you within 24 hours.")
                 ; (e.target as HTMLFormElement).reset()
         } catch (error: any) {
             console.error('Submission error:', error)

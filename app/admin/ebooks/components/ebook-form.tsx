@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { toast } from 'sonner'
+import { FileUploadField } from '@/components/admin/file-upload-field'
 
 export default function EbookForm({ params }: { params?: { id: string } }) {
     const router = useRouter()
@@ -99,6 +100,16 @@ export default function EbookForm({ params }: { params?: { id: string } }) {
 
             if (error) throw error
 
+            // Trigger on-demand page revalidation so the public site updates instantly
+            await fetch('/api/revalidate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    path: '/ebooks',
+                    secret: process.env.NEXT_PUBLIC_REVALIDATION_SECRET || 'dev-secret'
+                })
+            })
+
             toast.success(isEditing ? 'Ebook updated successfully' : 'Ebook created successfully')
             router.push('/admin/ebooks')
             router.refresh()
@@ -175,15 +186,25 @@ export default function EbookForm({ params }: { params?: { id: string } }) {
                     </div>
                 </div>
 
-                <div className="space-y-2">
-                    <Label htmlFor="cover_url">Cover Image URL</Label>
-                    <Input id="cover_url" name="cover_url" value={formData.cover_url} onChange={handleChange} />
-                </div>
+                <FileUploadField
+                    label="Cover Image"
+                    accept="image/*"
+                    bucket="ebooks"
+                    folder="covers"
+                    currentUrl={formData.cover_url}
+                    onUpload={(url) => setFormData(prev => ({ ...prev, cover_url: url }))}
+                    type="image"
+                />
 
-                <div className="space-y-2">
-                    <Label htmlFor="pdf_url">PDF Download URL</Label>
-                    <Input id="pdf_url" name="pdf_url" value={formData.pdf_url} onChange={handleChange} />
-                </div>
+                <FileUploadField
+                    label="PDF File"
+                    accept="application/pdf"
+                    bucket="ebooks"
+                    folder="pdfs"
+                    currentUrl={formData.pdf_url}
+                    onUpload={(url) => setFormData(prev => ({ ...prev, pdf_url: url }))}
+                    type="pdf"
+                />
 
                 <div className="flex justify-end gap-4 pt-4">
                     <Button variant="outline" type="button" onClick={() => router.push('/admin/ebooks')}>

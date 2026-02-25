@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: 'Browse our comprehensive courses for IMU-CET preparation.',
 };
 
-export const revalidate = 0; // Disable static rendering for dynamic DB
+export const revalidate = 3600 // ISR: rebuild at most once per hour; or instantly via /api/revalidate
 
 export default async function Page() {
   const supabase = await createServerClient();

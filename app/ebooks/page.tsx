@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     description: 'Access our comprehensive digital library including syllabus, previous year question papers, and e-books.',
 }
 
-export const revalidate = 0;
+export const revalidate = 3600 // ISR: rebuild at most once per hour; or instantly via /api/revalidate
 
 export default async function Page() {
     const supabase = await createServerClient()

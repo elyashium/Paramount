@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { toast } from 'sonner'
+import { FileUploadField } from '@/components/admin/file-upload-field'
 
 export default function CourseForm({ params }: { params?: { id: string } }) {
     const router = useRouter()
@@ -96,6 +97,16 @@ export default function CourseForm({ params }: { params?: { id: string } }) {
 
             if (error) throw error
 
+            // Trigger on-demand page revalidation so the public site updates instantly
+            await fetch('/api/revalidate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    path: '/courses',
+                    secret: process.env.NEXT_PUBLIC_REVALIDATION_SECRET || 'dev-secret'
+                })
+            })
+
             toast.success(isEditing ? 'Course updated successfully' : 'Course created successfully')
             router.push('/admin/courses')
             router.refresh()
@@ -173,8 +184,15 @@ export default function CourseForm({ params }: { params?: { id: string } }) {
                 </div>
 
                 <div className="space-y-2">
-                    <Label htmlFor="image_url">Thumbnail Image URL</Label>
-                    <Input id="image_url" name="image_url" value={formData.image_url} onChange={handleChange} />
+                    <FileUploadField
+                        label="Thumbnail Image"
+                        accept="image/*"
+                        bucket="courses"
+                        folder="thumbnails"
+                        currentUrl={formData.image_url}
+                        onUpload={(url) => setFormData(prev => ({ ...prev, image_url: url }))}
+                        type="image"
+                    />
                 </div>
 
                 <div className="flex justify-end gap-4 pt-4">
