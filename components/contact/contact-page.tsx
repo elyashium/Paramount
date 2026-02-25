@@ -9,6 +9,8 @@ import { Label } from '@/components/ui/label'
 import { Badge } from '@/components/ui/badge'
 import { Globe3D } from '@/components/ui/globe-3d'
 import { cn } from '@/lib/utils'
+import { createClient } from '@/lib/supabase/client'
+import { toast } from 'sonner'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -54,6 +56,52 @@ const INSTITUTE_LNG = 78.1828
 const MAPS_EMBED_URL = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114534.6146051759!2d78.10657159740523!3d26.216399127606304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3976c5d1792291bf%3A0x5d562b7e9238ebcf!2sGwalior%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1710915354972!5m2!1sen!2sin'
 
 export function ContactPage() {
+    const supabase = createClient()
+    const [submitting, setSubmitting] = React.useState(false)
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        setSubmitting(true)
+
+        try {
+            const formData = new FormData(e.currentTarget)
+
+            const name = `${formData.get('firstName')} ${formData.get('lastName')}`
+            const email = formData.get('email') as string
+            const phone = formData.get('mobile') as string
+
+            // Format remaining fields into a readable message string
+            const details = [
+                `Course Target: ${formData.get('course')}`,
+                `DOB: ${formData.get('dob')}`,
+                `Gender: ${formData.get('gender')}`,
+                `School: ${formData.get('schoolName')}`,
+                `Board: ${formData.get('board')}`,
+                `Class: ${formData.get('currentClass')}`,
+                `Father's Mobile: ${formData.get('fatherMobile')}`,
+                `Address: ${formData.get('address')}, ${formData.get('city')}, ${formData.get('pincode')}`
+            ].join('\n')
+
+            const { error } = await supabase.from('contact_messages').insert([{
+                name,
+                email,
+                phone,
+                subject: formData.get('course') as string,
+                message: details
+            }])
+
+            if (error) throw error
+
+            toast.success("Application submitted successfully! We'll contact you soon.")
+                ; (e.target as HTMLFormElement).reset()
+        } catch (error: any) {
+            console.error('Submission error:', error)
+            toast.error(error.message || "Failed to submit application. Please try again.")
+        } finally {
+            setSubmitting(false)
+        }
+    }
+
     return (
         <div className="min-h-screen bg-[#f7f7f5] dark:bg-gray-950 text-gray-900 dark:text-white font-sans selection:bg-[#E8B84B]/30 transition-colors duration-300 relative overflow-x-hidden pb-16">
 
@@ -100,26 +148,26 @@ export function ContactPage() {
 
                 {/* ── MEGA FORM (FULL WIDTH GRID, NO BORDERS) ─────────────────── */}
                 <ScrollReveal className="w-full mb-16">
-                    <form className="w-full" onSubmit={(e) => e.preventDefault()}>
+                    <form className="w-full" onSubmit={handleSubmit}>
                         <div className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-xl rounded-[2rem] p-6 sm:p-8 w-full shadow-2xl dark:shadow-[0_0_40px_rgba(0,0,0,0.5)] border border-white/50 dark:border-white/5">
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-5">
 
                                 {/* Row 1: Student Details */}
                                 <div className="space-y-1 col-span-1">
                                     <Label htmlFor="firstName" className="text-xs uppercase tracking-wider text-gray-500 font-semibold ml-1">First Name *</Label>
-                                    <Input id="firstName" className="bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 h-11 shadow-inner focus-visible:ring-[#E8B84B]" required />
+                                    <Input id="firstName" name="firstName" className="bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 h-11 shadow-inner focus-visible:ring-[#E8B84B]" required />
                                 </div>
                                 <div className="space-y-1 col-span-1">
                                     <Label htmlFor="lastName" className="text-xs uppercase tracking-wider text-gray-500 font-semibold ml-1">Last Name *</Label>
-                                    <Input id="lastName" className="bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 h-11 shadow-inner focus-visible:ring-[#E8B84B]" required />
+                                    <Input id="lastName" name="lastName" className="bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 h-11 shadow-inner focus-visible:ring-[#E8B84B]" required />
                                 </div>
                                 <div className="space-y-1 col-span-1">
                                     <Label htmlFor="dob" className="text-xs uppercase tracking-wider text-gray-500 font-semibold ml-1">DOB *</Label>
-                                    <Input id="dob" type="date" className="bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 h-11 shadow-inner focus-visible:ring-[#E8B84B] text-gray-500 dark:text-gray-400" required />
+                                    <Input id="dob" name="dob" type="date" className="bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 h-11 shadow-inner focus-visible:ring-[#E8B84B] text-gray-500 dark:text-gray-400" required />
                                 </div>
                                 <div className="space-y-1 col-span-1">
                                     <Label htmlFor="gender" className="text-xs uppercase tracking-wider text-gray-500 font-semibold ml-1">Gender *</Label>
-                                    <select id="gender" defaultValue="" className="w-full h-11 rounded-md bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8B84B] shadow-inner text-gray-900 dark:text-gray-300" required>
+                                    <select id="gender" name="gender" defaultValue="" className="w-full h-11 rounded-md bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8B84B] shadow-inner text-gray-900 dark:text-gray-300" required>
                                         <option value="" disabled>Select Gender</option>
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
@@ -129,11 +177,11 @@ export function ContactPage() {
                                 {/* Row 2: School & Board Details */}
                                 <div className="space-y-1 col-span-1 lg:col-span-2">
                                     <Label htmlFor="schoolName" className="text-xs uppercase tracking-wider text-gray-500 font-semibold ml-1">School Name *</Label>
-                                    <Input id="schoolName" className="bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 h-11 shadow-inner focus-visible:ring-[#E8B84B]" required />
+                                    <Input id="schoolName" name="schoolName" className="bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 h-11 shadow-inner focus-visible:ring-[#E8B84B]" required />
                                 </div>
                                 <div className="space-y-1 col-span-1">
                                     <Label htmlFor="board" className="text-xs uppercase tracking-wider text-gray-500 font-semibold ml-1">Board *</Label>
-                                    <select id="board" defaultValue="" className="w-full h-11 rounded-md bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8B84B] shadow-inner text-gray-900 dark:text-gray-300" required>
+                                    <select id="board" name="board" defaultValue="" className="w-full h-11 rounded-md bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8B84B] shadow-inner text-gray-900 dark:text-gray-300" required>
                                         <option value="" disabled>Select Board</option>
                                         <option value="cbse">CBSE</option>
                                         <option value="icse">ICSE</option>
@@ -142,7 +190,7 @@ export function ContactPage() {
                                 </div>
                                 <div className="space-y-1 col-span-1">
                                     <Label htmlFor="currentClass" className="text-xs uppercase tracking-wider text-gray-500 font-semibold ml-1">Class *</Label>
-                                    <select id="currentClass" defaultValue="" className="w-full h-11 rounded-md bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8B84B] shadow-inner text-gray-900 dark:text-gray-300" required>
+                                    <select id="currentClass" name="currentClass" defaultValue="" className="w-full h-11 rounded-md bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8B84B] shadow-inner text-gray-900 dark:text-gray-300" required>
                                         <option value="" disabled>Current Class</option>
                                         <option value="11">11th Std</option>
                                         <option value="12">12th Std</option>
@@ -153,35 +201,35 @@ export function ContactPage() {
                                 {/* Row 3: Contact & Parents */}
                                 <div className="space-y-1 col-span-1 lg:col-span-2">
                                     <Label htmlFor="email" className="text-xs uppercase tracking-wider text-gray-500 font-semibold ml-1">Email Address *</Label>
-                                    <Input id="email" type="email" className="bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 h-11 shadow-inner focus-visible:ring-[#E8B84B]" required />
+                                    <Input id="email" name="email" type="email" className="bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 h-11 shadow-inner focus-visible:ring-[#E8B84B]" required />
                                 </div>
                                 <div className="space-y-1 col-span-1">
                                     <Label htmlFor="mobile" className="text-xs uppercase tracking-wider text-gray-500 font-semibold ml-1">Mobile *</Label>
-                                    <Input id="mobile" type="tel" className="bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 h-11 shadow-inner focus-visible:ring-[#E8B84B]" required />
+                                    <Input id="mobile" name="mobile" type="tel" className="bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 h-11 shadow-inner focus-visible:ring-[#E8B84B]" required />
                                 </div>
                                 <div className="space-y-1 col-span-1">
                                     <Label htmlFor="fatherMobile" className="text-xs uppercase tracking-wider text-gray-500 font-semibold ml-1">Father's Mobile *</Label>
-                                    <Input id="fatherMobile" type="tel" className="bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 h-11 shadow-inner focus-visible:ring-[#E8B84B]" required />
+                                    <Input id="fatherMobile" name="fatherMobile" type="tel" className="bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 h-11 shadow-inner focus-visible:ring-[#E8B84B]" required />
                                 </div>
 
                                 {/* Row 4: Address */}
                                 <div className="space-y-1 col-span-1 lg:col-span-4">
                                     <Label htmlFor="address" className="text-xs uppercase tracking-wider text-gray-500 font-semibold ml-1">Full Address *</Label>
-                                    <Input id="address" className="bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 h-11 shadow-inner focus-visible:ring-[#E8B84B]" required />
+                                    <Input id="address" name="address" className="bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 h-11 shadow-inner focus-visible:ring-[#E8B84B]" required />
                                 </div>
 
                                 {/* Row 5: Address Parts & Course Validation */}
                                 <div className="space-y-1 col-span-1">
                                     <Label htmlFor="city" className="text-xs uppercase tracking-wider text-gray-500 font-semibold ml-1">City *</Label>
-                                    <Input id="city" className="bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 h-11 shadow-inner focus-visible:ring-[#E8B84B]" required />
+                                    <Input id="city" name="city" className="bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 h-11 shadow-inner focus-visible:ring-[#E8B84B]" required />
                                 </div>
                                 <div className="space-y-1 col-span-1">
                                     <Label htmlFor="pincode" className="text-xs uppercase tracking-wider text-gray-500 font-semibold ml-1">Pincode *</Label>
-                                    <Input id="pincode" className="bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 h-11 shadow-inner focus-visible:ring-[#E8B84B]" required />
+                                    <Input id="pincode" name="pincode" className="bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 h-11 shadow-inner focus-visible:ring-[#E8B84B]" required />
                                 </div>
                                 <div className="space-y-1 col-span-1 lg:col-span-2">
                                     <Label htmlFor="course" className="text-xs uppercase tracking-wider text-[#E8B84B] font-black ml-1">Course Target *</Label>
-                                    <select id="course" defaultValue="" className="w-full h-11 rounded-md bg-[#E8B84B]/10 dark:bg-[#E8B84B]/5 border-0 ring-1 ring-[#E8B84B]/30 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8B84B] font-semibold text-gray-900 dark:text-white" required>
+                                    <select id="course" name="course" defaultValue="" className="w-full h-11 rounded-md bg-[#E8B84B]/10 dark:bg-[#E8B84B]/5 border-0 ring-1 ring-[#E8B84B]/30 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8B84B] font-semibold text-gray-900 dark:text-white" required>
                                         <option value="" disabled>Select Target Program</option>
                                         <option value="imu_cet">IMU-CET Coaching</option>
                                         <option value="sponsorship">Sponsorship Preparation</option>
@@ -196,10 +244,11 @@ export function ContactPage() {
                                 <Button
                                     type="submit"
                                     size="lg"
+                                    disabled={submitting}
                                     className="w-full md:w-auto rounded-full px-12 h-12 text-sm uppercase tracking-wider font-extrabold hover:scale-[1.02] transition-transform shadow-[0_0_20px_rgba(232,184,75,0.4)]"
                                     style={{ background: 'linear-gradient(135deg, #E8B84B 0%, #c9922a 100%)', color: '#1a1a1a' }}
                                 >
-                                    Submit Application
+                                    {submitting ? 'Submitting...' : 'Submit Application'}
                                 </Button>
                             </div>
                         </div>

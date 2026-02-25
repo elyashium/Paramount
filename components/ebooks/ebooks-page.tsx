@@ -51,11 +51,11 @@ const EBOOKS_DATA = [
 
 const CATEGORIES = ['All', 'PYQ', 'Syllabus', 'E-Books']
 
-export function EbooksPage() {
+export function EbooksPage({ initialEbooks = [] }: { initialEbooks?: any[] }) {
     const [searchQuery, setSearchQuery] = useState('')
     const [activeCategory, setActiveCategory] = useState('All')
 
-    const filteredEbooks = EBOOKS_DATA.filter((ebook) => {
+    const filteredEbooks = initialEbooks.filter((ebook) => {
         const matchesSearch = ebook.title.toLowerCase().includes(searchQuery.toLowerCase())
         const matchesCategory = activeCategory === 'All' || ebook.category === activeCategory
         return matchesSearch && matchesCategory
@@ -139,7 +139,7 @@ export function EbooksPage() {
                                     <div className="w-full mb-6">
                                         <CardItem translateZ="50" className="w-full h-48 sm:h-56 relative rounded-xl overflow-hidden mb-4 border border-black/5 dark:border-white/5">
                                             <Image
-                                                src={ebook.image}
+                                                src={ebook.cover_url || '/placeholder.png'}
                                                 alt={ebook.title}
                                                 fill
                                                 className="object-cover transition-transform duration-500 group-hover/card:scale-105"
@@ -157,10 +157,12 @@ export function EbooksPage() {
                                     <div className="flex justify-between items-center w-full mt-auto">
                                         <CardItem
                                             translateZ="30"
-                                            as="button"
-                                            className="w-full px-6 py-3 rounded-xl bg-[#0052cc] hover:bg-[#0047b3] dark:bg-[#0052cc] dark:hover:bg-[#0047b3] text-white text-sm font-bold shadow-lg transition-all active:scale-95"
+                                            as="a"
+                                            href={ebook.pdf_url || '#'}
+                                            target="_blank"
+                                            className="w-full text-center px-6 py-3 rounded-xl bg-[#0052cc] hover:bg-[#0047b3] dark:bg-[#0052cc] dark:hover:bg-[#0047b3] text-white text-sm font-bold shadow-lg transition-all active:scale-95"
                                         >
-                                            View Details
+                                            Download / Read
                                         </CardItem>
                                     </div>
                                 </CardBody>

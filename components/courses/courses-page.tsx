@@ -48,16 +48,16 @@ function ScrollReveal({ children, className = '' }: { children: React.ReactNode;
     )
 }
 
-export function CoursesPage() {
+export function CoursesPage({ initialCourses }: { initialCourses: any[] }) {
     const [activeCategory, setActiveCategory] = useState('All')
     const [searchQuery, setSearchQuery] = useState('')
     const [currentSlide, setCurrentSlide] = useState(0)
 
     // Filter logic
-    const filteredCourses = COURSES.filter(course => {
+    const filteredCourses = initialCourses.filter(course => {
         const matchesCategory = activeCategory === 'All' || course.category === activeCategory
         const matchesSearch = course.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            course.description.toLowerCase().includes(searchQuery.toLowerCase())
+            (course.description && course.description.toLowerCase().includes(searchQuery.toLowerCase()))
         return matchesCategory && matchesSearch
     })
 
@@ -86,8 +86,8 @@ export function CoursesPage() {
                         {/* Background Image with Dark Overlay */}
                         <div className="absolute inset-0 bg-black/60 z-10" />
                         <Image
-                            src={COURSES[currentSlide].image}
-                            alt={COURSES[currentSlide].title}
+                            src={initialCourses[currentSlide]?.image_url || '/placeholder.png'}
+                            alt={initialCourses[currentSlide]?.title || 'Course'}
                             fill
                             className="object-cover"
                             priority
@@ -116,7 +116,7 @@ export function CoursesPage() {
                                     transition={{ delay: 0.4 }}
                                     className="text-5xl md:text-7xl font-black tracking-tight text-white mb-4"
                                 >
-                                    {COURSES[currentSlide].title}
+                                    {initialCourses[currentSlide]?.title || 'Featured Course'}
                                 </motion.h1>
 
                                 <motion.p
@@ -125,7 +125,7 @@ export function CoursesPage() {
                                     transition={{ delay: 0.5 }}
                                     className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed"
                                 >
-                                    {COURSES[currentSlide].description}
+                                    {initialCourses[currentSlide]?.description || ''}
                                 </motion.p>
 
                                 <motion.div
@@ -134,15 +134,17 @@ export function CoursesPage() {
                                     transition={{ delay: 0.6 }}
                                     className="pt-8"
                                 >
-                                    <Link href={`/courses/${COURSES[currentSlide].id}`}>
-                                        <Button
-                                            size="lg"
-                                            className="rounded-full px-10 h-14 text-base font-bold transition-all hover:scale-105"
-                                            style={{ background: 'linear-gradient(135deg, #E8B84B 0%, #c9922a 100%)', color: '#1a1a1a' }}
-                                        >
-                                            View Course Details
-                                        </Button>
-                                    </Link>
+                                    {initialCourses[currentSlide]?.id && (
+                                        <Link href={`/courses/${initialCourses[currentSlide].id}`}>
+                                            <Button
+                                                size="lg"
+                                                className="rounded-full px-10 h-14 text-base font-bold transition-all hover:scale-105"
+                                                style={{ background: 'linear-gradient(135deg, #E8B84B 0%, #c9922a 100%)', color: '#1a1a1a' }}
+                                            >
+                                                View Course Details
+                                            </Button>
+                                        </Link>
+                                    )}
                                 </motion.div>
                             </div>
                         </div>
@@ -231,7 +233,7 @@ export function CoursesPage() {
                                                     <div className="relative h-56 w-full overflow-hidden rounded-xl">
                                                         <div className="absolute inset-0 bg-black/20 group-hover/card:bg-black/0 transition-all z-10" />
                                                         <Image
-                                                            src={course.image}
+                                                            src={course.image_url || '/placeholder.png'}
                                                             alt={course.title}
                                                             fill
                                                             className="object-cover transition-transform duration-700 group-hover/card:scale-110"
@@ -270,22 +272,23 @@ export function CoursesPage() {
                                                     {course.description}
                                                 </CardItem>
 
-                                                {/* Features */}
-                                                <CardItem translateZ="40" className="space-y-3 mb-6">
-                                                    {course.features.slice(0, 2).map((feature, idx) => (
-                                                        <div key={idx} className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
-                                                            <PlayCircle className="w-4 h-4 text-[#E8B84B]" />
-                                                            <span>{feature}</span>
-                                                        </div>
-                                                    ))}
-                                                </CardItem>
+                                                {course.features && course.features.length > 0 && (
+                                                    <CardItem translateZ="40" className="space-y-3 mb-6">
+                                                        {course.features.slice(0, 2).map((feature: string, idx: number) => (
+                                                            <div key={idx} className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+                                                                <PlayCircle className="w-4 h-4 text-[#E8B84B]" />
+                                                                <span>{feature}</span>
+                                                            </div>
+                                                        ))}
+                                                    </CardItem>
+                                                )}
                                             </div>
 
                                             {/* Footer */}
                                             <div className="flex items-center justify-between pt-6 border-t border-gray-100 dark:border-white/5 mt-auto">
                                                 <CardItem translateZ="30" className="flex flex-col">
                                                     <span className="text-xs text-gray-400 uppercase tracking-wider">Price</span>
-                                                    <span className="text-lg font-bold text-gray-900 dark:text-white">{course.price}</span>
+                                                    <span className="text-lg font-bold text-gray-900 dark:text-white">₹{course.price}</span>
                                                 </CardItem>
                                                 <CardItem translateZ="30">
                                                     <Button variant="ghost" className="text-[#E8B84B] hover:text-[#cfa23d] hover:bg-[#E8B84B]/10 p-0 h-auto font-semibold">
