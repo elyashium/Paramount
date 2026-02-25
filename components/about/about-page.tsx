@@ -162,8 +162,7 @@ const TEACHERS: CardType[] = [
             <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
                 <p>An expert in General Knowledge with 8 years of invaluable teaching experience.</p>
                 <p>Specializes in comprehensive Current Affairs and Maritime GK coverage, ensuring students are unfazed by even the most obscure exam questions.</p>
-                <p>A seasoned educator with 7 years of experience specializing in English and Communication Skills.</p>
-    //             <p>Focuses not just on exam grammar and comprehension, but on building the confident communication needed for a successful maritime career and interviews.</p>
+                <p>Focuses not just on exam grammar and comprehension, but on building the confident communication needed for a successful maritime career and interviews.</p>
             </div>
         ),
     },
@@ -204,8 +203,8 @@ const TEACHERS: CardType[] = [
     },
     {
         src: '/teacher7.png',
-        title: 'Hirdesh Vyas',
-        category: 'English | 5 Years Exp.',
+        title: 'Gautam Pandey',
+        category: 'Aptitude | 7 Years Exp.',
         content: (
             <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
                 <p>Dynamic English faculty with 5 years of experience helping students master vocabulary, syntax, and comprehension.</p>
@@ -221,8 +220,7 @@ const TEACHERS: CardType[] = [
             <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
                 <p>An expert in General Knowledge with 8 years of invaluable teaching experience.</p>
                 <p>Specializes in comprehensive Current Affairs and Maritime GK coverage, ensuring students are unfazed by even the most obscure exam questions.</p>
-                <p>A seasoned educator with 7 years of experience specializing in English and Communication Skills.</p>
-              <p>Focuses not just on exam grammar and comprehension, but on building the confident communication needed for a successful maritime career and interviews.</p>
+                
             </div>
         ),
     },
