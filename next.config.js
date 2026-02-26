@@ -38,6 +38,7 @@ const nextConfig = {
   },
   // Compress responses
   compress: true,
+  transpilePackages: ['@react-three/fiber', 'three', '@react-three/drei'],
 };
 
 module.exports = nextConfig;
