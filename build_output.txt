@@ -5,7 +5,7 @@
 Browserslist: caniuse-lite is outdated. Please run:
   npx update-browserslist-db@latest
   Why you should do it regularly: https://github.com/browserslist/update-db#readme
-✓ Compiled successfully in 6.7s
+✓ Compiled successfully in 6.2s
   Running TypeScript ...
   Collecting page data using 15 workers ...
   Generating static pages using 15 workers (0/20) ...
@@ -13,7 +13,7 @@ Browserslist: caniuse-lite is outdated. Please run:
   Generating static pages using 15 workers (5/20) 
   Generating static pages using 15 workers (10/20) 
   Generating static pages using 15 workers (15/20) 
-✓ Generating static pages using 15 workers (20/20) in 720.7ms
+✓ Generating static pages using 15 workers (20/20) in 910.8ms
   Finalizing page optimization ...
 
 Route (app)
