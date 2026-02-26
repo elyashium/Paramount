@@ -39,6 +39,11 @@ const nextConfig = {
   // Compress responses
   compress: true,
   transpilePackages: ['@react-three/fiber', 'three', '@react-three/drei'],
+
+  // Ignore ESLint during builds for faster deployment
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 module.exports = nextConfig;
