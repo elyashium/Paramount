@@ -115,8 +115,8 @@ export function FloatingDock() {
                 return (
                   <Link key={link.href} href={link.href}>
                     <Button
-                      variant={isActive ? 'secondary' : 'ghost'}
-                      size="sm"
+                      variant={(isActive ? 'secondary' : 'ghost') as any}
+                      size={"sm" as any}
                       className={cn(
                         'relative transition-all px-2 md:px-3 h-8 md:h-9',
                         isActive && 'bg-primary/10 text-primary hover:bg-primary/20'
@@ -134,8 +134,8 @@ export function FloatingDock() {
             <div className="flex items-center space-x-0.5 md:space-x-2 shrink-0">
               {/* Search */}
               <Button
-                variant="ghost"
-                size="icon"
+                variant={"ghost" as any}
+                size={"icon" as any}
                 onClick={toggleCommandPalette}
               >
                 <Search className="w-4 h-4" />
@@ -143,8 +143,8 @@ export function FloatingDock() {
 
               {/* Theme Toggle */}
               <Button
-                variant="ghost"
-                size="icon"
+                variant={"ghost" as any}
+                size={"icon" as any}
                 onClick={() => setTheme(isDark ? 'light' : 'dark')}
                 aria-label="Toggle theme"
               >
@@ -159,7 +159,7 @@ export function FloatingDock() {
               {user ? (
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" size="icon" className="rounded-full">
+                    <Button variant={"ghost" as any} size={"icon" as any} className="rounded-full">
                       <Avatar className="w-8 h-8">
                         <AvatarImage src={profile?.avatar_url || undefined} />
                         <AvatarFallback>
@@ -196,13 +196,6 @@ export function FloatingDock() {
                       </Link>
                     </DropdownMenuItem>
 
-                    {/* Purchases — only shown when signed in */}
-                    <DropdownMenuItem asChild>
-                      <Link href="/purchases" className="cursor-pointer">
-                        <ShoppingBag className="w-4 h-4 mr-2" />
-                        My Purchases
-                      </Link>
-                    </DropdownMenuItem>
 
                     {/* Admin */}
                     {profile?.role === 'admin' && (
@@ -223,7 +216,7 @@ export function FloatingDock() {
                 </DropdownMenu>
               ) : (
                 <Link href="/auth/login">
-                  <Button size="sm">Sign In</Button>
+                  <Button size={"sm" as any}>Sign In</Button>
                 </Link>
               )}
             </div>

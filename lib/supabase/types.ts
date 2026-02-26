@@ -45,76 +45,76 @@ export interface Database {
         Row: {
           id: string
           title: string
-          description: string | null
+          description: string
           price: number
-          thumbnail_url: string | null
+          discount_base_price: number | null
+          instructor: string | null
+          image_url: string | null
           category: string | null
-          is_published: boolean
-          created_by: string | null
+          features: string[] | null
           created_at: string
-          updated_at: string
         }
         Insert: {
           id?: string
           title: string
-          description?: string | null
-          price?: number
-          thumbnail_url?: string | null
+          description: string
+          price: number
+          discount_base_price?: number | null
+          instructor?: string | null
+          image_url?: string | null
           category?: string | null
-          is_published?: boolean
-          created_by?: string | null
+          features?: string[] | null
           created_at?: string
-          updated_at?: string
         }
         Update: {
           id?: string
           title?: string
-          description?: string | null
+          description?: string
           price?: number
-          thumbnail_url?: string | null
+          discount_base_price?: number | null
+          instructor?: string | null
+          image_url?: string | null
           category?: string | null
-          is_published?: boolean
-          created_by?: string | null
+          features?: string[] | null
           created_at?: string
-          updated_at?: string
         }
       }
-      materials: {
+      ebooks: {
         Row: {
           id: string
-          type: 'ebook' | 'paper' | 'syllabus' | 'current_affairs'
           title: string
-          description: string | null
-          file_url: string | null
+          description: string
+          price: number
+          pdf_url: string | null
+          cover_url: string | null
           category: string | null
-          is_published: boolean
-          created_by: string | null
+          author: string | null
+          pages: number | null
           created_at: string
-          updated_at: string
         }
         Insert: {
           id?: string
-          type: 'ebook' | 'paper' | 'syllabus' | 'current_affairs'
           title: string
-          description?: string | null
-          file_url?: string | null
+          description: string
+          price: number
+          pdf_url?: string | null
+          cover_url?: string | null
           category?: string | null
-          is_published?: boolean
-          created_by?: string | null
+          author?: string | null
+          pages?: number | null
           created_at?: string
-          updated_at?: string
         }
         Update: {
           id?: string
-          type?: 'ebook' | 'paper' | 'syllabus' | 'current_affairs'
           title?: string
-          description?: string | null
-          file_url?: string | null
+          description?: string
+          price?: number
+          pdf_url?: string | null
+          cover_url?: string | null
           category?: string | null
-          is_published?: boolean
-          created_by?: string | null
+          author?: string | null
+          pages?: number | null
           created_at?: string
-          updated_at?: string
         }
       }
       tests: {
@@ -248,7 +248,7 @@ export interface Database {
 
 export type Profile = Database['public']['Tables']['profiles']['Row']
 export type Course = Database['public']['Tables']['courses']['Row']
-export type Material = Database['public']['Tables']['materials']['Row']
+export type Ebook = Database['public']['Tables']['ebooks']['Row']
 export type Test = Database['public']['Tables']['tests']['Row']
 export type Question = Database['public']['Tables']['questions']['Row']
 export type QuizResult = Database['public']['Tables']['quiz_results']['Row']
