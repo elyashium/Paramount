@@ -34,7 +34,7 @@ const EASE = [0.22, 1, 0.36, 1] as const
 // Outer shell: pure auth guard — no hooks here
 export function SiteFooter() {
     const pathname = usePathname()
-    if (pathname?.startsWith('/auth')) return null
+    if (pathname?.startsWith('/auth') || pathname?.startsWith('/admin')) return null
     return <SiteFooterInner />
 }
 
