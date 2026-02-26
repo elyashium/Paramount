@@ -137,9 +137,9 @@ export function EbooksPage({ initialEbooks = [] }: { initialEbooks?: any[] }) {
                                 <CardBody className="bg-white dark:bg-neutral-900 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] border-black/[0.1] dark:border-white/[0.2] border w-full rounded-2xl p-6 h-full transition-all flex flex-col justify-between hover:border-[#E8B84B]/50">
 
                                     <div className="w-full mb-6">
-                                        <CardItem translateZ="50" className="w-full h-48 sm:h-56 relative rounded-xl overflow-hidden mb-4 border border-black/5 dark:border-white/5">
+                                        <CardItem translateZ="50" className="w-full h-48 sm:h-56 relative rounded-xl overflow-hidden mb-4 border border-black/5 dark:border-white/5 bg-gray-100 dark:bg-neutral-800">
                                             <Image
-                                                src={ebook.cover_url || '/placeholder.png'}
+                                                src={ebook.cover_url || ebook.image_url || '/placeholder.png'}
                                                 alt={ebook.title}
                                                 fill
                                                 className="object-cover transition-transform duration-500 group-hover/card:scale-105"

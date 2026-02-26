@@ -35,9 +35,9 @@ export default async function AdminLayout({
     }
 
     return (
-        <div className="flex h-screen overflow-hidden bg-[#0a0a0a] text-white">
+        <div className="flex h-screen overflow-hidden bg-[#f7f7f5] dark:bg-[#0a0a0a] text-gray-900 dark:text-white transition-colors duration-300">
             {/* Sidebar - Not Fixed */}
-            <aside className="w-64 border-r border-white/10 bg-black/40 backdrop-blur-2xl px-4 py-8 flex flex-col hidden md:flex h-full">
+            <aside className="w-64 border-r border-gray-200 dark:border-white/10 bg-white/40 dark:bg-black/40 backdrop-blur-2xl px-4 py-8 flex flex-col hidden md:flex h-full">
                 <div className="px-4 mb-10">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8B84B]/10 border border-[#E8B84B]/20 text-[10px] uppercase tracking-widest font-bold text-[#E8B84B]">
                         Admin Console
@@ -54,21 +54,21 @@ export default async function AdminLayout({
                         <Link
                             key={item.href}
                             href={item.href}
-                            className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all group hover:bg-white/5"
+                            className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all group hover:bg-black/5 dark:hover:bg-white/5"
                         >
-                            <item.icon className="w-4 h-4 text-gray-400 group-hover:text-[#E8B84B] transition-colors" />
-                            <span className="text-gray-400 group-hover:text-white transition-colors">{item.label}</span>
+                            <item.icon className="w-4 h-4 text-gray-500 dark:text-gray-400 group-hover:text-[#E8B84B] transition-colors" />
+                            <span className="text-gray-600 dark:text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors">{item.label}</span>
                         </Link>
                     ))}
                 </nav>
 
-                <div className="mt-8 px-2 pt-4 border-t border-white/5 shrink-0">
-                    <div className="p-3 rounded-2xl bg-white/5 border border-white/5 flex items-center gap-3">
+                <div className="mt-8 px-2 pt-4 border-t border-gray-200 dark:border-white/5 shrink-0">
+                    <div className="p-3 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 flex items-center gap-3">
                         <div className="w-8 h-8 rounded-full bg-[#E8B84B]/20 flex items-center justify-center border border-[#E8B84B]/30">
                             <span className="text-[#E8B84B] text-xs font-bold">A</span>
                         </div>
                         <div className="flex-1 min-w-0">
-                            <p className="text-xs font-bold truncate">Administrator</p>
+                            <p className="text-xs font-bold truncate text-gray-900 dark:text-white">Administrator</p>
                         </div>
                     </div>
                 </div>

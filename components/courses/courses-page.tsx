@@ -249,11 +249,11 @@ export function CoursesPage({ initialCourses }: { initialCourses: any[] }) {
                                                 <div className="flex items-center justify-between mt-6 mb-3">
                                                     <CardItem translateZ="40" className="flex items-center gap-1.5 text-[#E8B84B]">
                                                         <Star className="w-4 h-4 fill-current" />
-                                                        <span className="text-sm font-bold text-gray-900 dark:text-white">{course.rating}</span>
+                                                        <span className="text-sm font-bold text-gray-900 dark:text-white">{course.rating || '4.8'}</span>
                                                     </CardItem>
                                                     <CardItem translateZ="40" className="flex items-center gap-1.5 text-gray-400">
                                                         <Users className="w-3.5 h-3.5" />
-                                                        <span className="text-xs">{course.students.toLocaleString()} Students</span>
+                                                        <span className="text-xs">{(course.students || 0).toLocaleString()} Students</span>
                                                     </CardItem>
                                                 </div>
 

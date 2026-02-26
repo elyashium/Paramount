@@ -17,9 +17,8 @@ const nextConfig = {
         hostname: 'plus.unsplash.com',
       },
       {
-        // Supabase Storage — replace with your project ref if it changes
         protocol: 'https',
-        hostname: 'ivfkurnxigxskunoezff.supabase.co',
+        hostname: '*.supabase.co',
         pathname: '/storage/v1/object/public/**',
       },
     ],

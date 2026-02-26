@@ -57,6 +57,9 @@ export function FloatingDock() {
   // Hide on auth pages
   if (pathname?.startsWith('/auth')) return null
 
+  // Hide on admin panel pages
+  if (pathname?.startsWith('/admin')) return null
+
   return (
     <>
       {/* SVG Filter for Glassmorphism displacement */}

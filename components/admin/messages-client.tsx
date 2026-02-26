@@ -32,36 +32,36 @@ export function MessagesClient({ initialMessages }: { initialMessages: Message[]
         <div className="space-y-8 relative">
             <header className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-3xl font-black text-white tracking-tight">Inquiries</h1>
-                    <p className="text-gray-500 text-sm mt-1">Review and manage student applications and contact submissions.</p>
+                    <h1 className="text-3xl font-black text-gray-900 dark:text-white tracking-tight">Inquiries</h1>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">Review and manage student applications and contact submissions.</p>
                 </div>
 
                 <div className="flex items-center gap-3">
                     <div className="relative">
-                        <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
+                        <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                         <input
                             type="text"
                             placeholder="Search messages..."
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            className="pl-9 pr-4 py-2 bg-white/5 border border-white/10 rounded-xl text-sm focus:ring-1 focus:ring-[#E8B84B] focus:outline-none w-64 text-white"
+                            className="pl-9 pr-4 py-2 bg-white dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl text-sm focus:ring-1 focus:ring-[#E8B84B] focus:outline-none w-64 text-gray-900 dark:text-white shadow-sm dark:shadow-none placeholder:text-gray-400 dark:placeholder:text-gray-500"
                         />
                     </div>
                 </div>
             </header>
 
-            <div className="bg-white/5 border border-white/10 rounded-[2rem] overflow-hidden backdrop-blur-md">
+            <div className="bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 rounded-[2rem] overflow-hidden shadow-sm dark:shadow-none backdrop-blur-md">
                 <div className="overflow-x-auto">
                     <table className="w-full text-left border-collapse">
                         <thead>
-                            <tr className="border-b border-white/10 text-xs font-bold text-gray-400 uppercase tracking-widest bg-white/[0.02]">
+                            <tr className="border-b border-black/5 dark:border-white/10 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest bg-gray-50 dark:bg-white/[0.02]">
                                 <th className="px-8 py-5">Sender</th>
                                 <th className="px-6 py-5">Topic / Program</th>
                                 <th className="px-6 py-5">Date Received</th>
                                 <th className="px-8 py-5 text-right">Action</th>
                             </tr>
                         </thead>
-                        <tbody className="divide-y divide-white/5">
+                        <tbody className="divide-y divide-black/5 dark:divide-white/5">
                             {filteredMessages.length === 0 ? (
                                 <tr>
                                     <td colSpan={4} className="px-8 py-20 text-center">
@@ -75,22 +75,22 @@ export function MessagesClient({ initialMessages }: { initialMessages: Message[]
                                 filteredMessages.map(msg => (
                                     <tr
                                         key={msg.id}
-                                        className="group hover:bg-white/[0.03] transition-colors cursor-pointer"
+                                        className="group hover:bg-black/5 dark:hover:bg-white/[0.03] transition-colors cursor-pointer"
                                         onClick={() => setSelectedMessage(msg)}
                                     >
                                         <td className="px-8 py-6">
                                             <div className="flex items-center gap-4">
-                                                <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-[#E8B84B]/30 transition-colors">
+                                                <div className="w-10 h-10 rounded-full bg-gray-100 dark:bg-white/5 border border-black/5 dark:border-white/10 flex items-center justify-center group-hover:border-[#E8B84B]/30 transition-colors">
                                                     <User className="w-4 h-4 text-gray-400" />
                                                 </div>
                                                 <div>
-                                                    <div className="text-sm font-bold text-white group-hover:text-[#E8B84B] transition-colors">{msg.name}</div>
+                                                    <div className="text-sm font-bold text-gray-900 dark:text-white group-hover:text-[#E8B84B] transition-colors">{msg.name}</div>
                                                     <div className="text-[11px] text-gray-500 mt-0.5">{msg.email}</div>
                                                 </div>
                                             </div>
                                         </td>
                                         <td className="px-6 py-6">
-                                            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-400">
+                                            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gray-100 dark:bg-white/5 border border-black/5 dark:border-white/10 text-[10px] font-bold text-gray-500 dark:text-gray-400">
                                                 <div className="w-1.5 h-1.5 rounded-full bg-[#E8B84B]" />
                                                 {msg.subject || 'General Inquiry'}
                                             </div>
@@ -113,13 +113,13 @@ export function MessagesClient({ initialMessages }: { initialMessages: Message[]
 
             {/* Modal for full message details */}
             {selectedMessage && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-                    <div className="bg-[#0a0a0a] border border-white/10 rounded-3xl w-full max-w-2xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
-                        <div className="flex items-center justify-between p-6 border-b border-white/10 bg-white/5">
-                            <h2 className="text-lg font-bold text-white">Inquiry Details</h2>
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-gray-900/60 dark:bg-black/80 backdrop-blur-sm">
+                    <div className="bg-white dark:bg-[#0a0a0a] border border-black/10 dark:border-white/10 rounded-3xl w-full max-w-2xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
+                        <div className="flex items-center justify-between p-6 border-b border-black/10 dark:border-white/10 bg-gray-50 dark:bg-white/5">
+                            <h2 className="text-lg font-bold text-gray-900 dark:text-white">Inquiry Details</h2>
                             <button
                                 onClick={() => setSelectedMessage(null)}
-                                className="p-2 rounded-full hover:bg-white/10 transition-colors text-gray-400 hover:text-white"
+                                className="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
                             >
                                 <X className="w-5 h-5" />
                             </button>
@@ -129,38 +129,38 @@ export function MessagesClient({ initialMessages }: { initialMessages: Message[]
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
                                     <h3 className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1.5">Sender</h3>
-                                    <p className="text-sm font-medium text-white">{selectedMessage.name}</p>
+                                    <p className="text-sm font-medium text-gray-900 dark:text-white">{selectedMessage.name}</p>
                                 </div>
                                 <div>
                                     <h3 className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1.5">Date</h3>
-                                    <p className="text-sm font-medium text-white">{new Date(selectedMessage.created_at).toLocaleString()}</p>
+                                    <p className="text-sm font-medium text-gray-900 dark:text-white">{new Date(selectedMessage.created_at).toLocaleString()}</p>
                                 </div>
                                 <div>
                                     <h3 className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1.5">Email Contact</h3>
-                                    <p className="text-sm font-medium text-white">{selectedMessage.email}</p>
+                                    <p className="text-sm font-medium text-gray-900 dark:text-white">{selectedMessage.email}</p>
                                 </div>
                                 <div>
                                     <h3 className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1.5">Phone Number</h3>
-                                    <p className="text-sm font-medium text-white">{selectedMessage.phone || 'Not provided'}</p>
+                                    <p className="text-sm font-medium text-gray-900 dark:text-white">{selectedMessage.phone || 'Not provided'}</p>
                                 </div>
                             </div>
 
-                            <div className="pt-6 border-t border-white/10">
+                            <div className="pt-6 border-t border-black/10 dark:border-white/10 mt-6">
                                 <h3 className="text-[10px] font-bold text-[#E8B84B] uppercase tracking-widest mb-1.5">Topic / Program</h3>
-                                <p className="text-sm font-bold text-white mb-6 bg-[#E8B84B]/10 inline-block px-3 py-1 rounded-lg border border-[#E8B84B]/20">
+                                <p className="text-sm font-bold text-gray-900 dark:text-white mb-6 bg-[#E8B84B]/10 inline-block px-3 py-1 rounded-lg border border-[#E8B84B]/20">
                                     {selectedMessage.subject || 'General Inquiry'}
                                 </p>
 
                                 <h3 className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Message Body</h3>
-                                <div className="bg-white/5 border border-white/10 rounded-2xl p-5">
-                                    <p className="text-sm text-gray-300 leading-relaxed whitespace-pre-wrap">
+                                <div className="bg-gray-50 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-2xl p-5">
+                                    <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-wrap">
                                         {selectedMessage.message}
                                     </p>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="p-6 border-t border-white/10 bg-white/[0.02] flex justify-end gap-3">
+                        <div className="p-6 border-t border-black/10 dark:border-white/10 bg-gray-50 dark:bg-white/[0.02] flex justify-end gap-3 shrink-0">
                             <a
                                 href={`mailto:${selectedMessage.email}`}
                                 className="px-4 py-2 rounded-xl text-sm font-bold bg-[#E8B84B] text-black hover:bg-[#F3D37A] transition-colors"
@@ -169,7 +169,7 @@ export function MessagesClient({ initialMessages }: { initialMessages: Message[]
                             </a>
                             <button
                                 onClick={() => setSelectedMessage(null)}
-                                className="px-4 py-2 rounded-xl text-sm font-bold bg-white/10 text-white hover:bg-white/20 transition-colors"
+                                className="px-4 py-2 rounded-xl text-sm font-bold bg-gray-200 dark:bg-white/10 text-gray-900 dark:text-white hover:bg-gray-300 dark:hover:bg-white/20 transition-colors"
                             >
                                 Close
                             </button>
