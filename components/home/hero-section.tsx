@@ -33,7 +33,13 @@ import {
 } from 'lucide-react'
 import Link from 'next/link'
 import { useUIStore } from '@/lib/store/ui-store'
-import { Globe3D, GlobeMarker } from '@/components/ui/globe-3d'
+import dynamic from 'next/dynamic'
+import type { GlobeMarker } from '@/components/ui/globe-3d'
+
+const Globe3DClient = dynamic(
+  () => import('@/components/ui/globe-3d').then((m) => m.Globe3D),
+  { ssr: false, loading: () => <div className="h-full w-full" /> }
+)
 
 // ─── Animation Variants ────────────────────────────────────────────────────
 const EASE = [0.22, 1, 0.36, 1] as const
@@ -416,7 +422,7 @@ export function HeroSection() {
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <div className="w-[400px] h-[400px] rounded-full bg-[#E8B84B]/8 blur-[80px]" />
             </div>
-            <Globe3D
+            <Globe3DClient
               markers={globeMarkers}
               className="h-full w-full"
               config={{ radius: 2, autoRotateSpeed: 0.35, showAtmosphere: false, enableZoom: false, enablePan: false, ambientIntensity: 0.7, pointLightIntensity: 1.4, backgroundColor: null }}

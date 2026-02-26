@@ -1,0 +1,46 @@
+▲ Next.js 16.1.6 (Turbopack)
+- Environments: .env
+
+  Creating an optimized production build ...
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+✓ Compiled successfully in 6.7s
+  Running TypeScript ...
+  Collecting page data using 15 workers ...
+  Generating static pages using 15 workers (0/20) ...
+⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+  Generating static pages using 15 workers (5/20) 
+  Generating static pages using 15 workers (10/20) 
+  Generating static pages using 15 workers (15/20) 
+✓ Generating static pages using 15 workers (20/20) in 720.7ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /about
+├ ƒ /admin
+├ ƒ /admin/courses
+├ ƒ /admin/courses/[id]
+├ ƒ /admin/courses/new
+├ ƒ /admin/ebooks
+├ ƒ /admin/ebooks/[id]
+├ ƒ /admin/ebooks/new
+├ ƒ /admin/messages
+├ ƒ /api/revalidate
+├ ƒ /auth/callback
+├ ○ /auth/login
+├ ○ /auth/signup
+├ ○ /contact
+├ ƒ /courses
+├ ƒ /courses/[id]
+├ ƒ /ebooks
+├ ○ /profile
+├ ○ /purchases
+└ ○ /test-series
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

@@ -7,7 +7,12 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Badge } from '@/components/ui/badge'
-import { Globe3D } from '@/components/ui/globe-3d'
+import dynamic from 'next/dynamic'
+
+const Globe3DClient = dynamic(
+    () => import('@/components/ui/globe-3d').then((m) => m.Globe3D),
+    { ssr: false, loading: () => <div className="h-full w-full" /> }
+)
 import { cn } from '@/lib/utils'
 import { createClient } from '@/lib/supabase/client'
 import { toast } from 'sonner'
@@ -330,7 +335,7 @@ export function ContactPage() {
                             <div className="w-[300px] h-[300px] rounded-full bg-[#E8B84B]/10 blur-[60px]" />
                         </div>
                         <div className="absolute inset-0 z-10 scale-[1.1]">
-                            <Globe3D
+                            <Globe3DClient
                                 markers={globeMarkers}
                                 className="h-full w-full"
                                 config={{ radius: 2.2, autoRotateSpeed: 0.4, showAtmosphere: false, enableZoom: false, enablePan: false, ambientIntensity: 0.8, pointLightIntensity: 1.5, backgroundColor: null }}

@@ -1,0 +1,26 @@
+▲ Next.js 16.1.6 (Turbopack)
+- Environments: .env
+
+  Creating an optimized production build ...
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+✓ Compiled successfully in 6.8s
+  Running TypeScript ...
+  Collecting page data using 15 workers ...
+  Generating static pages using 15 workers (0/20) ...
+⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+  Generating static pages using 15 workers (5/20) 
+Error occurred prerendering page "/about". Read more: https://nextjs.org/docs/messages/prerender-error
+TypeError: Cannot read properties of undefined (reading 'ReactCurrentBatchConfig')
+    at instantiateModule (C:\Users\techn\Downloads\project-bolt-sb1-luvgvvmw\project\.next\server\chunks\ssr\[turbopack]_runtime.js:740:9)
+    at getOrInstantiateModuleFromParent (C:\Users\techn\Downloads\project-bolt-sb1-luvgvvmw\project\.next\server\chunks\ssr\[turbopack]_runtime.js:763:12)
+    at Context.esmImport [as i] (C:\Users\techn\Downloads\project-bolt-sb1-luvgvvmw\project\.next\server\chunks\ssr\[turbopack]_runtime.js:228:20)
+    at module evaluation (C:\Users\techn\Downloads\project-bolt-sb1-luvgvvmw\project\.next\server\chunks\ssr\_9f1be561._.js:9:5917)
+    at instantiateModule (C:\Users\techn\Downloads\project-bolt-sb1-luvgvvmw\project\.next\server\chunks\ssr\[turbopack]_runtime.js:740:9)
+    at getOrInstantiateModuleFromParent (C:\Users\techn\Downloads\project-bolt-sb1-luvgvvmw\project\.next\server\chunks\ssr\[turbopack]_runtime.js:763:12)
+    at Context.esmImport [as i] (C:\Users\techn\Downloads\project-bolt-sb1-luvgvvmw\project\.next\server\chunks\ssr\[turbopack]_runtime.js:228:20) {
+  digest: '3177268453'
+}
+Export encountered an error on /about/page: /about, exiting the build.
+⨯ Next.js build worker exited with code: 1 and signal: null

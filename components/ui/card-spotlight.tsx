@@ -2,8 +2,17 @@
 
 import { useMotionValue, motion, useMotionTemplate } from "framer-motion";
 import React, { MouseEvent as ReactMouseEvent, useState } from "react";
-import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
+import dynamic from "next/dynamic";
 import { cn } from "@/lib/utils";
+
+// Dynamically import with ssr:false so @react-three/fiber never runs on the server
+const CanvasRevealEffect = dynamic(
+    () =>
+        import("@/components/ui/canvas-reveal-effect").then(
+            (m) => m.CanvasRevealEffect
+        ),
+    { ssr: false }
+);
 
 export const CardSpotlight = ({
     children,
