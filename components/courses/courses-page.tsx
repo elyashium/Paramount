@@ -119,14 +119,6 @@ export function CoursesPage({ initialCourses }: { initialCourses: any[] }) {
                                     {initialCourses[currentSlide]?.title || 'Featured Course'}
                                 </motion.h1>
 
-                                <motion.p
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.5 }}
-                                    className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed"
-                                >
-                                    {initialCourses[currentSlide]?.description || ''}
-                                </motion.p>
 
                                 <motion.div
                                     initial={{ opacity: 0, y: 20 }}
@@ -245,17 +237,6 @@ export function CoursesPage({ initialCourses }: { initialCourses: any[] }) {
                                                     </div>
                                                 </CardItem>
 
-                                                {/* Stats */}
-                                                <div className="flex items-center justify-between mt-6 mb-3">
-                                                    <CardItem translateZ="40" className="flex items-center gap-1.5 text-[#E8B84B]">
-                                                        <Star className="w-4 h-4 fill-current" />
-                                                        <span className="text-sm font-bold text-gray-900 dark:text-white">{course.rating || '4.8'}</span>
-                                                    </CardItem>
-                                                    <CardItem translateZ="40" className="flex items-center gap-1.5 text-gray-400">
-                                                        <Users className="w-3.5 h-3.5" />
-                                                        <span className="text-xs">{(course.students || 0).toLocaleString()} Students</span>
-                                                    </CardItem>
-                                                </div>
 
                                                 {/* Title & Desc */}
                                                 <CardItem
@@ -263,13 +244,6 @@ export function CoursesPage({ initialCourses }: { initialCourses: any[] }) {
                                                     className="text-xl font-bold text-gray-900 dark:text-white mb-2 line-clamp-1 group-hover/card:text-[#E8B84B] transition-colors"
                                                 >
                                                     {course.title}
-                                                </CardItem>
-                                                <CardItem
-                                                    as="p"
-                                                    translateZ="60"
-                                                    className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-6 line-clamp-2"
-                                                >
-                                                    {course.description}
                                                 </CardItem>
 
                                                 {course.features && course.features.length > 0 && (

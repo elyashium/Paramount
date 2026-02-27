@@ -56,12 +56,9 @@ export function CourseDetail({ course }: CourseDetailProps) {
                             <span className="text-sm font-bold">Best Seller</span>
                         </div>
                     </div>
-                    <h1 className="text-4xl md:text-6xl font-black text-white leading-tight max-w-4xl mb-6">
+                    <h1 className="text-4xl md:text-6xl font-black text-white leading-tight max-w-4xl">
                         {course?.title}
                     </h1>
-                    <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl">
-                        {course?.description}
-                    </p>
                 </div>
             </div>
 
@@ -80,16 +77,25 @@ export function CourseDetail({ course }: CourseDetailProps) {
                         </div>
 
                         {/* Description / Features */}
-                        <div className="space-y-6">
-                            <h2 className="text-2xl font-bold dark:text-white">What you&apos;ll learn</h2>
-                            <div className="grid sm:grid-cols-2 gap-4">
-                                {(course?.features || []).map((feature, idx) => (
-                                    <div key={idx} className="flex items-start gap-3 bg-white dark:bg-white/5 p-4 rounded-xl border border-gray-100 dark:border-white/10 hover:border-[#E8B84B]/50 transition-colors shadow-sm">
-                                        <CheckCircle2 className="w-5 h-5 text-[#E8B84B] mt-0.5 shrink-0" />
-                                        <span className="text-gray-700 dark:text-gray-300 text-sm md:text-base font-medium leading-relaxed">{feature}</span>
-                                    </div>
-                                ))}
+                        <div className="space-y-8">
+                            <div className="prose prose-lg dark:prose-invert max-w-none">
+                                <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+                                    {course?.description}
+                                </p>
                             </div>
+
+                            <div className="space-y-6">
+                                <h2 className="text-2xl font-bold dark:text-white">What you&apos;ll learn</h2>
+                                <div className="grid sm:grid-cols-2 gap-4">
+                                    {(course?.features || []).map((feature, idx) => (
+                                        <div key={idx} className="flex items-start gap-3 bg-white dark:bg-white/5 p-4 rounded-xl border border-gray-100 dark:border-white/10 hover:border-[#E8B84B]/50 transition-colors shadow-sm">
+                                            <CheckCircle2 className="w-5 h-5 text-[#E8B84B] mt-0.5 shrink-0" />
+                                            <span className="text-gray-700 dark:text-gray-300 text-sm md:text-base font-medium leading-relaxed">{feature}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
                         </div>
 
                     </div>
