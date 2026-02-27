@@ -174,22 +174,22 @@ const TEACHERS: CardType[] = [
             <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
                 <p>Veteran Mathematics mentor bringing an impressive 12 years of teaching expertise to the team.</p>
                 <p>Masterfully simplifies calculus, algebra, and geometry, establishing strong foundational skills that translate directly into top rankings.</p>
-                
+
             </div>
         ),
     },
-    // {
-    //     src: '/teacher5.png',
-    //     title: 'Prashant Nagarch',
-    //     category: 'Communication Skills | 7 Years Exp.',
-    //     className: 'object-[15%_top] scale-[1.15] translate-x-2',
-    //     content: (
-    //         <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
-    //             <p>A seasoned educator with 7 years of experience specializing in English and Communication Skills.</p>
-    //             <p>Focuses not just on exam grammar and comprehension, but on building the confident communication needed for a successful maritime career and interviews.</p>
-    //         </div>
-    //     ),
-    // },
+    {
+        src: '/teacher5.jpeg',
+        title: 'Hirdesh Vyas',
+        category: 'English | 7 Years Exp.',
+        className: 'object-top scale-[1.15] translate-x-6',
+        content: (
+            <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
+                <p>A seasoned educator with 7 years of experience specializing in English and Communication Skills.</p>
+                <p>Focuses not just on exam grammar and comprehension, but on building the confident communication needed for a successful maritime career and interviews.</p>
+            </div>
+        ),
+    },
     {
         src: '/teacher6.png',
         title: 'Faizan Mansuri',
@@ -220,7 +220,18 @@ const TEACHERS: CardType[] = [
             <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
                 <p>An expert in General Knowledge with 8 years of invaluable teaching experience.</p>
                 <p>Specializes in comprehensive Current Affairs and Maritime GK coverage, ensuring students are unfazed by even the most obscure exam questions.</p>
-                
+
+            </div>
+        ),
+    },
+    {
+        src: '/chemistryTeacher.jpeg',
+        title: 'Amar Jyoti Nirala',
+        category: 'Chemistry | 7 Years Exp.',
+        content: (
+            <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
+                <p>Expert Chemistry faculty with 7 years of experience in simplifying complex chemical reactions and periodic table concepts.</p>
+                <p>His methodical approach to organic and inorganic chemistry ensures students master the subject with ease and score high in IMU-CET.</p>
             </div>
         ),
     },

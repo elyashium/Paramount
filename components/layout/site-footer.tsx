@@ -26,7 +26,6 @@ const COURSE_LINKS = [
     { href: '/courses', label: 'DNS Programme' },
     { href: '/courses', label: 'Marine Engineering' },
     { href: '/courses', label: 'GP Rating' },
-    { href: '/courses', label: 'ETO Course' },
 ]
 
 const EASE = [0.22, 1, 0.36, 1] as const

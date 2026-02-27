@@ -35,6 +35,7 @@ import Link from 'next/link'
 import { useUIStore } from '@/lib/store/ui-store'
 import dynamic from 'next/dynamic'
 import type { GlobeMarker } from '@/components/ui/globe-3d'
+import { LogoCarousel } from './logo-carousel'
 
 const Globe3DClient = dynamic(
   () => import('@/components/ui/globe-3d').then((m) => m.Globe3D),
@@ -149,7 +150,7 @@ const TESTIMONIALS = [
 
 const MARQUEE_ITEMS = [
   '⚓ IMU-CET Specialists', '🚢 DNS & Marine Engineering', '✦ 50,000+ Students',
-  '✦ 95% Success Rate', '⚓ GP Rating & ETO Prep', '🧭 Live & Recorded Classes',
+  '✦ 95% Success Rate', '⚓ GP Rating Prep', '🧭 Live & Recorded Classes',
   '✦ Toppers Every Year', '🌊 Full Mock Test Series',
 ]
 
@@ -157,9 +158,9 @@ const COURSE_HIGHLIGHTS = [
   { icon: Ship, label: 'DNS (Deck)', desc: 'Diploma in Nautical Science entry-level prep' },
   { icon: Anchor, label: 'Marine Engineering', desc: 'B.E. Marine Engineering entrance coaching' },
   { icon: Waves, label: 'GP Rating', desc: 'General Purpose Rating fast-track program' },
-  { icon: GraduationCap, label: 'ETO', desc: 'Electro-Technical Officer specialisation' },
+  { icon: GraduationCap, label: 'IMU-CET', desc: 'Common Entrance Test specialization' },
   { icon: Target, label: 'Sponsorship', desc: 'Company-sponsored cadetship preparation' },
-  { icon: Compass, label: 'Navigation Pro', desc: 'Advanced Chart Work & Celestial Navigation' },
+  { icon: Compass, label: 'Personal Guidance', desc: 'One-on-one mentorship for success' },
 ]
 
 export function HeroSection() {
@@ -305,6 +306,8 @@ export function HeroSection() {
           ))}
         </motion.div>
       </div>
+
+      <LogoCarousel />
 
       {/* ── WHY PARAMOUNT — CardSpotlight ─────────────────────────────────────── */}
       <section className="py-20 sm:py-24 px-4 bg-black" aria-labelledby="why-heading">
