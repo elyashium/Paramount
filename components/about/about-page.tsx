@@ -517,13 +517,13 @@ export function AboutPage() {
                                 <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
                             </Button>
                         </Link>
-                        <Link href="/test-series">
+                        <Link href="/blogs">
                             <Button
                                 size="lg"
                                 variant="outline"
                                 className="text-base px-10 py-6 rounded-full font-bold border-2 border-[#E8B84B]/60 hover:border-[#E8B84B] hover:bg-[#E8B84B]/5"
                             >
-                                Free Test Series
+                                Explore Blogs
                             </Button>
                         </Link>
                     </motion.div>

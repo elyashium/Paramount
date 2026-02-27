@@ -18,7 +18,7 @@ const QUICK_LINKS = [
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
     { href: '/courses', label: 'Courses' },
-    { href: '/test-series', label: 'Test Series' },
+    { href: '/blogs', label: 'Blogs' },
 ]
 
 const COURSE_LINKS = [

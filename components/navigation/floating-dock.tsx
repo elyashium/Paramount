@@ -37,7 +37,7 @@ const navLinks = [
   { href: '/', label: 'Home', icon: Home },
   { href: '/about', label: 'About Us', icon: Info },
   { href: '/courses', label: 'Courses', icon: BookOpen },
-  { href: '/test-series', label: 'Test Series', icon: FileText },
+  { href: '/blogs', label: 'Blogs', icon: FileText },
   { href: '/ebooks', label: 'E-Books', icon: BookOpen },
   { href: '/contact', label: 'Contact Us', icon: Phone },
 ]
@@ -111,7 +111,7 @@ export function FloatingDock() {
             </Link>
 
             {/* ── RESPONSIVE MENU (Show Labels on Desktop, Icons on Mobile) ── */}
-            <div className="flex items-center md:space-x-1 gap-0.5 overflow-x-auto no-scrollbar mask-gradient px-1">
+            <div className="flex items-center md:space-x-1 gap-0.5 overflow-x-auto no-scrollbar px-1">
               {navLinks.map((link) => {
                 const Icon = link.icon
                 const isActive = pathname === link.href

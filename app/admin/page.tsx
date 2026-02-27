@@ -7,15 +7,17 @@ export default async function AdminDashboard() {
     const supabase = createClient(cookieStore)
 
     // Fetch actual dynamic counts concurrently
-    const [coursesRes, ebooksRes, messagesRes] = await Promise.all([
+    const [coursesRes, ebooksRes, blogsRes, messagesRes] = await Promise.all([
         supabase.from('courses').select('id', { count: 'exact', head: true }),
         supabase.from('ebooks').select('id', { count: 'exact', head: true }),
+        supabase.from('blogs').select('id', { count: 'exact', head: true }),
         supabase.from('contact_messages').select('id', { count: 'exact', head: true }),
     ])
 
     const stats = {
         courses: coursesRes.count || 0,
         ebooks: ebooksRes.count || 0,
+        blogs: blogsRes.count || 0,
         inquiries: messagesRes.count || 0,
     }
 

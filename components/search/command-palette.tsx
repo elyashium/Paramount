@@ -49,13 +49,9 @@ export function CommandPalette() {
             <BookOpen className="mr-2 h-4 w-4" />
             <span>Free Courses</span>
           </CommandItem>
-          <CommandItem onSelect={() => runCommand(() => router.push('/test-series'))}>
-            <TestTube className="mr-2 h-4 w-4" />
-            <span>Test Series</span>
-          </CommandItem>
-          <CommandItem onSelect={() => runCommand(() => router.push('/free-test'))}>
-            <TestTube className="mr-2 h-4 w-4" />
-            <span>Free Test</span>
+          <CommandItem onSelect={() => runCommand(() => router.push('/blogs'))}>
+            <FileText className="mr-2 h-4 w-4" />
+            <span>Blogs</span>
           </CommandItem>
         </CommandGroup>
 

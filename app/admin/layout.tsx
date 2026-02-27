@@ -48,6 +48,7 @@ export default async function AdminLayout({
                     {[
                         { href: '/admin', icon: LayoutDashboard, label: 'Dashboard' },
                         { href: '/admin/courses', icon: BookOpen, label: 'Manage Courses' },
+                        { href: '/admin/blogs', icon: FileText, label: 'Manage Blogs' },
                         { href: '/admin/ebooks', icon: FileText, label: 'Study Materials' },
                         { href: '/admin/messages', icon: Mail, label: 'Inquiries' },
                     ].map((item) => (

@@ -9,6 +9,7 @@ const EASE = [0.22, 1, 0.36, 1] as const
 interface DashboardStats {
     courses: number
     ebooks: number
+    blogs: number
     inquiries: number
 }
 
@@ -19,6 +20,7 @@ interface DashboardClientProps {
 export function DashboardClient({ stats: initialStats }: DashboardClientProps) {
     const stats = [
         { label: 'Total Courses', value: initialStats.courses.toString(), icon: BookOpen, color: '#E8B84B' },
+        { label: 'Total Blogs', value: initialStats.blogs.toString(), icon: FileText, color: '#10B981' },
         { label: 'Ebooks', value: initialStats.ebooks.toString(), icon: FileText, color: '#60A5FA' },
         { label: 'Total Inquiries', value: initialStats.inquiries.toString(), icon: Mail, color: '#F87171' },
     ]
@@ -28,6 +30,13 @@ export function DashboardClient({ stats: initialStats }: DashboardClientProps) {
             title: 'Add New Course',
             description: 'Create a new course offering',
             href: '/admin/courses/new',
+            icon: Plus,
+            color: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20 hover:border-emerald-500/50 hover:bg-emerald-500/20'
+        },
+        {
+            title: 'Create Blog Post',
+            description: 'Share news and insights',
+            href: '/admin/blogs/new',
             icon: Plus,
             color: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20 hover:border-emerald-500/50 hover:bg-emerald-500/20'
         },
@@ -84,7 +93,7 @@ export function DashboardClient({ stats: initialStats }: DashboardClientProps) {
             </header>
 
             {/* Stats Overview */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {stats.map((stat, i) => (
                     <motion.div
                         key={stat.label}
