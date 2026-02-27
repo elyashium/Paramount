@@ -73,7 +73,7 @@ export function CoursesPage({ initialCourses }: { initialCourses: any[] }) {
         <div className="min-h-screen bg-[#f7f7f5] dark:bg-gray-950 text-gray-900 dark:text-white font-sans selection:bg-[#E8B84B]/30 transition-colors duration-300">
 
             {/* ── HERO SLIDER ─────────────────────────────────────────────────── */}
-            <div className="relative h-[80vh] w-full overflow-hidden">
+            <div className="relative h-[50vh] sm:h-[60vh] md:h-[80vh] w-full overflow-hidden">
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={currentSlide}

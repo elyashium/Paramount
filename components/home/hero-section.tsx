@@ -129,7 +129,7 @@ const globeMarkers: GlobeMarker[] = [
 const STATS = [
   { icon: Users, value: 50000, suffix: '+', label: 'Students Enrolled' },
   { icon: Trophy, value: 95, suffix: '%', label: 'Success Rate' },
-  { icon: BookOpen, value: 200, suffix: '+', label: 'Expert Courses' },
+  { icon: BookOpen, value: 50, suffix: '+', label: 'Expert Courses' },
   { icon: GraduationCap, value: 8, suffix: '+', label: 'Years of Excellence' },
 ]
 
