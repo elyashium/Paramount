@@ -8,6 +8,7 @@ import { SiteFooter } from '@/components/layout/site-footer';
 import { Toaster } from '@/components/ui/toaster';
 import { Toaster as SonnerToaster } from '@/components/ui/sonner';
 import { ScrollProgress } from '@/components/ui/scroll-progress';
+import { ChatbaseWidget } from '@/components/chat/chatbase-widget';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -53,6 +54,7 @@ export default function RootLayout({
           <SiteFooter />
           <Toaster />
           <SonnerToaster />
+          <ChatbaseWidget />
         </Providers>
       </body>
     </html>
