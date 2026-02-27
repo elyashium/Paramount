@@ -85,6 +85,7 @@ function SiteFooterInner() {
                                     alt="Paramount Merchant Navy logo"
                                     width={44}
                                     height={44}
+                                    style={{ height: 'auto' }}
                                     className="object-contain"
                                 />
                                 <div>

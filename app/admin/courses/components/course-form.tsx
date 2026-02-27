@@ -24,7 +24,8 @@ export default function CourseForm({ params }: { params?: { id: string } }) {
         discount_base_price: '',
         instructor: '',
         image_url: '',
-        category: ''
+        category: '',
+        enroll_link: ''
     })
 
     useEffect(() => {
@@ -51,7 +52,8 @@ export default function CourseForm({ params }: { params?: { id: string } }) {
                     discount_base_price: data.discount_base_price ? data.discount_base_price.toString() : '',
                     instructor: data.instructor || '',
                     image_url: data.image_url || '',
-                    category: data.category || ''
+                    category: data.category || '',
+                    enroll_link: data.enroll_link || ''
                 })
             }
             setLoading(false)
@@ -77,7 +79,8 @@ export default function CourseForm({ params }: { params?: { id: string } }) {
                 discount_base_price: formData.discount_base_price ? parseFloat(formData.discount_base_price) : null,
                 instructor: formData.instructor,
                 image_url: formData.image_url,
-                category: formData.category
+                category: formData.category,
+                enroll_link: formData.enroll_link
             }
 
             let error
@@ -181,6 +184,11 @@ export default function CourseForm({ params }: { params?: { id: string } }) {
                         <Label htmlFor="category">Category</Label>
                         <Input id="category" name="category" value={formData.category} onChange={handleChange} />
                     </div>
+                </div>
+
+                <div className="space-y-2">
+                    <Label htmlFor="enroll_link">Enrollment Link (URL)</Label>
+                    <Input id="enroll_link" name="enroll_link" value={formData.enroll_link} onChange={handleChange} placeholder="https://..." />
                 </div>
 
                 <div className="space-y-2">

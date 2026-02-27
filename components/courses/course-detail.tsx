@@ -37,7 +37,7 @@ export function CourseDetail({ course }: CourseDetailProps) {
             <div className="relative w-full overflow-hidden bg-gray-900 py-20 md:py-32 px-6">
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src={course.image}
+                        src={course?.image_url || '/placeholder.png'}
                         alt="Background"
                         fill
                         className="object-cover opacity-20"
@@ -57,10 +57,10 @@ export function CourseDetail({ course }: CourseDetailProps) {
                         </div>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black text-white leading-tight max-w-4xl mb-6">
-                        {course.title}
+                        {course?.title}
                     </h1>
                     <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl">
-                        {course.description}
+                        {course?.description}
                     </p>
                 </div>
             </div>
@@ -83,7 +83,7 @@ export function CourseDetail({ course }: CourseDetailProps) {
                         <div className="space-y-6">
                             <h2 className="text-2xl font-bold dark:text-white">What you&apos;ll learn</h2>
                             <div className="grid sm:grid-cols-2 gap-4">
-                                {course.features.map((feature, idx) => (
+                                {(course?.features || []).map((feature, idx) => (
                                     <div key={idx} className="flex items-start gap-3 bg-white dark:bg-white/5 p-4 rounded-xl border border-gray-100 dark:border-white/10 hover:border-[#E8B84B]/50 transition-colors shadow-sm">
                                         <CheckCircle2 className="w-5 h-5 text-[#E8B84B] mt-0.5 shrink-0" />
                                         <span className="text-gray-700 dark:text-gray-300 text-sm md:text-base font-medium leading-relaxed">{feature}</span>
@@ -106,8 +106,8 @@ export function CourseDetail({ course }: CourseDetailProps) {
                                         <div className="relative h-48 md:h-56 w-full overflow-hidden rounded-2xl mb-6">
                                             <div className="absolute inset-0 bg-black/10 group-hover/card:bg-black/0 transition-all z-10" />
                                             <Image
-                                                src={course.image}
-                                                alt={course.title}
+                                                src={course?.image_url || '/placeholder.png'}
+                                                alt={course?.title || 'Course Image'}
                                                 fill
                                                 className="object-cover transition-transform duration-700 group-hover/card:scale-110"
                                                 sizes="(max-width: 768px) 100vw, 33vw"
@@ -121,7 +121,7 @@ export function CourseDetail({ course }: CourseDetailProps) {
                                         <CardItem translateZ="30">
                                             <span className="text-gray-500 dark:text-gray-400 text-xs font-bold uppercase tracking-wider">Total Price</span>
                                             <div className="flex items-center gap-3 mt-1">
-                                                <span className="text-3xl font-black text-gray-900 dark:text-white">{course.price}</span>
+                                                <span className="text-3xl font-black text-gray-900 dark:text-white">₹{course?.price || '0'}</span>
                                                 <span className="text-gray-400 dark:text-gray-500 line-through text-lg font-medium">₹14,000</span>
                                                 <div className="ml-auto bg-[#E8B84B]/10 text-[#cfa23d] dark:text-[#E8B84B] text-xs font-bold px-3 py-1 rounded-full border border-[#E8B84B]/20">
                                                     57% OFF
@@ -150,9 +150,17 @@ export function CourseDetail({ course }: CourseDetailProps) {
 
                                         {/* Action Buttons */}
                                         <CardItem translateZ="60" className="pt-4 w-full">
-                                            <Button size="lg" className="w-full rounded-xl h-14 text-base font-bold transition-all hover:scale-[1.02] shadow-lg shadow-[#E8B84B]/20" style={{ background: 'linear-gradient(135deg, #E8B84B 0%, #c9922a 100%)', color: '#1a1a1a' }}>
-                                                Enroll Now
-                                            </Button>
+                                            {course?.enroll_link ? (
+                                                <a href={course.enroll_link} target="_blank" rel="noopener noreferrer">
+                                                    <Button size="lg" className="w-full rounded-xl h-14 text-base font-bold transition-all hover:scale-[1.02] shadow-lg shadow-[#E8B84B]/20" style={{ background: 'linear-gradient(135deg, #E8B84B 0%, #c9922a 100%)', color: '#1a1a1a' }}>
+                                                        Enroll Now
+                                                    </Button>
+                                                </a>
+                                            ) : (
+                                                <Button size="lg" className="w-full rounded-xl h-14 text-base font-bold transition-all hover:scale-[1.02] shadow-lg shadow-[#E8B84B]/20" style={{ background: 'linear-gradient(135deg, #E8B84B 0%, #c9922a 100%)', color: '#1a1a1a' }}>
+                                                    Enroll Now
+                                                </Button>
+                                            )}
                                         </CardItem>
                                     </div>
 

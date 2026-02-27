@@ -105,6 +105,7 @@ export function FloatingDock() {
                   width={52}
                   height={52}
                   className="object-cover w-full h-full"
+                  style={{ height: 'auto' }}
                   priority
                 />
               </div>
