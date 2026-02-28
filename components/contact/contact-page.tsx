@@ -76,15 +76,9 @@ export function ContactPage() {
                 lastName: fd.get('lastName') as string,
                 email: fd.get('email') as string,
                 mobile: fd.get('mobile') as string,
-                fatherMobile: fd.get('fatherMobile') as string,
                 dob: fd.get('dob') as string,
                 gender: fd.get('gender') as string,
-                schoolName: fd.get('schoolName') as string,
-                board: fd.get('board') as string,
-                currentClass: fd.get('currentClass') as string,
-                address: fd.get('address') as string,
                 city: fd.get('city') as string,
-                pincode: fd.get('pincode') as string,
                 course: fd.get('course') as string,
             }
 
@@ -104,11 +98,7 @@ export function ContactPage() {
                 `Course Target: ${data.course}`,
                 `DOB: ${data.dob}`,
                 `Gender: ${data.gender}`,
-                `School: ${data.schoolName}`,
-                `Board: ${data.board}`,
-                `Class: ${data.currentClass}`,
-                `Father's Mobile: ${data.fatherMobile}`,
-                `Address: ${data.address}, ${data.city}, ${data.pincode}`
+                `City: ${data.city}`
             ].join('\n')
 
             const { error } = await supabase.from('contact_messages').insert([{
@@ -203,31 +193,7 @@ export function ContactPage() {
                                     </select>
                                 </div>
 
-                                {/* Row 2: School & Board Details */}
-                                <div className="space-y-1 col-span-1 lg:col-span-2">
-                                    <Label htmlFor="schoolName" className="text-xs uppercase tracking-wider text-gray-500 font-semibold ml-1">School Name *</Label>
-                                    <Input id="schoolName" name="schoolName" className="bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 h-11 shadow-inner focus-visible:ring-[#E8B84B]" required />
-                                </div>
-                                <div className="space-y-1 col-span-1">
-                                    <Label htmlFor="board" className="text-xs uppercase tracking-wider text-gray-500 font-semibold ml-1">Board *</Label>
-                                    <select id="board" name="board" defaultValue="" className="w-full h-11 rounded-md bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8B84B] shadow-inner text-gray-900 dark:text-gray-300" required>
-                                        <option value="" disabled>Select Board</option>
-                                        <option value="cbse">CBSE</option>
-                                        <option value="icse">ICSE</option>
-                                        <option value="state">State</option>
-                                    </select>
-                                </div>
-                                <div className="space-y-1 col-span-1">
-                                    <Label htmlFor="currentClass" className="text-xs uppercase tracking-wider text-gray-500 font-semibold ml-1">Class *</Label>
-                                    <select id="currentClass" name="currentClass" defaultValue="" className="w-full h-11 rounded-md bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8B84B] shadow-inner text-gray-900 dark:text-gray-300" required>
-                                        <option value="" disabled>Current Class</option>
-                                        <option value="11">11th Std</option>
-                                        <option value="12">12th Std</option>
-                                        <option value="passed">12th Passed</option>
-                                    </select>
-                                </div>
-
-                                {/* Row 3: Contact & Parents */}
+                                {/* Row 2: Contact & Location */}
                                 <div className="space-y-1 col-span-1 lg:col-span-2">
                                     <Label htmlFor="email" className="text-xs uppercase tracking-wider text-gray-500 font-semibold ml-1">Email Address *</Label>
                                     <Input id="email" name="email" type="email" className="bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 h-11 shadow-inner focus-visible:ring-[#E8B84B]" required />
@@ -237,25 +203,11 @@ export function ContactPage() {
                                     <Input id="mobile" name="mobile" type="tel" className="bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 h-11 shadow-inner focus-visible:ring-[#E8B84B]" required />
                                 </div>
                                 <div className="space-y-1 col-span-1">
-                                    <Label htmlFor="fatherMobile" className="text-xs uppercase tracking-wider text-gray-500 font-semibold ml-1">Father's Mobile *</Label>
-                                    <Input id="fatherMobile" name="fatherMobile" type="tel" className="bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 h-11 shadow-inner focus-visible:ring-[#E8B84B]" required />
-                                </div>
-
-                                {/* Row 4: Address */}
-                                <div className="space-y-1 col-span-1 lg:col-span-4">
-                                    <Label htmlFor="address" className="text-xs uppercase tracking-wider text-gray-500 font-semibold ml-1">Full Address *</Label>
-                                    <Input id="address" name="address" className="bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 h-11 shadow-inner focus-visible:ring-[#E8B84B]" required />
-                                </div>
-
-                                {/* Row 5: Address Parts & Course Validation */}
-                                <div className="space-y-1 col-span-1">
                                     <Label htmlFor="city" className="text-xs uppercase tracking-wider text-gray-500 font-semibold ml-1">City *</Label>
                                     <Input id="city" name="city" className="bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 h-11 shadow-inner focus-visible:ring-[#E8B84B]" required />
                                 </div>
-                                <div className="space-y-1 col-span-1">
-                                    <Label htmlFor="pincode" className="text-xs uppercase tracking-wider text-gray-500 font-semibold ml-1">Pincode *</Label>
-                                    <Input id="pincode" name="pincode" className="bg-white/50 dark:bg-black/40 border-0 ring-1 ring-gray-200 dark:ring-white/10 h-11 shadow-inner focus-visible:ring-[#E8B84B]" required />
-                                </div>
+
+                                {/* Row 3: Course Validation */}
                                 <div className="space-y-1 col-span-1 lg:col-span-2">
                                     <Label htmlFor="course" className="text-xs uppercase tracking-wider text-[#E8B84B] font-black ml-1">Course Target *</Label>
                                     <select id="course" name="course" defaultValue="" className="w-full h-11 rounded-md bg-[#E8B84B]/10 dark:bg-[#E8B84B]/5 border-0 ring-1 ring-[#E8B84B]/30 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8B84B] font-semibold text-gray-900 dark:text-white" required>

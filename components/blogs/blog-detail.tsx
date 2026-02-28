@@ -9,16 +9,8 @@ import { LoadingSpinner } from '@/components/ui/loading'
 import { Button } from '@/components/ui/button'
 import {
     Calendar,
-    User,
     ArrowLeft,
-    Share2,
-    Bookmark,
-    MessageCircle,
-    Twitter,
-    Facebook,
-    Linkedin,
     Clock,
-    ChevronRight,
     UserCheck,
     Tag
 } from 'lucide-react'
@@ -148,104 +140,35 @@ export function BlogDetail({ slug }: { slug: string }) {
                 </div>
             </section>
 
-            <div className="max-w-7xl mx-auto px-4 py-20">
-                <div className="grid grid-cols-1 lg:grid-cols-[1fr_minmax(auto,800px)_1fr] gap-12">
+            <div className="max-w-4xl mx-auto px-4 py-20">
 
-                    {/* Left Side: Sticky Nav */}
-                    <aside className="hidden lg:block">
-                        <div className="sticky top-32 space-y-12">
-                            <Link
-                                href="/blogs"
-                                className="inline-flex items-center gap-3 text-sm font-black text-gray-400 hover:text-[#E8B84B] transition-colors group"
-                            >
-                                <div className="p-2 rounded-xl border border-black/5 dark:border-white/10 group-hover:border-[#E8B84B]/40">
-                                    <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-                                </div>
-                                Back to Journal
-                            </Link>
-
-                            <div className="space-y-6 pt-10 border-t border-black/5 dark:border-white/5">
-                                <div className="text-[10px] uppercase font-black tracking-widest text-[#E8B84B]">Share This</div>
-                                <div className="flex flex-col gap-3">
-                                    {[
-                                        { icon: Twitter, label: 'Twitter', color: 'bg-[#1DA1F2]/10 text-[#1DA1F2] border-[#1DA1F2]/20' },
-                                        { icon: Linkedin, label: 'LinkedIn', color: 'bg-[#0A66C2]/10 text-[#0A66C2] border-[#0A66C2]/20' },
-                                        { icon: Facebook, label: 'Facebook', color: 'bg-[#1877F2]/10 text-[#1877F2] border-[#1877F2]/20' },
-                                        { icon: Share2, label: 'Copy Link', color: 'bg-gray-100 dark:bg-white/5 text-gray-500' },
-                                    ].map((social) => (
-                                        <button
-                                            key={social.label}
-                                            className={cn("p-4 rounded-2xl border transition-all hover:scale-105 flex items-center justify-center", social.color)}
-                                        >
-                                            <social.icon className="w-5 h-5" />
-                                        </button>
-                                    ))}
-                                </div>
-                            </div>
+                {/* Back Link */}
+                <div className="mb-12">
+                    <Link
+                        href="/blogs"
+                        className="inline-flex items-center gap-3 text-sm font-black text-gray-400 hover:text-[#E8B84B] transition-colors group"
+                    >
+                        <div className="p-2 rounded-xl border border-black/5 dark:border-white/10 group-hover:border-[#E8B84B]/40">
+                            <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
                         </div>
-                    </aside>
-
-                    {/* Center: Content */}
-                    <article className="relative">
-                        <div className="prose prose-xl dark:prose-invert max-w-none 
-                            prose-headings:font-black prose-headings:tracking-tight prose-headings:text-gray-900 dark:prose-headings:text-white
-                            prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-[1.8] prose-p:mb-8 font-medium
-                            prose-blockquote:border-l-[#E8B84B] prose-blockquote:bg-[#E8B84B]/5 prose-blockquote:p-8 prose-blockquote:rounded-3xl prose-blockquote:not-italic prose-blockquote:font-black
-                            prose-img:rounded-[2.5rem] prose-img:shadow-2xl
-                            prose-strong:text-gray-900 dark:prose-strong:text-white
-                            prose-a:text-[#E8B84B] prose-a:no-underline hover:prose-a:underline
-                        ">
-                            <div dangerouslySetInnerHTML={{ __html: blog.content }} />
-                        </div>
-
-                        {/* Article Footer */}
-                        <div className="mt-20 pt-10 border-t border-black/5 dark:border-white/10">
-                            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-                                <div className="flex items-center gap-2">
-                                    <Tag className="w-4 h-4 text-[#E8B84B]" />
-                                    <div className="flex gap-2">
-                                        {['Maritime', 'Training', 'Career'].map(tag => (
-                                            <span key={tag} className="text-xs font-bold px-3 py-1 bg-gray-100 dark:bg-white/5 rounded-lg">#{tag}</span>
-                                        ))}
-                                    </div>
-                                </div>
-                                <div className="flex items-center gap-6">
-                                    <button className="flex items-center gap-2 text-sm font-bold text-gray-500 hover:text-[#E8B84B] transition-colors">
-                                        <Bookmark className="w-5 h-5" /> Save
-                                    </button>
-                                    <button className="flex items-center gap-2 text-sm font-bold text-gray-500 hover:text-[#E8B84B] transition-colors">
-                                        <MessageCircle className="w-5 h-5" /> 12 Comments
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    {/* Right Side: Quick Links / Ads / ToC */}
-                    <aside className="hidden xl:block">
-                        <div className="sticky top-32 space-y-10">
-                            <div className="bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 rounded-3xl p-8">
-                                <h4 className="text-lg font-black text-gray-900 dark:text-white mb-6 tracking-tight">Ready to Enroll?</h4>
-                                <p className="text-sm text-gray-500 mb-8 leading-relaxed">Join India's most trusted Merchant Navy Academy and set sail towards a promising future.</p>
-                                <Button asChild className="w-full bg-[#E8B84B] text-black hover:bg-[#F3D37A] rounded-2xl h-14 font-black">
-                                    <Link href="/courses">Explore Courses</Link>
-                                </Button>
-                            </div>
-
-                            <div className="space-y-6">
-                                <div className="text-[10px] uppercase font-black tracking-widest text-[#E8B84B]">Related Stories</div>
-                                {[1, 2].map((i) => (
-                                    <div key={i} className="group cursor-pointer">
-                                        <h5 className="text-sm font-black text-gray-900 dark:text-white leading-snug mb-2 group-hover:text-[#E8B84B] transition-colors">How to choose the right shipping company for GME</h5>
-                                        <p className="text-[11px] text-gray-500 flex items-center gap-2 font-bold uppercase tracking-wider">
-                                            Oct 12, 2023 <ChevronRight className="w-3 h-3" />
-                                        </p>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </aside>
+                        Back to Journal
+                    </Link>
                 </div>
+
+                {/* Center: Content */}
+                <article>
+                    <div className="prose prose-xl dark:prose-invert max-w-none
+                        prose-headings:font-black prose-headings:tracking-tight prose-headings:text-gray-900 dark:prose-headings:text-white
+                        prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-[1.8] prose-p:mb-8 font-medium
+                        prose-blockquote:border-l-[#E8B84B] prose-blockquote:bg-[#E8B84B]/5 prose-blockquote:p-8 prose-blockquote:rounded-3xl prose-blockquote:not-italic prose-blockquote:font-black
+                        prose-img:rounded-[2.5rem] prose-img:shadow-2xl
+                        prose-strong:text-gray-900 dark:prose-strong:text-white
+                        prose-a:text-[#E8B84B] prose-a:no-underline hover:prose-a:underline
+                    ">
+                        <div dangerouslySetInnerHTML={{ __html: blog.content }} />
+                    </div>
+                </article>
+
             </div>
         </div>
     )

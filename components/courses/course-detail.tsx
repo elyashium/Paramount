@@ -24,8 +24,31 @@ interface CourseDetailProps {
     course: Course
 }
 
+const CONVERSION_RATES: Record<string, number> = {
+    INR: 1,
+    USD: 0.012,
+    EUR: 0.011,
+}
+
+const CURRENCY_SYMBOLS: Record<string, string> = {
+    INR: '₹',
+    USD: '$',
+    EUR: '€',
+}
+
 export function CourseDetail({ course }: CourseDetailProps) {
     const [currency, setCurrency] = useState('INR')
+
+    const convertedPrice = Math.round((Number(course?.price) || 0) * CONVERSION_RATES[currency])
+    const convertedStrikePrice = Math.round(14000 * CONVERSION_RATES[currency])
+
+    const parseDescription = (description: string) => {
+        if (!description) return []
+        // Split by arrows or newlines and filter out empty strings
+        return description.split(/→|\n/).map(item => item.trim()).filter(item => item.length > 0)
+    }
+
+    const descriptionItems = parseDescription(course?.description || '')
 
     return (
         <div className="min-h-screen bg-[#f7f7f5] dark:bg-gray-950 text-gray-900 dark:text-white transition-colors duration-300 font-sans selection:bg-[#E8B84B]/30 pb-20">
@@ -77,25 +100,15 @@ export function CourseDetail({ course }: CourseDetailProps) {
                         </div>
 
                         {/* Description / Features */}
-                        <div className="space-y-8">
-                            <div className="prose prose-lg dark:prose-invert max-w-none">
-                                <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-                                    {course?.description}
-                                </p>
+                        <div className="space-y-6">
+                            <div className="grid grid-cols-1 gap-4">
+                                {descriptionItems.map((item, idx) => (
+                                    <div key={idx} className="flex items-start gap-3 bg-white dark:bg-white/5 p-4 rounded-xl border border-gray-100 dark:border-white/10 hover:border-[#E8B84B]/50 transition-colors shadow-sm">
+                                        <CheckCircle2 className="w-5 h-5 text-[#E8B84B] mt-0.5 shrink-0" />
+                                        <span className="text-gray-700 dark:text-gray-300 text-sm md:text-base font-medium leading-relaxed">{item}</span>
+                                    </div>
+                                ))}
                             </div>
-
-                            <div className="space-y-6">
-                                <h2 className="text-2xl font-bold dark:text-white">What you&apos;ll learn</h2>
-                                <div className="grid sm:grid-cols-2 gap-4">
-                                    {(course?.features || []).map((feature, idx) => (
-                                        <div key={idx} className="flex items-start gap-3 bg-white dark:bg-white/5 p-4 rounded-xl border border-gray-100 dark:border-white/10 hover:border-[#E8B84B]/50 transition-colors shadow-sm">
-                                            <CheckCircle2 className="w-5 h-5 text-[#E8B84B] mt-0.5 shrink-0" />
-                                            <span className="text-gray-700 dark:text-gray-300 text-sm md:text-base font-medium leading-relaxed">{feature}</span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-
                         </div>
 
                     </div>
@@ -127,8 +140,8 @@ export function CourseDetail({ course }: CourseDetailProps) {
                                         <CardItem translateZ="30">
                                             <span className="text-gray-500 dark:text-gray-400 text-xs font-bold uppercase tracking-wider">Total Price</span>
                                             <div className="flex items-center gap-3 mt-1">
-                                                <span className="text-3xl font-black text-gray-900 dark:text-white">₹{course?.price || '0'}</span>
-                                                <span className="text-gray-400 dark:text-gray-500 line-through text-lg font-medium">₹14,000</span>
+                                                <span className="text-3xl font-black text-gray-900 dark:text-white">{CURRENCY_SYMBOLS[currency]}{convertedPrice}</span>
+                                                <span className="text-gray-400 dark:text-gray-500 line-through text-lg font-medium">{CURRENCY_SYMBOLS[currency]}{convertedStrikePrice}</span>
                                                 <div className="ml-auto bg-[#E8B84B]/10 text-[#cfa23d] dark:text-[#E8B84B] text-xs font-bold px-3 py-1 rounded-full border border-[#E8B84B]/20">
                                                     57% OFF
                                                 </div>
@@ -178,9 +191,11 @@ export function CourseDetail({ course }: CourseDetailProps) {
                                 <h3 className="font-bold text-gray-900 dark:text-white mb-2">Need help deciding?</h3>
                                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">Call our academic counsellors for a free consultation.</p>
                                 <div className="flex justify-center gap-3">
-                                    <Button variant="outline" size="sm" className="rounded-full border-gray-200 dark:border-white/10 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 hover:text-[#E8B84B] dark:hover:text-[#E8B84B]">
-                                        <Phone className="w-3 h-3 mr-2" /> Call Now
-                                    </Button>
+                                    <a href="tel:9630299049">
+                                        <Button variant="outline" size="sm" className="rounded-full border-gray-200 dark:border-white/10 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 hover:text-[#E8B84B] dark:hover:text-[#E8B84B]">
+                                            <Phone className="w-3 h-3 mr-2" /> Call Now
+                                        </Button>
+                                    </a>
                                 </div>
                             </div>
 

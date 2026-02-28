@@ -53,10 +53,14 @@ export function CoursesPage({ initialCourses }: { initialCourses: any[] }) {
     const [searchQuery, setSearchQuery] = useState('')
     const [currentSlide, setCurrentSlide] = useState(0)
 
+    // Dynamically derive categories from actual course data
+    const categories = ['All', ...Array.from(new Set(initialCourses.map(c => c.category).filter(Boolean)))]
+
     // Filter logic
     const filteredCourses = initialCourses.filter(course => {
         const matchesCategory = activeCategory === 'All' || course.category === activeCategory
-        const matchesSearch = course.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        const matchesSearch = !searchQuery ||
+            course.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
             (course.description && course.description.toLowerCase().includes(searchQuery.toLowerCase()))
         return matchesCategory && matchesSearch
     })

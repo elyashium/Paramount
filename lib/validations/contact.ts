@@ -10,15 +10,9 @@ export const contactFormSchema = z.object({
     lastName: z.string().min(2, 'Last name must be at least 2 characters').max(50),
     email: z.string().email('Please enter a valid email address'),
     mobile: phoneSchema,
-    fatherMobile: phoneSchema,
     dob: z.string().min(1, 'Date of birth is required'),
     gender: z.enum(['male', 'female'], { errorMap: () => ({ message: 'Please select a gender' }) }),
-    schoolName: z.string().min(3, 'School name is required'),
-    board: z.enum(['cbse', 'icse', 'state'], { errorMap: () => ({ message: 'Please select a board' }) }),
-    currentClass: z.enum(['11', '12', 'passed'], { errorMap: () => ({ message: 'Please select your class' }) }),
-    address: z.string().min(10, 'Please enter a full address'),
     city: z.string().min(2, 'City is required'),
-    pincode: z.string().regex(/^\d{6}$/, 'Pincode must be 6 digits'),
     course: z.enum(['imu_cet', 'sponsorship', 'english', 'combo'], {
         errorMap: () => ({ message: 'Please select a target program' })
     }),

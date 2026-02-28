@@ -30,8 +30,6 @@ export function BlogList() {
     const [activeCategory, setActiveCategory] = useState('All')
     const [searchQuery, setSearchQuery] = useState('')
 
-    const categories = ['All', 'IMU-CET', 'Life at Sea', 'Maritime News', 'Prep Tips']
-
     useEffect(() => {
         async function fetchBlogs() {
             const { data, error } = await supabase
@@ -51,10 +49,17 @@ export function BlogList() {
 
     if (loading) return <LoadingSpinner />
 
+    // Dynamically derive categories from actual blog data
+    const categories = ['All', ...Array.from(new Set(
+        blogs.map(b => (b as any).category).filter(Boolean)
+    ))]
+
     const filteredBlogs = blogs.filter(blog => {
-        const matchesCategory = activeCategory === 'All' || blog.excerpt.includes(activeCategory) || blog.title.includes(activeCategory)
-        const matchesSearch = blog.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            blog.excerpt.toLowerCase().includes(searchQuery.toLowerCase())
+        const blogCategory = (blog as any).category
+        const matchesCategory = activeCategory === 'All' || blogCategory === activeCategory
+        const matchesSearch = !searchQuery ||
+            blog.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            (blog.excerpt && blog.excerpt.toLowerCase().includes(searchQuery.toLowerCase()))
         return matchesCategory && matchesSearch
     })
 

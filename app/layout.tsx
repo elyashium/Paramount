@@ -13,24 +13,24 @@ import { ChatbaseWidget } from '@/components/chat/chatbase-widget';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Paramount Coaching Institute - Excellence in Education',
+  title: 'Paramount merchant navy - Excellence in Education',
   description: 'Premier coaching institute offering comprehensive courses, test series, and study materials for competitive exams',
   openGraph: {
-    title: 'Paramount Coaching Institute',
+    title: 'Paramount merchant navy',
     description: 'Excellence in Education - Comprehensive courses and test series',
     images: [
       {
-        url: 'https://bolt.new/static/og_default.png',
+        url: 'public/favicon.ico',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Paramount Coaching Institute',
+    title: 'Paramount merchant navy',
     description: 'Excellence in Education - Comprehensive courses and test series',
     images: [
       {
-        url: 'https://bolt.new/static/og_default.png',
+        url: 'public/favicon.ico',
       },
     ],
   },
