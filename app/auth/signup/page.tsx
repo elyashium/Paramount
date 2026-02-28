@@ -64,7 +64,7 @@ export default function SignupPage() {
         {/* Logo */}
         <div className="flex items-center gap-3 relative z-10">
           <div className="w-10 h-10 rounded-full overflow-hidden">
-            <Image src="/logo.png" alt="Paramount" width={40} height={40} className="object-cover w-full h-full" />
+            <Image src="/logo.png" alt="Paramount Merchant Navy" width={40} height={40} className="object-cover w-full h-full" />
           </div>
           <div>
             <div className="font-black text-white text-sm leading-tight">Paramount</div>
@@ -124,7 +124,7 @@ export default function SignupPage() {
           {/* Mobile logo */}
           <div className="flex items-center gap-3 mb-6 lg:hidden">
             <div className="w-9 h-9 rounded-full overflow-hidden">
-              <Image src="/logo.png" alt="Paramount" width={36} height={36} className="object-cover w-full h-full" />
+              <Image src="/logo.png" alt="Paramount Merchant Navy" width={36} height={36} className="object-cover w-full h-full" />
             </div>
             <div>
               <div className="font-black text-white text-sm">Paramount</div>
@@ -133,7 +133,7 @@ export default function SignupPage() {
           </div>
 
           <h2 className="text-2xl font-black text-white mb-1">Create an account</h2>
-          <p className="text-sm text-gray-500 mb-6">Join Paramount Coaching Institute today</p>
+          <p className="text-sm text-gray-500 mb-6">Join Paramount Merchant Navy today</p>
 
           <form onSubmit={handleSignup} className="space-y-3">
             {/* Full Name */}

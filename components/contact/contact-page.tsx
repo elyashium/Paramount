@@ -153,7 +153,7 @@ export function ContactPage() {
                 <ScrollReveal className="w-full flex justify-between items-end mb-6">
                     <div>
                         <motion.h1 variants={FADE_UP} className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter leading-none mb-4">
-                            Join <span style={{ background: 'linear-gradient(135deg, #E8B84B 0%, #c9922a 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Paramount</span>
+                            Join <span style={{ background: 'linear-gradient(135deg, #E8B84B 0%, #c9922a 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Paramount Merchant Navy</span>
                         </motion.h1>
                         <motion.div variants={FADE_UP} className="flex flex-wrap items-center gap-4 text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-medium">
                             <span className="flex items-center gap-1.5"><Phone className="w-3.5 h-3.5 text-[#E8B84B]" /> +91 9630299049</span>
@@ -266,10 +266,10 @@ export function ContactPage() {
                                 allowFullScreen
                                 loading="lazy"
                                 referrerPolicy="no-referrer-when-downgrade"
-                                title="Paramount Coaching Institute Location"
+                                title="Paramount Merchant Navy Location"
                             />
                             <div className="absolute top-4 left-4 z-10 bg-white/90 dark:bg-black/70 backdrop-blur-md px-4 py-3 rounded-2xl border border-gray-200 dark:border-white/10 shadow-lg">
-                                <p className="text-sm font-black text-gray-900 dark:text-white leading-tight">Paramount Institute</p>
+                                <p className="text-sm font-black text-gray-900 dark:text-white leading-tight">Paramount Merchant Navy</p>
                                 <p className="text-xs text-gray-500 leading-tight flex items-center gap-1 mt-1"><MapPin className="w-3 h-3 text-[#E8B84B]" /> Gwalior, MP</p>
                             </div>
                         </div>

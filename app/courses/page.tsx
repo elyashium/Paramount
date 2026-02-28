@@ -4,7 +4,7 @@ import { createClient } from '@/lib/supabase/server';
 import { cookies } from 'next/headers';
 
 export const metadata: Metadata = {
-  title: 'Courses | Paramount Coaching',
+  title: 'Courses | Paramount Merchant Navy',
   description: 'Browse our comprehensive courses for IMU-CET preparation.',
 };
 

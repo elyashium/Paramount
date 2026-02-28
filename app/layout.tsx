@@ -15,8 +15,8 @@ import { StructuredData } from '@/components/seo/structured-data';
 
 export const metadata: Metadata = {
   title: 'Paramount Merchant Navy - Excellence in Education',
-  description: 'Premier coaching institute offering comprehensive courses, test series, and study materials for merchant navy and IMU-CET preparation.',
-  keywords: ['merchant navy', 'IMU-CET', 'GME', 'marine engineering', 'deck cadet', 'sponsorship guidance', 'paramount coaching', 'maritime training'],
+  description: 'Premier merchant navy academy offering comprehensive courses, test series, and study materials for IMU-CET preparation.',
+  keywords: ['merchant navy', 'IMU-CET', 'GME', 'marine engineering', 'deck cadet', 'sponsorship guidance', 'paramount merchant navy', 'maritime training'],
   metadataBase: new URL('https://www.paramountmerchantnavy.com'),
   icons: {
     icon: [

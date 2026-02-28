@@ -122,7 +122,7 @@ const INSTITUTE_LAT = 26.2121
 const INSTITUTE_LNG = 78.1697
 const MAPS_EMBED_URL = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3579.420482470752!2d78.20246891025837!3d26.215523689609803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3976c1ab3928064b%3A0xa860b2126c08c75!2sPARAMOUNT%20ACADEMY(Best%20Coaching%20for%20NDA%2FCDS%2FIMU%20CET%2FMERCHANT%20NAVY)Best%20NDA%20coaching%20in%20gwalior!5e0!3m2!1sen!2sin!4v1771696424429!5m2!1sen!2sin`
 const globeMarkers: GlobeMarker[] = [
-  { lat: INSTITUTE_LAT, lng: INSTITUTE_LNG, src: 'https://api.dicebear.com/7.x/shapes/svg?seed=institute&backgroundColor=E8B84B', label: 'Paramount Coaching – Gwalior' },
+  { lat: INSTITUTE_LAT, lng: INSTITUTE_LNG, src: 'https://api.dicebear.com/7.x/shapes/svg?seed=institute&backgroundColor=E8B84B', label: 'Paramount Merchant Navy – Gwalior' },
 ]
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
@@ -143,7 +143,7 @@ const FEATURES = [
 ]
 
 const TESTIMONIALS = [
-  { name: 'Arjun M.', rank: 'DNS', air: 'AIR 3', text: "Paramount's structured IMU-CET program and faculty support helped me achieve AIR 3. Every session felt like sailing with a compass!" },
+  { name: 'Arjun M.', rank: 'DNS', air: 'AIR 3', text: "Paramount Merchant Navy's structured IMU-CET program and faculty support helped me achieve AIR 3. Every session felt like sailing with a compass!" },
   { name: 'Priya S.', rank: 'Marine Engg', air: 'AIR 7', text: 'The recorded classes and PYQ drill sessions built my confidence for every section of IMU-CET. Best coaching for merchant navy.' },
   { name: 'Rohit K.', rank: 'GP Rating', air: 'AIR 12', text: 'The personal attention and mock-test analytics were extraordinary. Paramount truly charts the right course for maritime aspirants.' },
 ]
@@ -160,14 +160,7 @@ const COURSE_HIGHLIGHTS = [
   { icon: Waves, label: 'GP Rating', desc: 'General Purpose Rating fast-track program' },
   { icon: GraduationCap, label: 'IMU-CET', desc: 'Common Entrance Test specialization' },
   { icon: Target, label: 'Sponsorship', desc: 'Company-sponsored cadetship preparation' },
-  { icon: Compass, label: 'Personal Guidance', desc: 'One-on-one mentorship for success' },
-]
-
-const QUICK_ACCESS_LINKS = [
-  { label: 'Student Login', href: '/auth/login', desc: 'Access your courses and progress' },
-  { label: 'Mock Test Series', href: '/courses', desc: 'Practice with IMU-CET pattern mocks' },
-  { label: 'Study Materials', href: '/ebooks', desc: 'Comprehensive E-Books and notes' },
-  { label: 'Latest Blogs', href: '/blogs', desc: 'Stay updated with maritime news' },
+  { icon: Compass, label: 'Bsc. Nautical Science', desc: 'Degree program entrance coaching' },
 ]
 
 export function HeroSection() {
@@ -209,7 +202,7 @@ export function HeroSection() {
           {/* Badge */}
           <div className="flex justify-center mb-6 sm:mb-10 text-center">
             <ScrollReveal>
-              <Chip className="mx-auto">India&apos;s Premier IMU-CET Coaching Institute</Chip>
+              <Chip className="mx-auto">India&apos;s Premier Merchant Navy Academy</Chip>
             </ScrollReveal>
           </div>
 
@@ -264,18 +257,6 @@ export function HeroSection() {
                 </Button>
               </Link>
             </motion.div>
-          </ScrollReveal>
-
-          {/* Quick Access Links for SEO/Sitelinks */}
-          <ScrollReveal className="max-w-4xl mx-auto mb-16 px-4">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-              {QUICK_ACCESS_LINKS.map(({ label, href, desc }) => (
-                <Link key={label} href={href} className="group flex flex-col p-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white/50 dark:bg-gray-900/40 hover:border-[#E8B84B]/50 hover:bg-[#E8B84B]/5 transition-all duration-300">
-                  <span className="text-sm font-black text-gray-900 dark:text-white group-hover:text-[#E8B84B] transition-colors">{label}</span>
-                  <span className="text-[10px] text-gray-500 line-clamp-1 mt-1">{desc}</span>
-                </Link>
-              ))}
-            </div>
           </ScrollReveal>
 
           {/* Course Highlights Grid */}
@@ -420,7 +401,7 @@ export function HeroSection() {
             >
               Navigate to{' '}
               <span style={{ background: 'linear-gradient(135deg, #E8B84B 0%, #c9922a 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                Paramount
+                Paramount Merchant Navy
               </span>
             </motion.h2>
             <motion.p variants={FADE_UP} className="mt-3 text-sm sm:text-base text-gray-500 dark:text-gray-400">
@@ -486,7 +467,7 @@ export function HeroSection() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Paramount Coaching Institute Location"
+                title="Paramount merchant navy Location"
               />
               <a
                 href={`https://www.google.com/maps?q=${INSTITUTE_LAT},${INSTITUTE_LNG}`}

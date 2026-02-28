@@ -4,7 +4,7 @@ import { createClient } from '@/lib/supabase/server'
 import { cookies } from 'next/headers'
 
 export const metadata: Metadata = {
-    title: 'E-Books & Materials | Paramount Coaching',
+    title: 'E-Books & Materials | Paramount Merchant Navy',
     description: 'Access our comprehensive digital library including syllabus, previous year question papers, and e-books.',
 }
 
