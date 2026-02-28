@@ -15,6 +15,8 @@ const LOGOS = [
     { src: '/companylogo8.jpeg', alt: 'Company 8' },
     { src: '/companylogo9.jpeg', alt: 'Company 9' },
     { src: '/companylogo10.jpeg', alt: 'Company 10' },
+    { src: '/companylogo11.jpeg', alt: 'Company 11' },
+    { src: '/companylogo12.jpeg', alt: 'Company 12' },
 ]
 
 export function LogoCarousel() {

@@ -143,7 +143,7 @@ const FEATURES = [
 ]
 
 const TESTIMONIALS = [
-  { name: 'Arjun M.', rank: 'DNS – BTech', air: 'AIR 3', text: "Paramount's structured IMU-CET program and faculty support helped me achieve AIR 3. Every session felt like sailing with a compass!" },
+  { name: 'Arjun M.', rank: 'DNS', air: 'AIR 3', text: "Paramount's structured IMU-CET program and faculty support helped me achieve AIR 3. Every session felt like sailing with a compass!" },
   { name: 'Priya S.', rank: 'Marine Engg', air: 'AIR 7', text: 'The recorded classes and PYQ drill sessions built my confidence for every section of IMU-CET. Best coaching for merchant navy.' },
   { name: 'Rohit K.', rank: 'GP Rating', air: 'AIR 12', text: 'The personal attention and mock-test analytics were extraordinary. Paramount truly charts the right course for maritime aspirants.' },
 ]
@@ -451,7 +451,7 @@ export function HeroSection() {
                 <MapPin className="w-4 h-4 text-[#E8B84B]" />
               </div>
               <div>
-                <p className="text-sm font-bold text-gray-800 dark:text-gray-200 leading-tight">Paramount Coaching Institute</p>
+                <p className="text-sm font-bold text-gray-800 dark:text-gray-200 leading-tight">Paramount Merchant Navy</p>
                 <p className="text-xs text-gray-500 leading-tight">Gwalior, Madhya Pradesh, India</p>
               </div>
             </div>

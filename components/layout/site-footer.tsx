@@ -59,7 +59,7 @@ function SiteFooterInner() {
                 >
                     <motion.div style={{ y: photoParallax }}>
                         <Image
-                            src="/team.png"
+                            src="/team.jpeg"
                             alt="Paramount Merchant Navy — IMU-CET Faculty Team"
                             width={1920}
                             height={860}

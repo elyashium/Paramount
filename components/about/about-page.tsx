@@ -157,14 +157,14 @@ const TEACHERS: CardType[] = [
     {
         src: '/teacher3.png',
         title: 'Prashant Nagarch',
-        category: 'Personality Development | 8 Years Exp.',
+        category: 'Spoken & communication skills | 8 Years Exp.',
         content: (
             <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
-                <p>An expert in General Knowledge with 8 years of invaluable teaching experience.</p>
-                <p>Specializes in comprehensive Current Affairs and Maritime GK coverage, ensuring students are unfazed by even the most obscure exam questions.</p>
-                <p>Focuses not just on exam grammar and comprehension, but on building the confident communication needed for a successful maritime career and interviews.</p>
+                <p>An expert in Spoken English and Communication with 8 years of invaluable teaching experience.</p>
+                <p>Specializes in soft skills and personality development, ensuring students project confidence and professionalism during maritime interviews.</p>
+                <p>His interactive sessions focus on fluency, public speaking, and the nuances of communication required for a global career at sea.</p>
             </div>
-        ),
+        )
     },
     {
         src: '/teacher4.png',
@@ -179,10 +179,10 @@ const TEACHERS: CardType[] = [
         ),
     },
     {
-        src: '/teacher5.jpeg',
+        src: '/teacher5.png',
         title: 'Hirdesh Vyas',
         category: 'English | 7 Years Exp.',
-        className: 'object-top scale-[1.15] translate-x-6',
+        className: 'object-top scale-[1] translate-x-0',
         content: (
             <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
                 <p>A seasoned educator with 7 years of experience specializing in English and Communication Skills.</p>
@@ -207,8 +207,8 @@ const TEACHERS: CardType[] = [
         category: 'Aptitude | 7 Years Exp.',
         content: (
             <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-3">
-                <p>Dynamic English faculty with 5 years of experience helping students master vocabulary, syntax, and comprehension.</p>
-                <p>Employs engaging methods that turn language learning into a strategic advantage for maximizing overall scores.</p>
+                <p>Dynamic Aptitude expert with 7 years of experience specializing in logical reasoning and quantitative techniques.</p>
+                <p>His strategic approach to problem-solving helps students navigate complex aptitude sections with speed and accuracy.</p>
             </div>
         ),
     },
@@ -336,7 +336,7 @@ export function AboutPage() {
                             </motion.h2>
 
                             <motion.p variants={FADE_UP} className="text-lg text-gray-700 dark:text-gray-400 leading-relaxed mb-10">
-                                Visionary leader with 15+ years of experience in transforming maritime education. Ajay Singh Rajput founded Paramount with a mission to make precise, high-quality IMU-CET education accessible to every student across India.
+                                Visionary leader with 10+ years of experience in transforming maritime education. Ajay Singh Rajput founded Paramount with a mission to make precise, high-quality IMU-CET education accessible to every student across India.
                             </motion.p>
 
 

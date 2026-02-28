@@ -166,7 +166,7 @@ export function ContactPage() {
                             Join <span style={{ background: 'linear-gradient(135deg, #E8B84B 0%, #c9922a 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Paramount</span>
                         </motion.h1>
                         <motion.div variants={FADE_UP} className="flex flex-wrap items-center gap-4 text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-medium">
-                            <span className="flex items-center gap-1.5"><Phone className="w-3.5 h-3.5 text-[#E8B84B]" /> +91 98765 43210</span>
+                            <span className="flex items-center gap-1.5"><Phone className="w-3.5 h-3.5 text-[#E8B84B]" /> +91 9630299049</span>
                             <span className="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-700 hidden sm:block" />
                             <span className="flex items-center gap-1.5"><Mail className="w-3.5 h-3.5 text-[#E8B84B]" /> info@paramountmn.com</span>
                             <span className="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-700 hidden sm:block" />
