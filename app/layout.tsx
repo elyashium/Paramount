@@ -11,13 +11,21 @@ import { ScrollProgress } from '@/components/ui/scroll-progress';
 import { ChatbaseWidget } from '@/components/chat/chatbase-widget';
 
 const inter = Inter({ subsets: ['latin'] });
+import { StructuredData } from '@/components/seo/structured-data';
 
 export const metadata: Metadata = {
   title: 'Paramount Merchant Navy - Excellence in Education',
   description: 'Premier coaching institute offering comprehensive courses, test series, and study materials for merchant navy and IMU-CET preparation.',
   keywords: ['merchant navy', 'IMU-CET', 'GME', 'marine engineering', 'deck cadet', 'sponsorship guidance', 'paramount coaching', 'maritime training'],
+  metadataBase: new URL('https://www.paramountmerchantnavy.com'),
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.ico', sizes: '512x512', type: 'image/x-icon' },
+    ],
+    apple: [
+      { url: '/favicon.ico', sizes: '512x512', type: 'image/x-icon' },
+    ],
   },
   openGraph: {
     title: 'Paramount Merchant Navy',
@@ -49,6 +57,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className} suppressHydrationWarning>
         <Providers>
+          <StructuredData />
           <ScrollProgress />
           <FloatingDock />
           <CommandPalette />

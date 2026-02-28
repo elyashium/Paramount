@@ -163,6 +163,13 @@ const COURSE_HIGHLIGHTS = [
   { icon: Compass, label: 'Personal Guidance', desc: 'One-on-one mentorship for success' },
 ]
 
+const QUICK_ACCESS_LINKS = [
+  { label: 'Student Login', href: '/auth/login', desc: 'Access your courses and progress' },
+  { label: 'Mock Test Series', href: '/courses', desc: 'Practice with IMU-CET pattern mocks' },
+  { label: 'Study Materials', href: '/ebooks', desc: 'Comprehensive E-Books and notes' },
+  { label: 'Latest Blogs', href: '/blogs', desc: 'Stay updated with maritime news' },
+]
+
 export function HeroSection() {
   const toggleCommandPalette = useUIStore((state) => state.toggleCommandPalette)
 
@@ -257,6 +264,18 @@ export function HeroSection() {
                 </Button>
               </Link>
             </motion.div>
+          </ScrollReveal>
+
+          {/* Quick Access Links for SEO/Sitelinks */}
+          <ScrollReveal className="max-w-4xl mx-auto mb-16 px-4">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              {QUICK_ACCESS_LINKS.map(({ label, href, desc }) => (
+                <Link key={label} href={href} className="group flex flex-col p-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white/50 dark:bg-gray-900/40 hover:border-[#E8B84B]/50 hover:bg-[#E8B84B]/5 transition-all duration-300">
+                  <span className="text-sm font-black text-gray-900 dark:text-white group-hover:text-[#E8B84B] transition-colors">{label}</span>
+                  <span className="text-[10px] text-gray-500 line-clamp-1 mt-1">{desc}</span>
+                </Link>
+              ))}
+            </div>
           </ScrollReveal>
 
           {/* Course Highlights Grid */}
