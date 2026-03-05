@@ -101,7 +101,7 @@ export function FloatingDock() {
               <div className="w-[52px] h-[52px] rounded-full overflow-hidden flex items-center justify-center">
                 <Image
                   src="/logo.png"
-                  alt="Paramount Merchant Navy"
+                  alt="Paramount Merchant Navy Institute"
                   width={52}
                   height={52}
                   className="object-cover w-full h-full"

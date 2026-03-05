@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
 
     return {
-        title: `${course.title} | Paramount Merchant Navy`,
+        title: `${course.title} | Paramount Merchant Navy Institute`,
         description: course.description,
     };
 }

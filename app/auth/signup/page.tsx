@@ -68,7 +68,7 @@ export default function SignupPage() {
           </div>
           <div>
             <div className="font-black text-white text-sm leading-tight">Paramount</div>
-            <div className="text-[#E8B84B] text-xs font-semibold tracking-wide">Merchant Navy</div>
+            <div className="text-[#E8B84B] text-xs font-semibold tracking-wide">Merchant Navy Institute</div>
           </div>
         </div>
 
@@ -128,12 +128,12 @@ export default function SignupPage() {
             </div>
             <div>
               <div className="font-black text-white text-sm">Paramount</div>
-              <div className="text-[#E8B84B] text-[10px] font-semibold tracking-wide">Merchant Navy</div>
+              <div className="text-[#E8B84B] text-[10px] font-semibold tracking-wide">Merchant Navy Institute</div>
             </div>
           </div>
 
           <h2 className="text-2xl font-black text-white mb-1">Create an account</h2>
-          <p className="text-sm text-gray-500 mb-6">Join Paramount Merchant Navy today</p>
+          <p className="text-sm text-gray-500 mb-6">Join Paramount Merchant Navy Institute today</p>
 
           <form onSubmit={handleSignup} className="space-y-3">
             {/* Full Name */}

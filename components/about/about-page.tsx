@@ -250,7 +250,7 @@ export function AboutPage() {
             {/* ── PAGE HEADER ──────────────────────────────────────────────── */}
             <div className="pt-32 pb-12 px-4 text-center">
                 <ScrollReveal className="max-w-4xl mx-auto">
-                    <Chip>India's Premier Merchant Navy Academy</Chip>
+                    <Chip>India's Premier Merchant Navy Institute</Chip>
                     <motion.h1
                         variants={FADE_UP}
                         className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight text-gray-900 dark:text-white leading-[1]"
@@ -305,7 +305,7 @@ export function AboutPage() {
                             <motion.div variants={FADE_LEFT} className="relative aspect-[3/4] rounded-3xl overflow-hidden border border-gray-200 dark:border-white/10 shadow-2xl">
                                 <Image
                                     src="/teacher2.png"
-                                    alt="Ajay Singh Rajput - Founder & CEO"
+                                    alt="Aajay S. Rajput - Founder & CEO"
                                     fill
                                     className="object-cover object-top"
                                     sizes="(max-width: 768px) 100vw, 50vw"
@@ -331,12 +331,12 @@ export function AboutPage() {
                                         WebkitTextFillColor: 'transparent',
                                     }}
                                 >
-                                    Ajay Singh Rajput
+                                    Aajay S. Rajput
                                 </span>
                             </motion.h2>
 
                             <motion.p variants={FADE_UP} className="text-lg text-gray-700 dark:text-gray-400 leading-relaxed mb-10">
-                                Visionary leader with 10+ years of experience in transforming maritime education. Ajay Singh Rajput founded Paramount with a mission to make precise, high-quality IMU-CET education accessible to every student across India.
+                                Visionary leader with 10+ years of experience in transforming maritime education. Aajay S. Rajput founded Paramount with a mission to make precise, high-quality IMU-CET education accessible to every student across India.
                             </motion.p>
 
 
@@ -345,12 +345,12 @@ export function AboutPage() {
                             <motion.div variants={FADE_UP} className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-white/10 shadow-xl dark:shadow-none rounded-2xl p-6 sm:p-8 relative overflow-hidden">
                                 <Quote className="w-10 h-10 text-[#E8B84B]/30 mb-4" />
                                 <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 italic leading-relaxed mb-6 italic relative z-10">
-                                    "Education is not just about passing exams; it's about building character, fostering discipline, and preparing cadets for life's challenges at sea. At Paramount Merchant Navy, we don't just teach syllabus — we shape the future captains and chief engineers of tomorrow."
+                                    "Education is not just about passing exams; it's about building character, fostering discipline, and preparing cadets for life's challenges at sea. At Paramount Merchant Navy Institute, we don't just teach syllabus — we shape the future captains and chief engineers of tomorrow."
                                 </p>
                                 <div className="flex items-center gap-4 z-10 relative">
                                     <div className="w-10 h-10 rounded-full shrink-0" style={{ background: 'linear-gradient(135deg, #E8B84B 0%, #c9922a 100%)' }} />
                                     <div>
-                                        <div className="text-sm font-bold text-gray-900 dark:text-white leading-tight">Ajay Singh Rajput</div>
+                                        <div className="text-sm font-bold text-gray-900 dark:text-white leading-tight">Aajay S. Rajput</div>
                                         <div className="text-xs text-gray-500">Founder & CEO</div>
                                     </div>
                                 </div>
@@ -414,7 +414,7 @@ export function AboutPage() {
                             variants={FADE_UP}
                             className="text-4xl sm:text-5xl font-black text-white tracking-tight"
                         >
-                            The Paramount Merchant Navy{' '}
+                            The Paramount Merchant Navy Institute{' '}
                             <span
                                 style={{
                                     background: 'linear-gradient(135deg, #E8B84B 0%, #c9922a 100%)',
@@ -501,7 +501,7 @@ export function AboutPage() {
                         variants={FADE_UP}
                         className="text-lg text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto"
                     >
-                        {"Join 10,000+ students who trusted Paramount Merchant Navy to crack India's most competitive maritime entrance exam."}
+                        {"Join 10,000+ students who trusted Paramount Merchant Navy Institute to crack India's most competitive maritime entrance exam."}
                     </motion.p>
                     <motion.div
                         variants={FADE_UP}

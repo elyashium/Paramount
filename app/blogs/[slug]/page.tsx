@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
         .single()
 
     return {
-        title: `${blog?.title || 'Blog'} – Paramount Merchant Navy Academy`,
+        title: `${blog?.title || 'Blog'} – Paramount Merchant Navy Institute`,
         description: blog?.excerpt || 'Read our latest maritime insights.',
     }
 }

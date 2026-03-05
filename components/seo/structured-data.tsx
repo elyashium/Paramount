@@ -2,11 +2,11 @@ import Script from 'next/script'
 
 export function StructuredData() {
   const baseUrl = "https://www.paramountmerchantnavy.com"
-  
+
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Paramount Merchant Navy",
+    "name": "Paramount Merchant Navy Institute",
     "url": baseUrl,
     "potentialAction": {
       "@type": "SearchAction",
@@ -21,7 +21,7 @@ export function StructuredData() {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Paramount Merchant Navy",
+    "name": "Paramount Merchant Navy Institute",
     "url": baseUrl,
     "logo": `${baseUrl}/favicon.ico`,
     "contactPoint": {

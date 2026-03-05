@@ -60,7 +60,7 @@ function SiteFooterInner() {
                     <motion.div style={{ y: photoParallax }}>
                         <Image
                             src="/team.jpeg"
-                            alt="Paramount Merchant Navy — IMU-CET Faculty Team"
+                            alt="Paramount Merchant Navy Institute — IMU-CET Faculty Team"
                             width={1920}
                             height={860}
                             className="w-full object-cover object-center"
@@ -82,7 +82,7 @@ function SiteFooterInner() {
                             <div className="flex items-center gap-3 mb-4">
                                 <Image
                                     src="/logo.png"
-                                    alt="Paramount Merchant Navy logo"
+                                    alt="Paramount Merchant Navy Institute logo"
                                     width={44}
                                     height={44}
                                     style={{ height: 'auto' }}
@@ -90,7 +90,7 @@ function SiteFooterInner() {
                                 />
                                 <div>
                                     <div className="font-black text-white text-sm leading-tight">Paramount</div>
-                                    <div className="text-[#E8B84B] text-xs font-semibold tracking-wide">Merchant Navy</div>
+                                    <div className="text-[#E8B84B] text-[10px] font-semibold tracking-wide uppercase leading-none">Merchant Navy Institute</div>
                                 </div>
                             </div>
                             <p className="text-sm text-gray-400 leading-relaxed mb-6">
@@ -196,7 +196,7 @@ function SiteFooterInner() {
                     </div>
 
                     <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500">
-                        <span>© 2026 Paramount Merchant Navy Academy. All rights reserved.</span>
+                        <span>© 2026 Paramount Merchant Navy Institute. All rights reserved.</span>
                         <span className="text-[#E8B84B]/60 font-semibold tracking-wide uppercase text-[10px]">
                             Excellence in Maritime Education
                         </span>

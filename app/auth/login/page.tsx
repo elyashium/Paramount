@@ -67,7 +67,7 @@ export default function LoginPage() {
           </div>
           <div>
             <div className="font-black text-white text-sm leading-tight">Paramount</div>
-            <div className="text-[#E8B84B] text-xs font-semibold tracking-wide">Merchant Navy</div>
+            <div className="text-[#E8B84B] text-xs font-semibold tracking-wide">Merchant Navy Institute</div>
           </div>
         </div>
 
@@ -125,7 +125,7 @@ export default function LoginPage() {
             </div>
             <div>
               <div className="font-black text-white text-sm">Paramount</div>
-              <div className="text-[#E8B84B] text-[10px] font-semibold tracking-wide">Merchant Navy</div>
+              <div className="text-[#E8B84B] text-[10px] font-semibold tracking-wide">Merchant Navy Institute</div>
             </div>
           </div>
 

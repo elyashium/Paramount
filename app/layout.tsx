@@ -14,9 +14,9 @@ const inter = Inter({ subsets: ['latin'] });
 import { StructuredData } from '@/components/seo/structured-data';
 
 export const metadata: Metadata = {
-  title: 'Paramount Merchant Navy - Excellence in Education',
+  title: 'Paramount Merchant Navy Institute - Excellence in Education',
   description: 'Premier merchant navy academy offering comprehensive courses, test series, and study materials for IMU-CET preparation.',
-  keywords: ['merchant navy', 'IMU-CET', 'GME', 'marine engineering', 'deck cadet', 'sponsorship guidance', 'paramount merchant navy', 'maritime training'],
+  keywords: ['merchant navy', 'IMU-CET', 'GME', 'marine engineering', 'deck cadet', 'sponsorship guidance', 'paramount merchant navy institute', 'maritime training'],
   metadataBase: new URL('https://www.paramountmerchantnavy.com'),
   icons: {
     icon: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: 'Paramount Merchant Navy',
+    title: 'Paramount Merchant Navy Institute',
     description: 'Excellence in Education - Comprehensive courses and test series for Merchant Navy exams.',
     images: [
       {
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Paramount Merchant Navy',
+    title: 'Paramount Merchant Navy Institute',
     description: 'Excellence in Education - Comprehensive courses and test series for Merchant Navy exams.',
     images: [
       {

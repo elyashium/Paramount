@@ -122,7 +122,7 @@ const INSTITUTE_LAT = 26.2121
 const INSTITUTE_LNG = 78.1697
 const MAPS_EMBED_URL = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3579.420482470752!2d78.20246891025837!3d26.215523689609803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3976c1ab3928064b%3A0xa860b2126c08c75!2sPARAMOUNT%20ACADEMY(Best%20Coaching%20for%20NDA%2FCDS%2FIMU%20CET%2FMERCHANT%20NAVY)Best%20NDA%20coaching%20in%20gwalior!5e0!3m2!1sen!2sin!4v1771696424429!5m2!1sen!2sin`
 const globeMarkers: GlobeMarker[] = [
-  { lat: INSTITUTE_LAT, lng: INSTITUTE_LNG, src: 'https://api.dicebear.com/7.x/shapes/svg?seed=institute&backgroundColor=E8B84B', label: 'Paramount Merchant Navy – Gwalior' },
+  { lat: INSTITUTE_LAT, lng: INSTITUTE_LNG, src: 'https://api.dicebear.com/7.x/shapes/svg?seed=institute&backgroundColor=E8B84B', label: 'Paramount Merchant Navy Institute – Gwalior' },
 ]
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
@@ -143,7 +143,7 @@ const FEATURES = [
 ]
 
 const TESTIMONIALS = [
-  { name: 'Arjun M.', rank: 'DNS', air: 'AIR 3', text: "Paramount Merchant Navy's structured IMU-CET program and faculty support helped me achieve AIR 3. Every session felt like sailing with a compass!" },
+  { name: 'Arjun M.', rank: 'DNS', air: 'AIR 3', text: "Paramount Merchant Navy Institute's structured IMU-CET program and faculty support helped me achieve AIR 3. Every session felt like sailing with a compass!" },
   { name: 'Priya S.', rank: 'Marine Engg', air: 'AIR 7', text: 'The recorded classes and PYQ drill sessions built my confidence for every section of IMU-CET. Best coaching for merchant navy.' },
   { name: 'Rohit K.', rank: 'GP Rating', air: 'AIR 12', text: 'The personal attention and mock-test analytics were extraordinary. Paramount truly charts the right course for maritime aspirants.' },
 ]
@@ -189,7 +189,7 @@ export function HeroSection() {
               <div className="w-[110px] h-[110px] rounded-full overflow-hidden flex items-center justify-center bg-white/10 p-1 shadow-lg border border-white/20">
                 <Image
                   src="/logo.png"
-                  alt="Paramount Merchant Navy"
+                  alt="Paramount Merchant Navy Institute"
                   width={110}
                   height={110}
                   className="object-cover w-full h-full rounded-full"
@@ -202,7 +202,7 @@ export function HeroSection() {
           {/* Badge */}
           <div className="flex justify-center mb-6 sm:mb-10 text-center">
             <ScrollReveal>
-              <Chip className="mx-auto">India&apos;s Premier Merchant Navy Academy</Chip>
+              <Chip className="mx-auto">India&apos;s Premier Merchant Navy Institute</Chip>
             </ScrollReveal>
           </div>
 
@@ -401,7 +401,7 @@ export function HeroSection() {
             >
               Navigate to{' '}
               <span style={{ background: 'linear-gradient(135deg, #E8B84B 0%, #c9922a 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                Paramount Merchant Navy
+                Paramount Merchant Navy Institute
               </span>
             </motion.h2>
             <motion.p variants={FADE_UP} className="mt-3 text-sm sm:text-base text-gray-500 dark:text-gray-400">
@@ -451,7 +451,7 @@ export function HeroSection() {
                 <MapPin className="w-4 h-4 text-[#E8B84B]" />
               </div>
               <div>
-                <p className="text-sm font-bold text-gray-800 dark:text-gray-200 leading-tight">Paramount Merchant Navy</p>
+                <p className="text-sm font-bold text-gray-800 dark:text-gray-200 leading-tight">Paramount Merchant Navy Institute</p>
                 <p className="text-xs text-gray-500 leading-tight">Gwalior, Madhya Pradesh, India</p>
               </div>
             </div>
