@@ -32,7 +32,16 @@ export default function LoginPage() {
       router.push('/')
       router.refresh()
     } catch (error: any) {
-      toast({ title: 'Sign in failed', description: error.message || 'Failed to log in', variant: 'destructive' })
+      if (error.message?.toLowerCase().includes('email not confirmed')) {
+        toast({
+          title: 'Email not verified',
+          description: 'Please check your email inbox and verify your account first.',
+          variant: 'destructive',
+          duration: 6000
+        })
+      } else {
+        toast({ title: 'Sign in failed', description: error.message || 'Failed to log in', variant: 'destructive' })
+      }
     } finally {
       setLoading(false)
     }
