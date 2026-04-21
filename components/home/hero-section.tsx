@@ -171,9 +171,18 @@ export function HeroSection() {
 
       {/* ── HERO BANNER ─────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden min-h-screen flex flex-col justify-center">
-        <div className="absolute inset-0 bg-[#f7f7f5] dark:bg-gray-950 transition-colors duration-300" />
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/cargoship.jpeg"
+            alt="Hero Background"
+            fill
+            className="object-cover opacity-90 dark:opacity-100"
+            priority
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#f7f7f5]/80 to-[#f7f7f5] dark:from-gray-950/80 dark:to-gray-950 transition-colors duration-300 z-0" />
         <div
-          className="absolute inset-0 opacity-0 dark:opacity-100 pointer-events-none"
+          className="absolute inset-0 opacity-0 dark:opacity-100 pointer-events-none z-0"
           style={{ backgroundImage: `radial-gradient(ellipse at 15% 40%, rgba(232,184,75,0.09) 0%, transparent 55%), radial-gradient(ellipse at 85% 15%, rgba(232,184,75,0.05) 0%, transparent 50%)` }}
         />
         {/* Anchor watermark */}
