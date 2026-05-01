@@ -181,11 +181,11 @@ function SiteFooterInner() {
                             <ul className="space-y-4">
                                 <li className="flex items-start gap-3 text-sm text-gray-400">
                                     <Phone className="w-4 h-4 mt-0.5 text-[#E8B84B] shrink-0" aria-hidden="true" />
-                                    <span>+91 96302 99049</span>
+                                    <a href="tel:+919630299049" className="hover:text-[#E8B84B] transition-colors">+91 96302 99049</a>
                                 </li>
                                 <li className="flex items-start gap-3 text-sm text-gray-400">
                                     <Mail className="w-4 h-4 mt-0.5 text-[#E8B84B] shrink-0" aria-hidden="true" />
-                                    <span>contact.paramount123@gmail.com</span>
+                                    <a href="mailto:contact.paramount123@gmail.com" className="hover:text-[#E8B84B] transition-colors">contact.paramount123@gmail.com</a>
                                 </li>
                                 <li className="flex items-start gap-3 text-sm text-gray-400">
                                     <Clock className="w-4 h-4 mt-0.5 text-[#E8B84B] shrink-0" aria-hidden="true" />
