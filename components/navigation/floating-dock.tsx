@@ -98,13 +98,13 @@ export function FloatingDock() {
           >
             {/* Logo */}
             <Link href="/" className="hidden md:flex items-center shrink-0">
-              <div className="w-[52px] h-[52px] rounded-full overflow-hidden flex items-center justify-center">
+              <div className="w-[60px] h-[60px] rounded-full overflow-hidden flex items-center justify-center">
                 <Image
                   src="/logo.png"
                   alt="Paramount Merchant Navy Institute"
-                  width={52}
-                  height={52}
-                  className="object-cover w-full h-full"
+                  width={60}
+                  height={60}
+                  className="object-cover w-full h-full translate-x-1 scale-[1.15]"
                   style={{ height: 'auto' }}
                   priority
                 />

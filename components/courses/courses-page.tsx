@@ -234,7 +234,7 @@ export function CoursesPage({ initialCourses }: { initialCourses: any[] }) {
                                             <div>
                                                 {/* Image */}
                                                 <CardItem translateZ="50" className="w-full">
-                                                    <div className="relative h-56 w-full overflow-hidden rounded-xl">
+                                                    <div className="relative aspect-video w-full overflow-hidden rounded-xl">
                                                         <div className="absolute inset-0 bg-black/20 group-hover/card:bg-black/0 transition-all z-10" />
                                                         <Image
                                                             src={course.image_url || '/placeholder.png'}

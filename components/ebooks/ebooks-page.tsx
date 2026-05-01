@@ -55,12 +55,21 @@ export function EbooksPage({ initialEbooks = [] }: { initialEbooks?: any[] }) {
     const [searchQuery, setSearchQuery] = useState('')
     const [activeCategory, setActiveCategory] = useState('All')
 
-    // Dynamically derive categories from actual ebook data
-    const categories = ['All', ...Array.from(new Set(initialEbooks.map(ebook => ebook.category).filter(Boolean)))]
+    // Dynamically derive categories and normalize "E-Books" variations to prevent duplicates
+    const getNormalizedCategory = (cat: string | undefined | null) => {
+        if (!cat) return null;
+        const trimmed = cat.trim();
+        const simplified = trimmed.toLowerCase().replace(/[^a-z]/g, '');
+        if (simplified === 'ebooks' || simplified === 'ebook') return 'E-Books';
+        return trimmed;
+    };
+
+    const categories = ['All', ...Array.from(new Set(initialEbooks.map(ebook => getNormalizedCategory(ebook.category)).filter(Boolean)))];
 
     const filteredEbooks = initialEbooks.filter((ebook) => {
         const matchesSearch = ebook.title.toLowerCase().includes(searchQuery.toLowerCase())
-        const matchesCategory = activeCategory === 'All' || ebook.category === activeCategory
+        const normalizedCat = getNormalizedCategory(ebook.category)
+        const matchesCategory = activeCategory === 'All' || normalizedCat === activeCategory
         return matchesSearch && matchesCategory
     })
 
@@ -125,6 +134,14 @@ export function EbooksPage({ initialEbooks = [] }: { initialEbooks?: any[] }) {
                             {cat}
                         </button>
                     ))}
+                    <a 
+                        href="https://paramountmerchantnavy.akamai.net.in/test-series" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="px-6 py-2.5 rounded-full text-sm font-bold whitespace-nowrap transition-all duration-300 border bg-transparent text-[#E8B84B] border-[#E8B84B]/40 hover:border-[#E8B84B] hover:bg-[#E8B84B]/5"
+                    >
+                        Test Series
+                    </a>
                 </div>
 
                 {/* E-Books Cards Grid */}
@@ -140,7 +157,7 @@ export function EbooksPage({ initialEbooks = [] }: { initialEbooks?: any[] }) {
                                 <CardBody className="bg-white dark:bg-neutral-900 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] border-black/[0.1] dark:border-white/[0.2] border w-full rounded-2xl p-6 h-full transition-all flex flex-col justify-between hover:border-[#E8B84B]/50">
 
                                     <div className="w-full mb-6">
-                                        <CardItem translateZ="50" className="w-full h-48 sm:h-56 relative rounded-xl overflow-hidden mb-4 border border-black/5 dark:border-white/5 bg-gray-100 dark:bg-neutral-800">
+                                        <CardItem translateZ="50" className="w-full aspect-video relative rounded-xl overflow-hidden mb-4 border border-black/5 dark:border-white/5 bg-gray-100 dark:bg-neutral-800">
                                             <Image
                                                 src={ebook.cover_url || ebook.image_url || '/placeholder.png'}
                                                 alt={ebook.title}
