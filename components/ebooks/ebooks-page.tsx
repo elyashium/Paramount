@@ -55,6 +55,9 @@ export function EbooksPage({ initialEbooks = [] }: { initialEbooks?: any[] }) {
     const [searchQuery, setSearchQuery] = useState('')
     const [activeCategory, setActiveCategory] = useState('All')
 
+    // Dynamically derive categories from actual ebook data
+    const categories = ['All', ...Array.from(new Set(initialEbooks.map(ebook => ebook.category).filter(Boolean)))]
+
     const filteredEbooks = initialEbooks.filter((ebook) => {
         const matchesSearch = ebook.title.toLowerCase().includes(searchQuery.toLowerCase())
         const matchesCategory = activeCategory === 'All' || ebook.category === activeCategory
@@ -108,10 +111,10 @@ export function EbooksPage({ initialEbooks = [] }: { initialEbooks?: any[] }) {
 
                 {/* Filter Tabs */}
                 <div className="flex items-center gap-3 mb-10 overflow-x-auto pb-2 scrollbar-none">
-                    {CATEGORIES.map((cat) => (
+                    {categories.map((cat) => (
                         <button
-                            key={cat}
-                            onClick={() => setActiveCategory(activeCategory === cat ? 'All' : cat)}
+                            key={cat as string}
+                            onClick={() => setActiveCategory(activeCategory === cat ? 'All' : (cat as string))}
                             className={cn(
                                 "px-6 py-2.5 rounded-full text-sm font-bold whitespace-nowrap transition-all duration-300 border",
                                 activeCategory === cat

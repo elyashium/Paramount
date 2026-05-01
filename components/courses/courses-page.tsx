@@ -184,6 +184,14 @@ export function CoursesPage({ initialCourses }: { initialCourses: any[] }) {
                                 {cat}
                             </button>
                         ))}
+                        <a 
+                            href="https://paramountmerchantnavy.akamai.net.in/test-series" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="px-4 py-2 rounded-full text-sm font-medium transition-all whitespace-nowrap border bg-transparent text-[#E8B84B] border-[#E8B84B]/40 hover:border-[#E8B84B] hover:bg-[#E8B84B]/5"
+                        >
+                            Test Series
+                        </a>
                     </div>
 
                     {/* Search Bar */}

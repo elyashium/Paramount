@@ -156,9 +156,9 @@ export function ContactPage() {
                             Join <span style={{ background: 'linear-gradient(135deg, #E8B84B 0%, #c9922a 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Paramount Merchant Navy Institute</span>
                         </motion.h1>
                         <motion.div variants={FADE_UP} className="flex flex-wrap items-center gap-4 text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-medium">
-                            <span className="flex items-center gap-1.5"><Phone className="w-3.5 h-3.5 text-[#E8B84B]" /> +91 9630299049</span>
+                            <a href="tel:+919630299049" className="flex items-center gap-1.5 hover:text-[#E8B84B] transition-colors"><Phone className="w-3.5 h-3.5 text-[#E8B84B]" /> +91 9630299049</a>
                             <span className="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-700 hidden sm:block" />
-                            <span className="flex items-center gap-1.5"><Mail className="w-3.5 h-3.5 text-[#E8B84B]" /> info@paramountmn.com</span>
+                            <a href="mailto:info@paramountmn.com" className="flex items-center gap-1.5 hover:text-[#E8B84B] transition-colors"><Mail className="w-3.5 h-3.5 text-[#E8B84B]" /> info@paramountmn.com</a>
                             <span className="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-700 hidden sm:block" />
                             <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5 text-[#E8B84B]" /> Mon – Sat: 8AM – 8PM</span>
                         </motion.div>
